@@ -12,6 +12,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "land",
+"speed": 25.0
+}, {
 "frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "bounce",
@@ -21,11 +26,6 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 3 ) ],
-"loop": false,
-"name": "land",
-"speed": 25.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]

@@ -247,6 +247,7 @@ extents = Vector2( 16, 16 )
 extents = Vector2( 12, 17 )
 
 [node name="BonusBlock" type="KinematicBody2D" groups=[
+"bodies",
 "bonusblock",
 "stackable",
 ]]
@@ -272,7 +273,7 @@ anims/hitdown = SubResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
-frame = 4
+frame = 12
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
