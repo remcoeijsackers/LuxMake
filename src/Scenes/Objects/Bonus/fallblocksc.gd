@@ -20,7 +20,7 @@ func _physics_process(delta):
 	#if $Control/AnimatedSprite.scale.x == 1: $Control/AnimatedSprite.flip_h = false
 	#else: $Control/AnimatedSprite.flip_h = true
 	#if velocity == Vector2(0,0) and cling_to_walls == true: align()
-	#if get_tree().current_scene.editmode == true: return
+	if get_tree().current_scene.editmode == true: return
 
 	if wallcling == "" and state == "active":
 		if portable == true:
