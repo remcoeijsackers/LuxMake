@@ -129,7 +129,7 @@ pickup_animation = "Pickup"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="PickupSFX" type="AudioStreamPlayer" parent="."]
@@ -152,7 +152,6 @@ speed_scale = 3.0
 explosiveness = 0.75
 texture = ExtResource( 19 )
 spread = 180.0
-flatness = 1.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 50.0
 damping = 100.0

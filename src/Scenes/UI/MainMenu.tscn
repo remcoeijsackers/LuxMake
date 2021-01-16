@@ -64,6 +64,9 @@ custom_constants/shadow_offset_y = 2
 text = "This is a work-in-progress port of SuperTux to the Godot Engine, with new features and mechanics."
 valign = 2
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Title" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -76,6 +79,9 @@ margin_right = 163.5
 margin_bottom = 79.0
 texture = ExtResource( 3 )
 stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_left = 0.5
@@ -147,11 +153,13 @@ margin_top = -10.0
 margin_bottom = 150.0
 
 [node name="FadeIn" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
