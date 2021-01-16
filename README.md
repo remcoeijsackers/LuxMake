@@ -1,8 +1,8 @@
-# Tux Builder
+# Makergame [W.i.p]
 
-
-A re-implementation of the jump'n'run game SuperTux, coded from the ground up in Godot.
-Some of SuperTux's art, sound and music assets are used or modified here.
+Forked from Alzter/TuxBuilder, A physics based 2d sandbox editor. inspired by besiege/mario maker.
+Not yet usable in current state (for now it's just a fork with some minor changes)
+Check the TuxBuilder Repo for updates on the SuperTux inspired project.
 
 To play this game you will need Godot 3.2 and the source code. Once you have those unzip
 the source code and open src/project.godot with Godot.
