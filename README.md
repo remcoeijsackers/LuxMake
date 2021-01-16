@@ -1,6 +1,5 @@
 # Tux Builder
 
-![Screenshot of the editor](https://raw.githubusercontent.com/Alzter/TuxBuilder/master/EditorScreenshot.png)
 
 A re-implementation of the jump'n'run game SuperTux, coded from the ground up in Godot.
 Some of SuperTux's art, sound and music assets are used or modified here.
