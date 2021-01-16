@@ -498,6 +498,9 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "Objects"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Line2" type="TextureRect" parent="UI/SideBar/VBoxContainer"]
 margin_top = 66.0
@@ -570,6 +573,9 @@ margin_right = -8.0
 margin_bottom = 98.0
 theme = ExtResource( 7 )
 scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SidebarList" type="VBoxContainer" parent="UI/SideBar/ScrollContainer"]
 margin_right = 114.0
