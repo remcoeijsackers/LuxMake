@@ -22,8 +22,13 @@ func _physics_process(delta):
 	else: $Control/AnimatedSprite.flip_h = true
 	if velocity == Vector2(0,0) and cling_to_walls == true: align()
 	if get_tree().current_scene.editmode == true: return
-	velocity = move_and_slide(velocity, Vector2.UP,
-					false, 4, PI/4, false)
+
+	if wallcling == "" and state == "active":
+		if portable == true:
+			velocity.y += 20
+		else: velocity.y += 20 * 2
+		velocity = move_and_slide(velocity, FLOOR)
+		
 	if wallcling == "" and state == "active":
 		if portable == true:
 			velocity.y += 20
