@@ -1,5 +1,4 @@
 extends "fallblocksc.gd"
 
-
 func _ready():
-	portable = true
+	cling_to_walls = true

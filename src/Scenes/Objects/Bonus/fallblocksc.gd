@@ -15,25 +15,28 @@ var portable = false
 func _ready():
 	collision_mask = 31
 	collision_layer = 1
+	
 
 func _physics_process(delta):
-	#if $Control/AnimatedSprite.scale.x == 1: $Control/AnimatedSprite.flip_h = false
-	#else: $Control/AnimatedSprite.flip_h = true
-	#if velocity == Vector2(0,0) and cling_to_walls == true: align()
+	if $Control/AnimatedSprite.scale.x == 1: $Control/AnimatedSprite.flip_h = false
+	else: $Control/AnimatedSprite.flip_h = true
+	if velocity == Vector2(0,0) and cling_to_walls == true: align()
 	if get_tree().current_scene.editmode == true: return
-
+	velocity = move_and_slide(velocity, Vector2.UP,
+					false, 4, PI/4, false)
 	if wallcling == "" and state == "active":
 		if portable == true:
 			velocity.y += 20
 		else: velocity.y += 20 * 2
-		velocity = move_and_slide(velocity, FLOOR)
+		velocity = move_and_slide(velocity, Vector2.UP,
+					false, 4, PI/4, false)
 
 	if is_on_floor():
 		if get_tree().current_scene.editmode == true: return
 		if state != "active": return
-		#if on_ground == false:
+		if on_ground == false:
 			#$Thud.play()
-			#$Control/AnimatedSprite.frame = 0
+			$Control/AnimatedSprite.frame = 0
 			#$Control/AnimatedSprite.play("land")
 		on_ground = true
 		velocity.x *= 0.9
@@ -155,7 +158,8 @@ func throw():
 		collision_mask = 31
 		collision_layer = 1
 	else: $SolidTimer.start(0.25)
-
+		
+		
 func _on_SolidTimer_timeout():
 	if state == "active":
 		collision_mask = 31
