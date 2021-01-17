@@ -66,30 +66,6 @@ var holding_object = false
 var object_held = ""
 var wind = 0
 
-#from physics sample
-export (int) var speed = 1200
-export (float, 0, 1.0) var acceleration = 0.25
-enum STATES {IDLE, RUNNING, JUMPING, WALL_SLIDING}
-var statemain = STATES.IDLE setget set_state
-export (int, 0, 200) var push = 100
-
-func set_state(new_state):
-	state_transition(new_state, state)
-	statemain = new_state
-	
-func state_transition(new_state, old_state):
-	if new_state == old_state:
-		return
-	match old_state:
-		STATES.IDLE:
-			pass
-		STATES.RUNNING:
-			pass
-		STATES.JUMPING:
-			pass
-		STATES.WALL_SLIDING:
-			pass
-
 # Set Tux's current playing animation
 func set_animation(anim):
 	if state == "small": $Control/AnimatedSprite.play(str(anim, "_small"))
@@ -137,19 +113,17 @@ func _ready():
 
 #=============================================================================
 # PHYSICS
-
-# Copy from physics sample
 func get_input():
 	var dir = 0
-	if Input.is_action_pressed("walk_right"):
+	if Input.is_action_pressed("move_right"):
 		dir += 1
-	if Input.is_action_pressed("walk_left"):
+	if Input.is_action_pressed("wmove_left"):
 		dir -= 1
 	if dir != 0:
-		velocity.x = lerp(velocity.x, dir * speed, acceleration)
+		velocity.x = lerp(velocity.x, dir * velocity.x, WALK_ACCEL)
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION)
-	
+		
 func _physics_process(delta):
 
 	$Hitbox.disabled = get_tree().current_scene.editmode
@@ -174,42 +148,28 @@ func _physics_process(delta):
 		position += velocity * delta
 		velocity.y += GRAVITY
 		return
-	
-	
-	
+
 	# Horizontal movement
 	if (ducking == false or on_ground != 0) and backflip == false and skidding == false and sliding == false and $ButtjumpLandTimer.time_left == 0:
 		if Input.is_action_pressed("move_right"):
 			$Control/AnimatedSprite.scale.x = 1
-			
-			#from physics sample
-			#get_input()
-			velocity.y += GRAVITY * delta
-			velocity = move_and_slide(velocity, Vector2.UP, false,
-							 4, PI/4, false)
-	if Input.is_action_pressed("jump"):
-		if is_on_floor():
-			velocity.y = JUMP_POWER
-	for index in get_slide_count():
-		var collision = get_slide_collision(index)
-		if collision.collider.is_in_group("bodies"):
-#			var cpos = collision.collider.to_local(collision.position)
-			collision.collider.apply_central_impulse(-collision.normal * push)
+
 			# Moving
-	if velocity.x >= 0:
-		if velocity.x < WALK_ADD:
-			velocity.x = WALK_ADD
-		if abs(velocity.x) > WALK_MAX:
-				velocity.x += RUN_ACCEL * delta
-		else: velocity.x += WALK_ACCEL * delta
+			if velocity.x >= 0:
+				if velocity.x < WALK_ADD:
+					velocity.x = WALK_ADD
+				if abs(velocity.x) > WALK_MAX:
+						velocity.x += RUN_ACCEL * delta
+				else: velocity.x += WALK_ACCEL * delta
+
 			# Skidding
-		#elif on_ground == 0 and abs(velocity.x) >= WALK_MAX:
-		#		if !skidding:
-		#			skidding = true
-		#			$SFX/Skid.play()
+			elif on_ground == 0 and abs(velocity.x) >= WALK_MAX:
+				if !skidding:
+					skidding = true
+					$SFX/Skid.play()
 
 			# Air turning
-		#else: velocity.x += TURN_ACCEL * delta
+			else: velocity.x += TURN_ACCEL * delta
 
 		if Input.is_action_pressed("move_left"):
 			$Control/AnimatedSprite.scale.x = -1
