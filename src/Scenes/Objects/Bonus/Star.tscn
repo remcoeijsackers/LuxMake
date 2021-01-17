@@ -191,7 +191,7 @@ anchor_bottom = 0.5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
 frames = SubResource( 1 )
-frame = 7
+frame = 10
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
