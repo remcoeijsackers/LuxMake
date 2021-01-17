@@ -130,9 +130,9 @@ func get_input():
 		
 func _physics_process(delta):
 	#physics to boxes
-	get_input()
-	velocity = move_and_slide(velocity, Vector2.UP, false,
-					4, PI/4, false)
+	#get_input()
+	#velocity = move_and_slide(velocity, Vector2.UP, false,
+	#				4, PI/4, false)
 
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)
@@ -190,7 +190,7 @@ func _physics_process(delta):
 			if velocity.x <= 0:
 
 				# Moving
-				$Control/AnimatedSprite.scale.x = -1.963
+				#$Control/AnimatedSprite.scale.x = -1.963
 				if velocity.x > -WALK_ADD:
 					velocity.x = -WALK_ADD
 				if abs(velocity.x) > WALK_MAX:
@@ -216,9 +216,9 @@ func _physics_process(delta):
 		# Turn when skidding
 		if skidding:
 			if velocity.x > 0:
-				$Control/AnimatedSprite.scale.x = -1
+				$Control/AnimatedSprite.scale.x = -1.963
 			if velocity.x < 0:
-				$Control/AnimatedSprite.scale.x = 1
+				$Control/AnimatedSprite.scale.x = 1.963
 
 		# Friction
 		if !sliding:
