@@ -82,12 +82,14 @@ func hurt():
 			buttjump = false
 			ducking = false
 			$SFX/Hurt.play()
+			$Control/AnimatedSprite.play("hurt")
 			damage_invincibility()
 			var frame = $Control/AnimatedSprite.frame
 			set_animation($Control/AnimatedSprite.animation)
 			$Control/AnimatedSprite.frame = frame
 		else:
 			state = "big"
+			$Control/AnimatedSprite.play("hurt")
 			$SFX/Hurt.play()
 			damage_invincibility()
 
@@ -99,7 +101,7 @@ func kill():
 	$SFX/Kill.play()
 	$AnimationPlayerInvincibility.play("Stop")
 	$Control/AnimatedSprite.rotation_degrees = 0
-	$Control/AnimatedSprite.scale.x = 1
+	$Control/AnimatedSprite.scale.x = 1.963
 	$AnimationPlayer.play("Stop")
 	set_animation("gameover")
 	dead = true
@@ -117,7 +119,7 @@ func get_input():
 	var dir = 0
 	if Input.is_action_pressed("move_right"):
 		dir += 1
-	if Input.is_action_pressed("wmove_left"):
+	if Input.is_action_pressed("move_left"):
 		dir -= 1
 	if dir != 0:
 		velocity.x = lerp(velocity.x, dir * velocity.x, WALK_ACCEL)
@@ -152,7 +154,7 @@ func _physics_process(delta):
 	# Horizontal movement
 	if (ducking == false or on_ground != 0) and backflip == false and skidding == false and sliding == false and $ButtjumpLandTimer.time_left == 0:
 		if Input.is_action_pressed("move_right"):
-			$Control/AnimatedSprite.scale.x = 1
+			$Control/AnimatedSprite.scale.x = 1.963
 
 			# Moving
 			if velocity.x >= 0:
@@ -172,11 +174,11 @@ func _physics_process(delta):
 			else: velocity.x += TURN_ACCEL * delta
 
 		if Input.is_action_pressed("move_left"):
-			$Control/AnimatedSprite.scale.x = -1
+			$Control/AnimatedSprite.scale.x = -1.963
 			if velocity.x <= 0:
 
 				# Moving
-				$Control/AnimatedSprite.scale.x = -1
+				$Control/AnimatedSprite.scale.x = -1.963
 				if velocity.x > -WALK_ADD:
 					velocity.x = -WALK_ADD
 				if abs(velocity.x) > WALK_MAX:
@@ -355,6 +357,8 @@ func _physics_process(delta):
 
 	# Animations
 	$Control/AnimatedSprite.speed_scale = 1
+	if abs(velocity.x) == 0:
+		set_animation("idle")
 	if buttjump == true:
 		set_animation("buttjump")
 	elif backflip == true:
@@ -410,6 +414,8 @@ func _physics_process(delta):
 	# Shooting
 	if Input.is_action_just_pressed("action") and state == "fire" and get_tree().get_nodes_in_group("bullets").size() < 2:
 		$SFX/Shoot.play()
+		$Control/AnimatedSprite.play("Attack")
+		set_animation("Attack")
 		var fireball = load("res://Scenes/Player/Objects/Fireball.tscn").instance()
 		fireball.position = $ShootLocation.global_position
 		fireball.velocity = Vector2((FIREBALL_SPEED * $Control/AnimatedSprite.scale.x) + velocity.x,0)
