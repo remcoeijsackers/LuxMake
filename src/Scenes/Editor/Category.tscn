@@ -18,6 +18,9 @@ __meta__ = {
 anchor_right = 1.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 margin_right = 128.0

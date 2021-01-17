@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=22 format=2]
+[gd_resource type="Theme" load_steps=23 format=2]
 
 [ext_resource path="res://Sprites/Editor/Line.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/SuperTux-Medium.ttf" type="DynamicFontData" id=2]
@@ -28,10 +28,12 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
+[sub_resource type="DynamicFont" id=20]
+
 [sub_resource type="ImageTexture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.388235, 0.501961, 0.568627, 0.960784 )
+bg_color = Color( 0.541176, 0.47451, 0.603922, 0.960784 )
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
@@ -126,7 +128,7 @@ OptionButton/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
 OptionButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 OptionButton/constants/arrow_margin = 2
 OptionButton/constants/hseparation = 2
-OptionButton/fonts/font = null
+OptionButton/fonts/font = SubResource( 20 )
 OptionButton/icons/arrow = SubResource( 6 )
 OptionButton/styles/disabled = null
 OptionButton/styles/focus = null

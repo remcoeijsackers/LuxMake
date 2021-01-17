@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/UI/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/SuperTux-Medium.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Sprites/UI/SuperTuxLogo.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/UI/UITheme.tres" type="Theme" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/UI/Options.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Audio/Music/theme.ogg" type="AudioStream" id=6]
 
@@ -41,6 +40,10 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 2 )
 
+[sub_resource type="Theme" id=4]
+
+[sub_resource type="Theme" id=3]
+
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -64,7 +67,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "This is a work-in-progress port of SuperTux to the Godot Engine, with new features and mechanics."
+text = "Work in progress building game"
 valign = 2
 autowrap = true
 __meta__ = {
@@ -95,7 +98,7 @@ margin_left = -90.0
 margin_top = -10.0
 margin_right = 90.0
 margin_bottom = 150.0
-theme = ExtResource( 4 )
+theme = SubResource( 4 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -108,7 +111,11 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
+theme = SubResource( 3 )
 alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StartGame" type="Button" parent="Panel/VBoxContainer"]
 margin_right = 160.0
