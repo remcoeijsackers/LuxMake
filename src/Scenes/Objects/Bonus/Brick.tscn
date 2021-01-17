@@ -654,7 +654,6 @@ animations = [ {
 } ]
 
 [node name="Brick" type="KinematicBody2D" groups=[
-"bodies",
 "brick",
 "stackable",
 ]]
