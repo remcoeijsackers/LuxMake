@@ -1,5 +1,9 @@
 extends "BlockContainer.gd"
 
+#overide physics trigger 
+func  apply_central_impulse(_force):
+	pass
+	
 func on_empty_hit():
 	if hitbyplayer == true:
 			if player.state == "small":

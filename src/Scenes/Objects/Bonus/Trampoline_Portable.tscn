@@ -39,7 +39,6 @@ extents = Vector2( 15.5, 14 )
 extents = Vector2( 15.5, 22 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" groups=[
-"bodies",
 "trampoline",
 ]]
 collision_mask = 31

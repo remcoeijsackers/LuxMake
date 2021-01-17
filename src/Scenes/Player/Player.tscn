@@ -31,6 +31,7 @@
 [ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-idle-01.png" type="Texture" id=29]
 [ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-idle-02.png" type="Texture" id=30]
 [ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-idle-03.png" type="Texture" id=31]
+[ext_resource path="res://Scenes/Player/Objects/PlayerAttack.tres" type="Animation" id=32]
 [ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-jump-00.png" type="Texture" id=33]
 [ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-die-05.png" type="Texture" id=34]
 [ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-crouch-03.png" type="Texture" id=35]
@@ -56,30 +57,40 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 28 ), ExtResource( 15 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 14 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "Attack",
-"speed": 2.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall",
-"speed": 16.0
+"name": "attack",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "walk",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_transition_small",
-"speed": 16.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "idle_small",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "walk_small",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_transition_small",
+"speed": 16.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
@@ -100,11 +111,6 @@ animations = [ {
 "loop": true,
 "name": "buttjumpland",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "walk_small",
-"speed": 20.0
 }, {
 "frames": [ ExtResource( 35 ) ],
 "loop": true,
@@ -141,34 +147,26 @@ animations = [ {
 "name": "jump_small",
 "speed": 18.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "backflip",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ), ExtResource( 25 ), ExtResource( 43 ), ExtResource( 41 ) ],
 "loop": false,
 "name": "buttjump",
 "speed": 35.0
 }, {
-"frames": [ ExtResource( 28 ), ExtResource( 15 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "hurt",
+"name": "backflip",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "idle",
-"speed": 3.0
+"speed": 4.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "slide",
 "speed": 5.0
 } ]
-
-[sub_resource type="Animation" id=2]
-resource_name = "Attack"
 
 [sub_resource type="Animation" id=3]
 tracks/0/type = "value"
@@ -248,7 +246,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( -2.98023e-08 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
@@ -316,12 +314,12 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
-visible = false
+process_priority = 1
 position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 1 )
-animation = "idle"
-frame = 2
+animation = "attack"
+frame = 1
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
@@ -329,7 +327,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 2 )
+method_call_mode = 1
+anims/Attack = ExtResource( 32 )
 anims/Buttjump = SubResource( 3 )
 anims/ButtjumpLand = SubResource( 4 )
 anims/Jump = SubResource( 5 )

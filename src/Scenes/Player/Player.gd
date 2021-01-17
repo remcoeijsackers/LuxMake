@@ -65,6 +65,7 @@ var using_star = false
 var holding_object = false
 var object_held = ""
 var wind = 0
+var shooting = false
 
 export (int, 0, 200) var push = 100
 
@@ -133,12 +134,14 @@ func _physics_process(delta):
 	#get_input()
 	#velocity = move_and_slide(velocity, Vector2.UP, false,
 	#				4, PI/4, false)
-
+		
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)
 		if collision.collider.is_in_group("bodies"):
 #			var cpos = collision.collider.to_local(collision.position)
 			collision.collider.apply_central_impulse(-collision.normal * push)
+		else:
+			pass
 			
 	$Hitbox.disabled = get_tree().current_scene.editmode
 	if get_tree().current_scene.editmode == true:
@@ -369,8 +372,10 @@ func _physics_process(delta):
 
 	# Animations
 	$Control/AnimatedSprite.speed_scale = 1
-	if abs(velocity.x) == 0:
+	if abs(velocity.x) == 0 and shooting == false and not Input.is_action_just_pressed("action"):
 		set_animation("idle")
+	if shooting == true:
+		set_animation("attack")
 	if buttjump == true:
 		set_animation("buttjump")
 	elif backflip == true:
@@ -425,14 +430,14 @@ func _physics_process(delta):
 
 	# Shooting
 	if Input.is_action_just_pressed("action") and state == "fire" and get_tree().get_nodes_in_group("bullets").size() < 2:
+		shooting = true
 		$SFX/Shoot.play()
-		$Control/AnimatedSprite.play("Attack")
-		set_animation("Attack")
 		var fireball = load("res://Scenes/Player/Objects/Fireball.tscn").instance()
 		fireball.position = $ShootLocation.global_position
 		fireball.velocity = Vector2((FIREBALL_SPEED * $Control/AnimatedSprite.scale.x) + velocity.x,0)
 		fireball.add_collision_exception_with(self) # Prevent fireball colliding with player
 		get_parent().add_child(fireball) # Shoot fireball as child of player
+		shooting = false
 
 	# Camera Positioning
 	if abs(velocity.x) > WALK_ADD:

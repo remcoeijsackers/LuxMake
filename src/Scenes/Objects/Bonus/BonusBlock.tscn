@@ -3,8 +3,10 @@
 [ext_resource path="res://Sprites/Objects/BonusBlock/block-0.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.6519, 15.647 )
 
 [node name="RigidBody2D" type="RigidBody2D"]
+mass = 3.10408
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 6 )
@@ -12,4 +14,5 @@ texture = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
 "bodies",
 ]]
+position = Vector2( 0, 0.406151 )
 shape = SubResource( 1 )
