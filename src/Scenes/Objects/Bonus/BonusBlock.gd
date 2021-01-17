@@ -1,8 +1,2 @@
-extends "BlockContainer.gd"
+extends Node2D
 
-func on_empty_hit():
-	$AnimatedSprite.play("empty")
-
-	if hitdownstored == true:
-		$AnimationPlayer.play("hitdown")
-	else: $AnimationPlayer.play("hit")

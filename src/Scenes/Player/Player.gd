@@ -66,6 +66,8 @@ var holding_object = false
 var object_held = ""
 var wind = 0
 
+export (int, 0, 200) var push = 100
+
 # Set Tux's current playing animation
 func set_animation(anim):
 	if state == "small": $Control/AnimatedSprite.play(str(anim, "_small"))
@@ -127,7 +129,17 @@ func get_input():
 		velocity.x = lerp(velocity.x, 0, FRICTION)
 		
 func _physics_process(delta):
+	#physics to boxes
+	get_input()
+	velocity = move_and_slide(velocity, Vector2.UP, false,
+					4, PI/4, false)
 
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider.is_in_group("bodies"):
+#			var cpos = collision.collider.to_local(collision.position)
+			collision.collider.apply_central_impulse(-collision.normal * push)
+			
 	$Hitbox.disabled = get_tree().current_scene.editmode
 	if get_tree().current_scene.editmode == true:
 		set_animation("idle")

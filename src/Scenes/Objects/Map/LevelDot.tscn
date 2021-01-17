@@ -19,6 +19,11 @@ font_data = ExtResource( 4 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "invisible",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "clear",
@@ -27,11 +32,6 @@ animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "invisible",
 "speed": 5.0
 } ]
 
