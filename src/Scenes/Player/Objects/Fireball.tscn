@@ -245,7 +245,6 @@ anims/Hit = SubResource( 3 )
 shape = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 collision_layer = 2
 collision_mask = 10
 
@@ -258,7 +257,6 @@ speed_scale = 6.0
 local_coords = false
 texture = ExtResource( 2 )
 spread = 180.0
-flatness = 1.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 40.0
 initial_velocity_random = 0.25
@@ -272,7 +270,6 @@ speed_scale = 2.5
 local_coords = false
 texture = ExtResource( 2 )
 spread = 180.0
-flatness = 1.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 60.0
 initial_velocity_random = 0.5
@@ -282,7 +279,6 @@ scale_amount_curve = SubResource( 8 )
 color_ramp = SubResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-rotation = -6.28319
 frames = SubResource( 10 )
 
 [node name="FireballCollisionParticles" type="CPUParticles2D" parent="."]
@@ -293,7 +289,6 @@ speed_scale = 4.0
 local_coords = false
 texture = ExtResource( 2 )
 spread = 180.0
-flatness = 1.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 60.0
 damping = 100.0
