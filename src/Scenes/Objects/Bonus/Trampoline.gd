@@ -43,7 +43,7 @@ func _physics_process(delta):
 		var bodies = $GrabRadius.get_overlapping_bodies()
 		for body in bodies:
 			if body.is_in_group("player"):
-				if Input.is_action_pressed("action") and body.holding_object == false and body.sliding == false:
+				if Input.is_action_pressed("pickup") and body.holding_object == false and body.sliding == false:
 					body.holding_object = true
 					body.object_held = name
 					state = "grabbed"

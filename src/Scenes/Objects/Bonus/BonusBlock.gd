@@ -4,6 +4,8 @@ var childstored = null
 var stored = "" # Whatever is inside the bonus block
 var gravity = false
 export var physics = false
+var portable = true
+var state = "active"
 
 func _ready():
 	if get_tree().current_scene.editmode == false:
@@ -18,3 +20,12 @@ func _ready():
 
 func _physics_process(delta):
 	if get_tree().current_scene.editmode == true: return
+	if portable == true and state == "active":
+		var bodies = $GrabRadius.get_overlapping_bodies()
+		for body in bodies:
+			if body.is_in_group("player"):
+				if Input.is_action_pressed("pickup") and body.holding_object == false and body.sliding == false:
+					body.holding_object = true
+					body.object_held = name
+					state = "grabbed"
+

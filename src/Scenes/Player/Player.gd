@@ -375,7 +375,8 @@ func _physics_process(delta):
 	if abs(velocity.x) == 0 and shooting == false and not Input.is_action_just_pressed("action"):
 		set_animation("idle")
 	if shooting == true:
-		set_animation("attack")
+		pass
+		#set_animation("attack")
 	if buttjump == true:
 		set_animation("buttjump")
 	elif backflip == true:
@@ -429,15 +430,16 @@ func _physics_process(delta):
 		$ButtjumpHitbox/CollisionShape2D.disabled = true
 
 	# Shooting
-	if Input.is_action_just_pressed("action") and state == "fire" and get_tree().get_nodes_in_group("bullets").size() < 2:
-		shooting = true
+	if Input.is_action_pressed("action") and state == "fire" and get_tree().get_nodes_in_group("bullets").size() < 2:
+		$Control/AnimatedSprite.play("attack")
+		#shooting = true
 		$SFX/Shoot.play()
 		var fireball = load("res://Scenes/Player/Objects/Fireball.tscn").instance()
 		fireball.position = $ShootLocation.global_position
 		fireball.velocity = Vector2((FIREBALL_SPEED * $Control/AnimatedSprite.scale.x) + velocity.x,0)
 		fireball.add_collision_exception_with(self) # Prevent fireball colliding with player
 		get_parent().add_child(fireball) # Shoot fireball as child of player
-		shooting = false
+		#shooting = false
 
 	# Camera Positioning
 	if abs(velocity.x) > WALK_ADD:
@@ -469,7 +471,7 @@ func _physics_process(delta):
 		if get_tree().current_scene.get_node(str("Level/", object_held)).has_node("Control/AnimatedSprite"): get_tree().current_scene.get_node(str("Level/", object_held, "/Control/AnimatedSprite")).scale.x = $Control/AnimatedSprite.scale.x * -1
 
 		# Throw objects
-		if not Input.is_action_pressed("action"):
+		if not Input.is_action_pressed("pickup"):
 			holding_object = false
 			if get_tree().current_scene.get_node(str("Level/", object_held)).has_method("throw"):
 				get_tree().current_scene.get_node(str("Level/", object_held)).throw()
