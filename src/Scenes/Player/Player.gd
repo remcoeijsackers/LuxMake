@@ -372,8 +372,8 @@ func _physics_process(delta):
 
 	# Animations
 	$Control/AnimatedSprite.speed_scale = 1
-	if abs(velocity.x) == 0 and shooting == false and not Input.is_action_just_pressed("action"):
-		set_animation("idle")
+	#if abs(velocity.x) == 0 and shooting == false and not Input.is_action_just_pressed("action"):
+	#	set_animation("idle")
 	if shooting == true:
 		pass
 		#set_animation("attack")
@@ -472,6 +472,7 @@ func _physics_process(delta):
 
 		# Throw objects
 		if not Input.is_action_pressed("pickup"):
+			$Control/AnimatedSprite.play("attack")
 			holding_object = false
 			if get_tree().current_scene.get_node(str("Level/", object_held)).has_method("throw"):
 				get_tree().current_scene.get_node(str("Level/", object_held)).throw()
