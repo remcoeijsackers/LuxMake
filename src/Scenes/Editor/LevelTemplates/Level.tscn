@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/UI/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Objects/Misc/SpawnPoint.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Editor/Layers/TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Editor/Layers/Background.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Editor/Layers/Backgrounds/Snow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Backgrounds/Snow/arcticmountains-sky.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Backgrounds/Snow/arcticmountains-bg.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Editor/Layers/Backgrounds/Background.gd" type="Script" id=7]
+[ext_resource path="res://Sprites/Backgrounds/Snow/arcticmountains-fg.png" type="Texture" id=8]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,5 +23,40 @@ modulate = Color( 0, 0, 0, 1 )
 tint = Color( 0, 0, 0, 1 )
 original_name = "Background"
 
-[node name="ParallaxBackground" parent="Background" instance=ExtResource( 5 )]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
 scroll_offset = Vector2( 587, 160.5 )
+script = ExtResource( 7 )
+
+[node name="Sky" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_offset = Vector2( 0, -600 )
+motion_mirroring = Vector2( 1700, 0 )
+
+[node name="Sprite2" type="Sprite" parent="Background/ParallaxBackground/Sky"]
+show_behind_parent = true
+position = Vector2( 30.783, -1154.79 )
+scale = Vector2( 3.43937, 2.90858 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="BG" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2( 0.18, 0.2 )
+motion_offset = Vector2( 0, -350 )
+motion_mirroring = Vector2( 1530, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/BG"]
+position = Vector2( 7.41199, -2009.83 )
+scale = Vector2( 3.23383, 4.19627 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="FG" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_offset = Vector2( 0, -400 )
+motion_mirroring = Vector2( 1700, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/FG"]
+position = Vector2( 33.525, -1872.53 )
+scale = Vector2( 2.90412, 4.02179 )
+texture = ExtResource( 8 )
+centered = false
