@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scenes/UI/CoinCounter.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Fonts/SuperTux-Medium.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Sprites/Objects/Coin/coin-0.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/SuperTux-Medium2.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Sprites/UI/diamond.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -53,6 +53,9 @@ custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
 text = "0"
 align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="X" type="Label" parent="CoinCounter/CoinCount"]
 margin_left = -15.3333

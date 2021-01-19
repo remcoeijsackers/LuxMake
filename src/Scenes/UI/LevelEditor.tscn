@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Scenes/UI/LevelEditor.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Editor/Grid.png" type="Texture" id=2]
@@ -7,18 +7,18 @@
 [ext_resource path="res://Tilesets/LevelTiles.tres" type="TileSet" id=5]
 [ext_resource path="res://Tilesets/MapTiles.tres" type="TileSet" id=6]
 [ext_resource path="res://Scenes/UI/UITheme.tres" type="Theme" id=7]
-[ext_resource path="res://Fonts/SuperTux-Medium.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Sprites/Editor/Line.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Editor/Rectangle.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/diskette.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Editor/Plus.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Editor/Equals.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Editor/Minus.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Editor/Save.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Editor/Wrench.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/UI/expand.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/UI/settings.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Creatures/Player/Small/Jump3.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/Editor/GrabPoint.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Editor/GrabPointHover.png" type="Texture" id=18]
-
+[ext_resource path="res://Fonts/Vonique 64.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://Sprites/UI/eraser.png" type="Texture" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MoveIn"
@@ -259,7 +259,7 @@ size = 18
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
-font_data = ExtResource( 8 )
+font_data = ExtResource( 19 )
 
 [sub_resource type="StreamTexture" id=6]
 flags = 5
@@ -309,6 +309,18 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id=14]
+
+[sub_resource type="StyleBoxFlat" id=15]
+
+[sub_resource type="StyleBoxFlat" id=16]
+
+[sub_resource type="DynamicFont" id=17]
+font_data = ExtResource( 19 )
+
+[sub_resource type="DynamicFont" id=18]
+font_data = ExtResource( 19 )
+
 [sub_resource type="DynamicFont" id=13]
 size = 12
 outline_size = 1
@@ -317,7 +329,14 @@ use_mipmaps = true
 use_filter = true
 extra_spacing_top = 6
 extra_spacing_char = -1
-font_data = ExtResource( 8 )
+font_data = ExtResource( 19 )
+
+[sub_resource type="DynamicFont" id=19]
+font_data = ExtResource( 19 )
+
+[sub_resource type="Theme" id=21]
+
+[sub_resource type="StyleBoxFlat" id=20]
 
 [node name="Node2D" type="Node2D"]
 pause_mode = 2
@@ -339,6 +358,9 @@ mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SelectedTile" type="Sprite" parent="."]
 visible = false
@@ -411,6 +433,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TilesButton" type="Button" parent="UI/SideBar/VBoxContainer"]
 margin_right = 128.0
@@ -538,10 +563,14 @@ toggle_mode = true
 enabled_focus_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="UI/SideBar/VBoxContainer/HBoxContainer/EraserButton"]
-margin_right = 32.0
+margin_left = -0.687378
+margin_right = 31.3126
 margin_bottom = 32.0
-texture = ExtResource( 4 )
+texture = ExtResource( 20 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SelectButton" type="Button" parent="UI/SideBar/VBoxContainer/HBoxContainer"]
 margin_left = 72.0
@@ -559,10 +588,14 @@ toggle_mode = true
 enabled_focus_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="UI/SideBar/VBoxContainer/HBoxContainer/SelectButton"]
-margin_right = 32.0
+margin_left = -0.687378
+margin_right = 31.3126
 margin_bottom = 32.0
-texture = ExtResource( 10 )
+texture = ExtResource( 14 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Line3" type="TextureRect" parent="UI/SideBar/VBoxContainer"]
 margin_top = 100.0
@@ -574,10 +607,10 @@ texture = ExtResource( 9 )
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -122.0
-margin_top = 110.0
-margin_right = -8.0
-margin_bottom = 98.0
+margin_left = -122.715
+margin_top = 110.358
+margin_right = -8.71545
+margin_bottom = 98.3577
 theme = ExtResource( 7 )
 scroll_horizontal_enabled = false
 __meta__ = {
@@ -682,6 +715,9 @@ rect_min_size = Vector2( 32, 32 )
 mouse_filter = 2
 texture = ExtResource( 11 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ZoomDefault" type="Button" parent="UI/BottomBar/Zoom"]
 margin_left = 36.0
@@ -744,10 +780,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -126.0
-margin_top = -62.0
-margin_right = -66.0
-margin_bottom = -2.0
+margin_left = -124.018
+margin_top = -56.5128
+margin_right = -72.0182
+margin_bottom = -5.51285
 focus_mode = 0
 custom_styles/hover = SubResource( 11 )
 custom_styles/pressed = SubResource( 11 )
@@ -760,13 +796,16 @@ enabled_focus_mode = 0
 [node name="TextureRect" type="TextureRect" parent="UI/BottomBar/Save"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_top = 2.0
-margin_right = -4.0
-margin_bottom = -4.0
-texture = ExtResource( 14 )
+margin_left = 10.2533
+margin_top = 10.285
+margin_right = -11.7467
+margin_bottom = -12.715
+texture = ExtResource( 10 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AddLayer" type="Control" parent="UI"]
 visible = false
@@ -780,6 +819,10 @@ theme = ExtResource( 7 )
 [node name="Panel" type="Panel" parent="UI/AddLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_styles/panel = SubResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/AddLayer"]
 anchor_right = 1.0
@@ -885,7 +928,7 @@ align = 1
 [node name="OptionButton" type="OptionButton" parent="UI/AddLayer/VBoxContainer"]
 margin_top = 140.0
 margin_right = 238.0
-margin_bottom = 161.0
+margin_bottom = 141.0
 
 [node name="Line" type="TextureRect" parent="UI/AddLayer"]
 anchor_top = 1.0
@@ -931,10 +974,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -62.0
-margin_top = -62.0
-margin_right = -2.0
-margin_bottom = -2.0
+margin_left = -57.0
+margin_top = -58.0
+margin_right = -5.0
+margin_bottom = -6.0
 rect_pivot_offset = Vector2( 64, 64 )
 focus_mode = 0
 custom_styles/hover = SubResource( 11 )
@@ -944,17 +987,23 @@ custom_styles/disabled = SubResource( 12 )
 custom_styles/normal = SubResource( 11 )
 action_mode = 0
 enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Edit" type="TextureRect" parent="Play/Play"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 4.0
-margin_right = -6.0
-margin_bottom = -6.0
+margin_left = 7.48108
+margin_top = 9.16449
+margin_right = -10.5189
+margin_bottom = -10.8355
 texture = ExtResource( 15 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Play" type="TextureRect" parent="Play/Play"]
 visible = false
@@ -1044,6 +1093,10 @@ theme = ExtResource( 7 )
 [node name="Panel" type="Panel" parent="Menu/Editor"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/Editor/Panel"]
 anchor_right = 1.0
@@ -1057,7 +1110,7 @@ margin_bottom = -8.0
 margin_right = 342.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 0, 32 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
@@ -1084,47 +1137,47 @@ text = "Return to Editor"
 [node name="LevelSave" type="Button" parent="Menu/Editor/Panel/VBoxContainer"]
 margin_top = 80.0
 margin_right = 342.0
-margin_bottom = 114.0
+margin_bottom = 115.0
 focus_mode = 1
 size_flags_vertical = 3
 text = "Save the level"
 
 [node name="LevelSaveAs" type="Button" parent="Menu/Editor/Panel/VBoxContainer"]
-margin_top = 118.0
+margin_top = 119.0
 margin_right = 342.0
-margin_bottom = 152.0
+margin_bottom = 154.0
 focus_mode = 1
 size_flags_vertical = 3
 text = "Save in a new directory"
 
 [node name="LevelCreate" type="Button" parent="Menu/Editor/Panel/VBoxContainer"]
-margin_top = 156.0
+margin_top = 158.0
 margin_right = 342.0
-margin_bottom = 190.0
+margin_bottom = 193.0
 focus_mode = 1
 size_flags_vertical = 3
 enabled_focus_mode = 1
 text = "Create new level"
 
 [node name="LevelOpen" type="Button" parent="Menu/Editor/Panel/VBoxContainer"]
-margin_top = 194.0
+margin_top = 197.0
 margin_right = 342.0
-margin_bottom = 228.0
+margin_bottom = 232.0
 focus_mode = 1
 size_flags_vertical = 3
 enabled_focus_mode = 1
 text = "Open a level"
 
 [node name="LevelProperties" type="Button" parent="Menu/Editor/Panel/VBoxContainer"]
-margin_top = 232.0
+margin_top = 236.0
 margin_right = 342.0
-margin_bottom = 266.0
+margin_bottom = 271.0
 focus_mode = 1
 size_flags_vertical = 3
 text = "Level properties"
 
 [node name="ReturnMenu2" type="Button" parent="Menu/Editor/Panel/VBoxContainer"]
-margin_top = 270.0
+margin_top = 275.0
 margin_right = 342.0
 margin_bottom = 310.0
 focus_mode = 1
@@ -1146,6 +1199,10 @@ theme = ExtResource( 7 )
 [node name="Panel" type="Panel" parent="Menu/Settings"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_styles/panel = SubResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/Settings/Panel"]
 anchor_right = 1.0
@@ -1154,12 +1211,16 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -39.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Menu/Settings/Panel/VBoxContainer"]
 margin_right = 458.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 0, 32 )
-custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
@@ -1183,16 +1244,17 @@ rect_min_size = Vector2( 0, 32 )
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Menu/Settings/Panel/VBoxContainer/Name"]
-margin_top = 6.0
-margin_right = 136.0
-margin_bottom = 27.0
+margin_top = 8.0
+margin_right = 107.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "Level Name:"
 
 [node name="LevelName" type="LineEdit" parent="Menu/Settings/Panel/VBoxContainer/Name"]
-margin_left = 148.0
+margin_left = 119.0
 margin_right = 458.0
 margin_bottom = 34.0
 text = "SuperTux Level"
@@ -1206,16 +1268,20 @@ rect_min_size = Vector2( 0, 32 )
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Menu/Settings/Panel/VBoxContainer/Creator"]
-margin_top = 6.0
-margin_right = 169.0
-margin_bottom = 27.0
+margin_top = 8.0
+margin_right = 138.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "Level Creator:"
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="LevelCreator" type="LineEdit" parent="Menu/Settings/Panel/VBoxContainer/Creator"]
-margin_left = 181.0
+margin_left = 150.0
 margin_right = 458.0
 margin_bottom = 34.0
 text = "SuperTux Player"
@@ -1229,16 +1295,20 @@ rect_min_size = Vector2( 0, 32 )
 size_flags_vertical = 3
 
 [node name="Label2" type="Label" parent="Menu/Settings/Panel/VBoxContainer/Music"]
-margin_top = 6.0
-margin_right = 137.0
-margin_bottom = 27.0
+margin_top = 8.0
+margin_right = 103.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "Level Music:"
+text = "Level Music"
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="MusicSelect" type="Button" parent="Menu/Settings/Panel/VBoxContainer/Music"]
-margin_left = 149.0
+margin_left = 115.0
 margin_right = 458.0
 margin_bottom = 34.0
 focus_mode = 1
@@ -1251,10 +1321,16 @@ clip_text = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -0.4888
 margin_top = -37.0
+margin_right = -0.4888
 margin_bottom = -5.0
 rect_min_size = Vector2( 0, 32 )
+custom_fonts/font = SubResource( 19 )
 text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Line" type="TextureRect" parent="Menu/Settings/Panel/SettingsConfirmation"]
 anchor_right = 1.0
@@ -1274,7 +1350,10 @@ margin_left = -179.0
 margin_top = -87.0
 margin_right = 179.0
 margin_bottom = 87.0
-theme = ExtResource( 7 )
+theme = SubResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="Menu/Create"]
 anchor_right = 1.0
@@ -1358,6 +1437,10 @@ theme = ExtResource( 7 )
 [node name="Panel" type="Panel" parent="Menu/Exit"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_styles/panel = SubResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Line" type="TextureRect" parent="Menu/Exit/Panel"]
 visible = false
@@ -1380,20 +1463,21 @@ margin_bottom = -56.0
 
 [node name="Label" type="Label" parent="Menu/Exit/Panel/VBoxContainer"]
 margin_right = 343.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 0, 32 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "Exit and save?"
+text = "Exit and SAVE?"
 align = 1
-valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Line" type="TextureRect" parent="Menu/Exit/Panel/VBoxContainer"]
-margin_top = 36.0
+margin_top = 22.0
 margin_right = 343.0
-margin_bottom = 38.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 0, 2 )
 texture = ExtResource( 9 )
 expand = true
@@ -1409,28 +1493,52 @@ custom_constants/separation = 64
 alignment = 1
 
 [node name="Yes" type="Button" parent="Menu/Exit/Panel/ExitButtons"]
-margin_left = 43.0
-margin_right = 81.0
-margin_bottom = 32.0
-focus_mode = 1
+margin_left = 62.0
+margin_top = 7.0
+margin_right = 90.0
+margin_bottom = 25.0
+focus_mode = 0
+mouse_filter = 2
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 18 )
 enabled_focus_mode = 1
-text = "Yes"
+text = "YES"
+align = 0
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="No" type="Button" parent="Menu/Exit/Panel/ExitButtons"]
-margin_left = 145.0
-margin_right = 173.0
-margin_bottom = 32.0
+margin_left = 154.0
+margin_top = 7.0
+margin_right = 178.0
+margin_bottom = 25.0
 focus_mode = 1
+mouse_filter = 2
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 18 )
 enabled_focus_mode = 1
-text = "No"
+text = "NO"
+align = 0
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Cancel" type="Button" parent="Menu/Exit/Panel/ExitButtons"]
-margin_left = 237.0
-margin_right = 316.0
-margin_bottom = 32.0
+margin_left = 242.0
+margin_top = 7.0
+margin_right = 311.0
+margin_bottom = 25.0
 focus_mode = 1
+mouse_filter = 2
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 18 )
 enabled_focus_mode = 1
 text = "Cancel"
+align = 0
+__meta__ = {
+"_editor_description_": ""
+}
 [connection signal="button_down" from="UI/SideBar/VBoxContainer/TilesButton" to="." method="_on_TilesButton_pressed"]
 [connection signal="button_down" from="UI/SideBar/VBoxContainer/ObjectsButton" to="." method="_on_ObjectsButton_pressed"]
 [connection signal="button_down" from="UI/BottomBar/LayerAdd" to="." method="_on_LayerAdd_button_down"]

@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scenes/UI/UITheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/Editor/Layer.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/Editor/Wrench.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/SuperTux-Medium.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sprites/UI/settings.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/SuperTux-Medium2.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.870588, 0.870588, 0.870588, 1 )
@@ -57,6 +57,9 @@ margin_bottom = -416.0
 rect_min_size = Vector2( 160, 0 )
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
@@ -140,6 +143,8 @@ clip_text = true
 [node name="Button" type="Button" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 0.536346
+margin_bottom = 0.536346
 focus_mode = 1
 action_mode = 0
 button_mask = 3
@@ -154,6 +159,9 @@ margin_right = 106.0
 margin_bottom = -16.0
 rect_clip_content = true
 mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LayerSettings" type="Button" parent="."]
 anchor_right = 1.0

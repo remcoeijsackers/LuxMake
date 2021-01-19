@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/UI/UITheme.tres" type="Theme" id=1]
-[ext_resource path="res://Fonts/SuperTux-Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Fonts/Vonique 64.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/Editor/FileSelectButton.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="DynamicFont" id=2]
-size = 17
-outline_size = 1
+size = 20
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
