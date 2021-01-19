@@ -164,10 +164,10 @@ margin_bottom = 150.0
 [node name="FadeIn" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 0.536346
-margin_right = 0.536377
+margin_left = 1.07266
+margin_right = 1.07269
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.168627, 0.145098, 0.145098, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

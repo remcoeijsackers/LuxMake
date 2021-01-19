@@ -94,6 +94,8 @@ func hurt():
 		else:
 			state = "big"
 			$Control/AnimatedSprite.play("hurt")
+			# Hide the fire particles to show the player lost the ability to fire
+			$Control/lit.hide()
 			$SFX/Hurt.play()
 			damage_invincibility()
 
