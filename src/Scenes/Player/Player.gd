@@ -66,6 +66,7 @@ var holding_object = false
 var object_held = ""
 var wind = 0
 var shooting = false
+var JUMP_COUNT = 0
 
 export (int, 0, 200) var push = 100
 
@@ -147,8 +148,9 @@ func _physics_process(delta):
 	if get_tree().current_scene.editmode == true:
 		set_animation("idle")
 		return
-
-	if dead == true:
+		
+	#State, animation after dead
+	if dead == true: 
 		if Input.is_action_pressed("pause"):
 			if restarted == false:
 					get_tree().current_scene.call("restart_level")
@@ -271,12 +273,15 @@ func _physics_process(delta):
 				$AnimationPlayer.play("LandSmall")
 			else:
 				$AnimationPlayer.play("Stop")
+		# On the floor, reset the jump count
 		on_ground = 0
+		JUMP_COUNT = 0
 		jumpcancel = false
 		if backflip == true:
 			backflip = false
 			velocity.x = 0
 	else:
+		#in air?
 		on_ground += 1
 		$ButtjumpLandTimer.stop()
 
@@ -311,7 +316,8 @@ func _physics_process(delta):
 
 	# Jumping
 	if Input.is_action_pressed("jump") and jumpheld <= JUMP_BUFFER_TIME:
-		if on_ground <= LEDGE_JUMP and $ButtjumpLandTimer.time_left <= BUTTJUMP_LAND_TIME - 0.02:
+		if JUMP_COUNT < 2 and $ButtjumpLandTimer.time_left <= BUTTJUMP_LAND_TIME - 0.02:
+			JUMP_COUNT += 1
 			if state != "small" and Input.is_action_pressed("duck") == true and $StandWindow.is_colliding() == false and sliding == false and $ButtjumpLandTimer.time_left == 0:
 				backflip = true
 				backflip_rotation = 0
@@ -375,8 +381,7 @@ func _physics_process(delta):
 	#if abs(velocity.x) == 0 and shooting == false and not Input.is_action_just_pressed("action"):
 	#	set_animation("idle")
 	if shooting == true:
-		pass
-		#set_animation("attack")
+		set_animation("attack")
 	if buttjump == true:
 		set_animation("buttjump")
 	elif backflip == true:
@@ -440,7 +445,13 @@ func _physics_process(delta):
 		fireball.add_collision_exception_with(self) # Prevent fireball colliding with player
 		get_parent().add_child(fireball) # Shoot fireball as child of player
 		#shooting = false
-
+	# Sword attack
+	if Input.is_action_pressed("sword"):
+		var sword = load("res://Scenes/Player/Objects/Swordattack.tscn").instance()
+		sword.position = $SwordLocation.global_position
+		sword.add_collision_exception_with(self)
+		$Control/AnimatedSprite.play("sword")
+		get_parent().add_child(sword)
 	# Camera Positioning
 	if abs(velocity.x) > WALK_ADD:
 		camera_offset += 2 * (velocity.x / abs(velocity.x))

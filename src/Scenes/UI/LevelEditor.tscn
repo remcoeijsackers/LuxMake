@@ -15,9 +15,10 @@
 [ext_resource path="res://Sprites/Editor/Minus.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Editor/Save.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Editor/Wrench.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Creatures/Tux/Small/Jump3.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Creatures/Player/Small/Jump3.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/Editor/GrabPoint.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Editor/GrabPointHover.png" type="Texture" id=18]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "MoveIn"

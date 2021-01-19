@@ -6,7 +6,20 @@ func _ready():
 	$AnimationPlayer.play("Appear")
 
 func _on_StartGame_pressed():
-	pass # Replace with function body.
+	pass
+	#current_level = level
+	#var directory = Directory.new()
+	#if directory.file_exists(level):
+	#	var levelinstance = load(level).instance()
+	#	if levelinstance.worldmap:
+	#		worldmap = level
+	#	levelinstance.set_name("Level")
+	#	add_child(levelinstance)
+	#	level_to_grid()
+	#load_player()
+	#load_ui()
+	#load_editor()
+	#editmode_toggle()
 
 func _on_Options_pressed():
 	$Options.show()

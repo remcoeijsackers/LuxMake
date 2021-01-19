@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Player/Objects/Fireball.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Objects/Fireball/fireballambient.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Objects/Fireball/fireball.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Player/Objects/weapon_cleaver.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Player/Objects/Fireball.tres" type="Gradient" id=4]
 [ext_resource path="res://Audio/SoundEffects/Enemy/extinguish.wav" type="AudioStream" id=5]
 
@@ -221,6 +221,11 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.164721, 1 ), 4.92789, 4.92
 offsets = PoolRealArray( 0, 0.3, 0.76, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 0.984314, 0, 0.698039, 1, 0, 0, 0.490196, 1, 0, 0, 0 )
 
+[sub_resource type="Shader" id=11]
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = SubResource( 11 )
+
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
@@ -254,7 +259,6 @@ shape = SubResource( 5 )
 [node name="FireballGlow" type="CPUParticles2D" parent="."]
 amount = 15
 speed_scale = 6.0
-local_coords = false
 texture = ExtResource( 2 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
@@ -266,10 +270,18 @@ scale_amount_curve = SubResource( 6 )
 color_ramp = SubResource( 7 )
 
 [node name="FireballAmbientParticles" type="CPUParticles2D" parent="."]
-speed_scale = 2.5
+amount = 4
+lifetime = 0.01
+speed_scale = 1.12
+explosiveness = 0.4
+randomness = 0.31
+lifetime_randomness = 0.13
+fixed_fps = 23
 local_coords = false
 texture = ExtResource( 2 )
-spread = 180.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 66.77
 gravity = Vector2( 0, 0 )
 initial_velocity = 60.0
 initial_velocity_random = 0.5
@@ -279,6 +291,10 @@ scale_amount_curve = SubResource( 8 )
 color_ramp = SubResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.670588, 0.101961, 0.101961, 1 )
+material = SubResource( 12 )
+position = Vector2( 4.44989, 0.857714 )
+scale = Vector2( 1.23381, 1.46676 )
 frames = SubResource( 10 )
 
 [node name="FireballCollisionParticles" type="CPUParticles2D" parent="."]
@@ -302,4 +318,6 @@ color_ramp = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 5.3005, 0.467697 )
+scale = Vector2( 2.09128, 1 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_fireball_body_entered"]

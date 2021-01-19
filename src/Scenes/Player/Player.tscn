@@ -1,70 +1,75 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-smrslt-00.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-idle-00.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-smrslt-01.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-smrslt-03.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-slide-00.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-slide-01.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-smrslt-02.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-items-00.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-air-attack-3-end-01.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-cast-01.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-cast-03.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-cast-02.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-cast-00.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-hurt-01.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-run-01.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-air-attack3-loop-00.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-run-00.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-run-02.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-run-03.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-run-05.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-run-04.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-fall-00.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-die-06.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-air-attack3-loop-01.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-jump-03.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-hurt-02.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-hurt-00.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-idle-01.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-idle-02.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-idle-03.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-00.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-idle-00.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-01.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-03.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-slide-00.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-slide-01.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-02.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-items-00.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-air-attack-3-end-01.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-cast-01.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-cast-03.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-cast-02.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-cast-00.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-hurt-01.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-01.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-air-attack3-loop-00.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-00.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-02.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-03.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-05.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-04.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-fall-00.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-06.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-air-attack3-loop-01.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-jump-03.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-hurt-02.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-hurt-00.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-idle-01.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-idle-02.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-idle-03.png" type="Texture" id=31]
 [ext_resource path="res://Scenes/Player/Objects/PlayerAttack.tres" type="Animation" id=32]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-jump-00.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-die-05.png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-crouch-03.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-air-attack-3-end-00.png" type="Texture" id=41]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-die-02.png" type="Texture" id=42]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-air-attack3-rdy-00.png" type="Texture" id=43]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-fall-01.png" type="Texture" id=44]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-die-01.png" type="Texture" id=45]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-die-04.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-jump-00.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-05.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-crouch-03.png" type="Texture" id=35]
+[ext_resource path="res://Audio/SoundEffects/Player/mixkit-martial-arts-fast-punch-2047.wav" type="AudioStream" id=36]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-attack1-00.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-attack1-04.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-attack1-01.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-attack1-03.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-air-attack-3-end-00.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-02.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-air-attack3-rdy-00.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-fall-01.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-01.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-04.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-attack1-02.png" type="Texture" id=47]
 [ext_resource path="res://Audio/SoundEffects/Player/jump.wav" type="AudioStream" id=48]
 [ext_resource path="res://Audio/SoundEffects/Player/bigjump.wav" type="AudioStream" id=49]
 [ext_resource path="res://Audio/SoundEffects/Player/flip.wav" type="AudioStream" id=50]
 [ext_resource path="res://Audio/SoundEffects/Player/thud.ogg" type="AudioStream" id=51]
 [ext_resource path="res://Audio/SoundEffects/Bonus/brick.wav" type="AudioStream" id=52]
 [ext_resource path="res://Audio/SoundEffects/Player/skid.wav" type="AudioStream" id=53]
-[ext_resource path="res://Audio/SoundEffects/Player/shoot.wav" type="AudioStream" id=54]
 [ext_resource path="res://Audio/SoundEffects/Player/hurt.wav" type="AudioStream" id=55]
-[ext_resource path="res://Audio/SoundEffects/Player/kill.wav" type="AudioStream" id=56]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-die-03.png" type="Texture" id=57]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-jump-02.png" type="Texture" id=58]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-jump-01.png" type="Texture" id=59]
-[ext_resource path="res://Sprites/Creatures/Tux/Big/adventurer-die-00.png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-03.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-jump-02.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-jump-01.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-00.png" type="Texture" id=60]
 
 [sub_resource type="SpriteFrames" id=1]
+resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 17 ), ExtResource( 25 ), ExtResource( 43 ), ExtResource( 41 ) ],
-"loop": false,
-"name": "buttjump",
-"speed": 35.0
-}, {
-"frames": [ ExtResource( 28 ), ExtResource( 15 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
-"name": "hurt",
+"name": "idle",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "slide",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ) ],
@@ -72,55 +77,10 @@ animations = [ {
 "name": "backflip",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "walk_small",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "walk",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "idle_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_transition_small",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "skid_small",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
 "loop": false,
 "name": "jump_small",
 "speed": 18.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "skid",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "buttjumpland",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "gameover",
-"speed": 10.0
 }, {
 "frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
 "loop": false,
@@ -132,24 +92,34 @@ animations = [ {
 "name": "attack",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "slide_small",
+"name": "skid",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_transition_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "gameover",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
 "loop": false,
-"name": "fall_small",
+"name": "fall",
 "speed": 16.0
 }, {
-"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "jump",
-"speed": 18.0
-}, {
-"frames": [ ExtResource( 35 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "duck",
+"name": "slide_small",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 46 ), ExtResource( 34 ) ],
@@ -157,15 +127,55 @@ animations = [ {
 "name": "gameover_small",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 35 ) ],
 "loop": true,
-"name": "slide",
+"name": "duck",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "idle",
-"speed": 4.0
+"name": "buttjumpland",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "walk_small",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "skid_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "jump",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 25 ), ExtResource( 43 ), ExtResource( 41 ) ],
+"loop": false,
+"name": "buttjump",
+"speed": 35.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 15 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 47 ) ],
+"loop": true,
+"name": "sword",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=2]
@@ -318,8 +328,8 @@ process_priority = 1
 position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 1 )
-animation = "attack"
-frame = 3
+animation = "sword"
+frame = 2
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
@@ -350,6 +360,9 @@ shape = SubResource( 11 )
 
 [node name="ShootLocation" type="Position2D" parent="."]
 position = Vector2( 8, 0 )
+
+[node name="SwordLocation" type="Position2D" parent="."]
+position = Vector2( 31.5405, 0.155899 )
 
 [node name="ButtjumpHitbox" type="Area2D" parent="."]
 position = Vector2( 0, 32 )
@@ -385,13 +398,13 @@ stream = ExtResource( 52 )
 stream = ExtResource( 53 )
 
 [node name="Shoot" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 54 )
+stream = ExtResource( 36 )
 
 [node name="Hurt" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 55 )
 
 [node name="Kill" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 56 )
+stream = ExtResource( 36 )
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 
