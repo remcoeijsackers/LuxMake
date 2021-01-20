@@ -66,7 +66,9 @@ var holding_object = false
 var object_held = ""
 var wind = 0
 var shooting = false
+
 var JUMP_COUNT = 0
+const MAX_JUMP_COUNT = 2
 
 export (int, 0, 200) var push = 100
 
@@ -258,7 +260,13 @@ func _physics_process(delta):
 		if on_ground:
 			velocity.y += BUTTJUMP_GRAVITY
 			if velocity.y > BUTTJUMP_FALL_SPEED: velocity.y = BUTTJUMP_FALL_SPEED
-
+			
+	# Wall Check
+	# will let player jump against wall infinitely, fix it.
+	if is_on_wall():
+		if JUMP_COUNT < MAX_JUMP_COUNT:
+			JUMP_COUNT = 0
+		
 	# Floor check
 	if is_on_floor():
 		if on_ground != 0:

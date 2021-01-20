@@ -6,18 +6,18 @@
 [ext_resource path="res://Sprites/Editor/Line.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/UI/Options.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Theme" id=3]
+[sub_resource type="Theme" id=1]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=2]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 18
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 3 )
 
 [node name="PauseMenu" type="Control"]
@@ -44,8 +44,8 @@ margin_right = 90.0
 margin_bottom = 100.0
 rect_clip_content = true
 size_flags_vertical = 3
-theme = SubResource( 3 )
-custom_styles/panel = SubResource( 4 )
+theme = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -68,7 +68,7 @@ __meta__ = {
 margin_right = 164.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 0, 25 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
@@ -92,7 +92,7 @@ margin_bottom = 60.0
 rect_pivot_offset = Vector2( -488.794, -160.987 )
 focus_neighbour_top = NodePath("../Quit")
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 action_mode = 0
 text = "Continue"
 
@@ -103,7 +103,7 @@ margin_bottom = 89.0
 rect_pivot_offset = Vector2( -488.794, -160.987 )
 focus_neighbour_top = NodePath("../Quit")
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 action_mode = 0
 text = "Restart"
 __meta__ = {
@@ -117,7 +117,7 @@ margin_bottom = 118.0
 rect_pivot_offset = Vector2( -488.794, -160.987 )
 focus_neighbour_top = NodePath("../Quit")
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 action_mode = 0
 text = "Options"
 __meta__ = {
@@ -131,7 +131,7 @@ margin_bottom = 147.0
 rect_pivot_offset = Vector2( -488.794, -160.987 )
 focus_neighbour_top = NodePath("../Quit")
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 action_mode = 0
 text = "Exit Level"
 __meta__ = {
@@ -145,7 +145,7 @@ margin_bottom = 176.0
 rect_pivot_offset = Vector2( -488.794, -160.987 )
 focus_neighbour_top = NodePath("../Quit")
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 action_mode = 0
 text = "Quiit"
 __meta__ = {
