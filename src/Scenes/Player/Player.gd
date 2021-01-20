@@ -447,6 +447,7 @@ func _physics_process(delta):
 		fireball.add_collision_exception_with(self) # Prevent fireball colliding with player
 		get_parent().add_child(fireball) # Shoot fireball as child of player
 		#shooting = false
+		
 	# Sword attack
 	if Input.is_action_pressed("sword"):
 		var sword = load("res://Scenes/Player/Objects/Swordattack.tscn").instance()
@@ -454,6 +455,7 @@ func _physics_process(delta):
 		sword.add_collision_exception_with(self)
 		$Control/AnimatedSprite.play("sword")
 		get_parent().add_child(sword)
+		
 	# Camera Positioning
 	if abs(velocity.x) > WALK_ADD:
 		camera_offset += 2 * (velocity.x / abs(velocity.x))

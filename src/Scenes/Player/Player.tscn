@@ -60,26 +60,16 @@
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-jump-01.png" type="Texture" id=59]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-00.png" type="Texture" id=60]
 
-[sub_resource type="Curve" id=13]
+[sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 0.639509 ), 5.75234, 0.629246, 0, 0, Vector2( 1, 0.146709 ), -0.92688, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=14]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.311321, 0.688679, 1 )
 colors = PoolColorArray( 1, 0.941176, 0, 0.156863, 1, 0.5625, 0, 0.117647, 1, 0, 0, 0.0784314, 1, 0.5625, 0, 0 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "idle",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "slide",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 28 ), ExtResource( 15 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "hurt",
@@ -97,47 +87,92 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
 "loop": false,
-"name": "jump_small",
+"name": "jump",
 "speed": 18.0
 }, {
-"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_transition",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 39 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 47 ) ],
 "loop": true,
-"name": "attack",
-"speed": 10.0
+"name": "sword",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "skid_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "walk_small",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "jump_small",
+"speed": 18.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "skid",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "attack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_transition",
+"speed": 16.0
+}, {
 "frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
 "loop": false,
 "name": "fall_transition_small",
 "speed": 16.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "walk",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "gameover",
-"speed": 10.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
 "loop": false,
 "name": "fall",
 "speed": 16.0
 }, {
+"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "gameover",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "buttjumpland",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "slide",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "idle",
+"speed": 4.0
+}, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "slide_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ) ],
+"loop": true,
+"name": "duck",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 46 ), ExtResource( 34 ) ],
@@ -149,44 +184,9 @@ animations = [ {
 "loop": false,
 "name": "fall_small",
 "speed": 16.0
-}, {
-"frames": [ ExtResource( 35 ) ],
-"loop": true,
-"name": "duck",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "buttjumpland",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "walk_small",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "skid_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "jump",
-"speed": 18.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "idle_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 39 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "sword",
-"speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_scale")
 tracks/0/interp = 1
@@ -200,7 +200,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.8, 1.2 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_scale")
 tracks/0/interp = 1
@@ -214,7 +214,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.8, 0.6 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_scale")
 tracks/0/interp = 1
@@ -228,7 +228,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.2 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_scale")
 tracks/0/interp = 1
@@ -242,7 +242,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.25, 0.85 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_scale")
 tracks/0/interp = 1
@@ -256,7 +256,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 0.95 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_scale")
 tracks/0/interp = 1
@@ -270,7 +270,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -286,7 +286,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/AnimatedSprite:visible")
 tracks/0/interp = 1
@@ -300,7 +300,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/AnimatedSprite:visible")
 tracks/0/interp = 1
@@ -314,10 +314,10 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 15, 31 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 0, 0 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -341,8 +341,8 @@ initial_velocity = 40.0
 initial_velocity_random = 0.25
 damping = 100.0
 scale_amount = 10.0
-scale_amount_curve = SubResource( 13 )
-color_ramp = SubResource( 14 )
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -351,8 +351,9 @@ __meta__ = {
 process_priority = 1
 position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
-frames = SubResource( 1 )
+frames = SubResource( 3 )
 animation = "sword"
+frame = 2
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
@@ -362,24 +363,24 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
 anims/Attack = ExtResource( 32 )
-anims/Buttjump = SubResource( 2 )
-anims/ButtjumpLand = SubResource( 3 )
-anims/Jump = SubResource( 4 )
-anims/Land = SubResource( 5 )
-anims/LandSmall = SubResource( 6 )
-anims/Stop = SubResource( 7 )
+anims/Buttjump = SubResource( 4 )
+anims/ButtjumpLand = SubResource( 5 )
+anims/Jump = SubResource( 6 )
+anims/Land = SubResource( 7 )
+anims/LandSmall = SubResource( 8 )
+anims/Stop = SubResource( 9 )
 
 [node name="AnimationPlayerInvincibility" type="AnimationPlayer" parent="."]
 autoplay = "Stop"
-anims/HurtInvincibility = SubResource( 8 )
-anims/InvincibleStar = SubResource( 9 )
-anims/Stop = SubResource( 10 )
+anims/HurtInvincibility = SubResource( 10 )
+anims/InvincibleStar = SubResource( 11 )
+anims/Stop = SubResource( 12 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="." groups=[
 "player",
 ]]
 position = Vector2( 0.155899, 1 )
-shape = SubResource( 11 )
+shape = SubResource( 13 )
 
 [node name="ShootLocation" type="Position2D" parent="."]
 position = Vector2( 8, 0 )
@@ -391,7 +392,7 @@ position = Vector2( 31.5405, 0.155899 )
 position = Vector2( 0, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtjumpHitbox"]
-shape = SubResource( 12 )
+shape = SubResource( 14 )
 disabled = true
 
 [node name="StandWindow" type="RayCast2D" parent="."]

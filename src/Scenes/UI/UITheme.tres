@@ -3,7 +3,6 @@
 [ext_resource path="res://Sprites/Editor/Line.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/SuperTux-Medium2.ttf" type="DynamicFontData" id=2]
 
-
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
