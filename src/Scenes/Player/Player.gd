@@ -42,7 +42,7 @@ const BUTTJUMP_FALL_SPEED = 2000.0
 const BUTTJUMP_LAND_TIME = 0.3
 
 # Fireball speed
-const FIREBALL_SPEED = 500
+const FIREBALL_SPEED = 700
 
 var velocity = Vector2()
 var on_ground = 999 # Frames Tux has been in air (0 if grounded)
@@ -305,7 +305,8 @@ func _physics_process(delta):
 				if state != "small": ducking = true
 			else: pass#start_sliding()
 	elif $StandWindow.is_colliding() == true and sliding == false and state != "small": ducking = true
-	else: ducking == false
+	else: 
+		ducking == false
 
 	# Sliding
 	if sliding == true:
@@ -438,15 +439,16 @@ func _physics_process(delta):
 
 	# Shooting
 	if Input.is_action_pressed("action") and state == "fire" and get_tree().get_nodes_in_group("bullets").size() < 2:
-		$Control/AnimatedSprite.play("attack")
-		#shooting = true
+		$AnimationPlayer.stop()
+		$AnimationPlayer.play("Attack")
+		shooting = true
 		$SFX/Shoot.play()
 		var fireball = load("res://Scenes/Player/Objects/Fireball.tscn").instance()
 		fireball.position = $ShootLocation.global_position
 		fireball.velocity = Vector2((FIREBALL_SPEED * $Control/AnimatedSprite.scale.x) + velocity.x,0)
 		fireball.add_collision_exception_with(self) # Prevent fireball colliding with player
 		get_parent().add_child(fireball) # Shoot fireball as child of player
-		#shooting = false
+		shooting = false
 		
 	# Sword attack
 	if Input.is_action_pressed("sword"):

@@ -32,8 +32,10 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity * delta)
 		oldvelocity = velocity.x
 		if collision:
+			$AnimationPlayer.stop()
+			velocity.y = 0
+			velocity.x = 0
 			yield(get_tree().create_timer(0.5), "timeout")
-			$AnimationPlayer.play("Hit")
 			explode()
 			#velocity = velocity.bounce(collision.normal)
 			#if velocity.x != oldvelocity:

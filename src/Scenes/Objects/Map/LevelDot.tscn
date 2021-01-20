@@ -8,7 +8,6 @@
 [ext_resource path="res://Sprites/Worldmap/LevelDot/leveldot_red.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Worldmap/LevelDot/leveldot_invisible.png" type="Texture" id=7]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 18
 outline_size = 2
@@ -25,14 +24,14 @@ animations = [ {
 "name": "invisible",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "clear",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
 "speed": 5.0
 } ]
 

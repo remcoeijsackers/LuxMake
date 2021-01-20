@@ -410,17 +410,17 @@ margin_bottom = -8.0
 alignment = 2
 
 [node name="Line" type="TextureRect" parent="Popup/Panel/OK"]
-margin_top = 3.0
+margin_top = 2.0
 margin_right = 259.0
-margin_bottom = 5.0
+margin_bottom = 4.0
 rect_min_size = Vector2( 0, 2 )
 texture = ExtResource( 3 )
 expand = true
 
 [node name="OK" type="Button" parent="Popup/Panel/OK"]
-margin_top = 9.0
+margin_top = 8.0
 margin_right = 259.0
-margin_bottom = 27.0
+margin_bottom = 26.0
 focus_mode = 0
 mouse_filter = 2
 size_flags_vertical = 4
