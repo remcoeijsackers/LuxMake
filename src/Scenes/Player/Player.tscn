@@ -70,14 +70,19 @@ colors = PoolColorArray( 1, 0.941176, 0, 0.156863, 1, 0.5625, 0, 0.117647, 1, 0,
 [sub_resource type="SpriteFrames" id=3]
 resource_local_to_scene = true
 animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "slide",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "idle",
+"speed": 4.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "backflip",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "shoot",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 25 ), ExtResource( 43 ), ExtResource( 41 ) ],
@@ -90,64 +95,24 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 46 ), ExtResource( 34 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "gameover_small",
-"speed": 10.0
+"name": "skid_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "jump_small",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "buttjumpland",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_transition_small",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "walk",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_small",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "slide_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "gameover",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 35 ) ],
-"loop": true,
-"name": "duck",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "idle",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_transition",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 39 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "sword",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -155,20 +120,45 @@ animations = [ {
 "name": "idle_small",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
 "loop": false,
-"name": "jump",
-"speed": 18.0
+"name": "fall_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 47 ) ],
+"loop": true,
+"name": "sword",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_transition_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "slide_small",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "attack",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
 "loop": true,
-"name": "skid_small",
-"speed": 5.0
+"name": "gameover",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall",
+"speed": 16.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": true,
@@ -177,17 +167,27 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
 "loop": false,
-"name": "jump_small",
+"name": "jump",
 "speed": 18.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "gameover_small",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_transition",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 35 ) ],
+"loop": true,
+"name": "duck",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "skid",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "slide",
 "speed": 5.0
 } ]
 
@@ -275,7 +275,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=10]
 resource_name = "shoot"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/AnimatedSprite:frame")
@@ -290,7 +290,7 @@ tracks/0/keys = {
 "values": [ 2, 0, 2 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -304,20 +304,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=11]
-tracks/0/type = "value"
-tracks/0/path = NodePath("Control/AnimatedSprite:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -334,10 +320,24 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 15, 31 )
+[sub_resource type="Animation" id=13]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/AnimatedSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 15, 31 )
+
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 0, 0 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -374,7 +374,6 @@ position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 3 )
 animation = "attack"
-frame = 1
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
@@ -391,19 +390,19 @@ anims/Jump = SubResource( 6 )
 anims/Land = SubResource( 7 )
 anims/LandSmall = SubResource( 8 )
 anims/Stop = SubResource( 9 )
-anims/shoot = SubResource( 15 )
+anims/shoot = SubResource( 10 )
 
 [node name="AnimationPlayerInvincibility" type="AnimationPlayer" parent="."]
 autoplay = "Stop"
-anims/HurtInvincibility = SubResource( 10 )
-anims/InvincibleStar = SubResource( 11 )
-anims/Stop = SubResource( 12 )
+anims/HurtInvincibility = SubResource( 11 )
+anims/InvincibleStar = SubResource( 12 )
+anims/Stop = SubResource( 13 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="." groups=[
 "player",
 ]]
 position = Vector2( 0.155899, 1 )
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [node name="ShootLocation" type="Position2D" parent="."]
 position = Vector2( 8, 0 )
@@ -415,7 +414,7 @@ position = Vector2( 31.5405, 0.155899 )
 position = Vector2( 0, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtjumpHitbox"]
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 disabled = true
 
 [node name="StandWindow" type="RayCast2D" parent="."]
