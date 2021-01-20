@@ -33,7 +33,7 @@ func _physics_process(delta):
 		oldvelocity = velocity.x
 		if collision:
 			yield(get_tree().create_timer(0.5), "timeout")
-			$AnimationPlayer.play("hit")
+			$AnimationPlayer.play("Hit")
 			explode()
 			#velocity = velocity.bounce(collision.normal)
 			#if velocity.x != oldvelocity:
