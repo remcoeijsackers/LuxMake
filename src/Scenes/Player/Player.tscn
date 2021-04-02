@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-00.png" type="Texture" id=2]
@@ -47,8 +47,6 @@
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-01.png" type="Texture" id=45]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-04.png" type="Texture" id=46]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-attack1-02.png" type="Texture" id=47]
-[ext_resource path="res://Audio/SoundEffects/Player/jump.wav" type="AudioStream" id=48]
-[ext_resource path="res://Audio/SoundEffects/Player/bigjump.wav" type="AudioStream" id=49]
 [ext_resource path="res://Audio/SoundEffects/Player/flip.wav" type="AudioStream" id=50]
 [ext_resource path="res://Audio/SoundEffects/Player/thud.ogg" type="AudioStream" id=51]
 [ext_resource path="res://Audio/SoundEffects/Bonus/brick.wav" type="AudioStream" id=52]
@@ -70,9 +68,9 @@ colors = PoolColorArray( 1, 0.941176, 0, 0.156863, 1, 0.5625, 0, 0.117647, 1, 0,
 [sub_resource type="SpriteFrames" id=3]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "slide",
+"name": "skid_small",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
@@ -80,9 +78,104 @@ animations = [ {
 "name": "idle",
 "speed": 4.0
 }, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "slide",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "backflip",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "buttjumpland",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_transition",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 47 ) ],
+"loop": true,
+"name": "sword",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "walk_small",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_transition_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "gameover_small",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "jump",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 35 ) ],
+"loop": true,
+"name": "duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "skid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "gameover",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "attack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "jump_small",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "slide_small",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 25 ), ExtResource( 43 ), ExtResource( 41 ) ],
@@ -93,101 +186,6 @@ animations = [ {
 "frames": [ ExtResource( 28 ), ExtResource( 15 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "hurt",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "skid_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "jump_small",
-"speed": 18.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "shoot",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "buttjumpland",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "idle_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_small",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 39 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "sword",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "walk",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_transition_small",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "slide_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "attack",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "gameover",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "walk_small",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "jump",
-"speed": 18.0
-}, {
-"frames": [ ExtResource( 46 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "gameover_small",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_transition",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 35 ) ],
-"loop": true,
-"name": "duck",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "skid",
 "speed": 5.0
 } ]
 
@@ -340,6 +338,8 @@ extents = Vector2( 15, 31 )
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 0, 0 )
 
+[sub_resource type="AnimatedTexture" id=16]
+
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
@@ -374,6 +374,7 @@ position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 3 )
 animation = "attack"
+frame = 1
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
@@ -426,10 +427,10 @@ collision_mask = 16
 [node name="SFX" type="Node" parent="."]
 
 [node name="Jump" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 48 )
+volume_db = -66.856
+pitch_scale = 0.34
 
 [node name="BigJump" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 49 )
 
 [node name="Flip" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 50 )
@@ -459,4 +460,21 @@ one_shot = true
 
 [node name="ButtjumpLandTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Node2D"]
+
+[node name="RayCast2D2" type="RayCast2D" parent="Node2D"]
+
+[node name="RayCast2D3" type="RayCast2D" parent="Node2D"]
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+texture = SubResource( 16 )
+offset = Vector2( 5, 6 )
+texture_scale = 4.19
+color = Color( 0.866667, 0.858824, 0.898039, 1 )
+energy = 3.38
+range_height = -316.3
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

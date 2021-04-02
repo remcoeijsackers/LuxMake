@@ -28,8 +28,8 @@ func _on_Area2D_body_entered(body):
 		hitbyplayer = true
 		if body.position.y > position.y:
 			if body.position.x > self.position.x:
-				hit(-1,false)
-			else: hit(1,false)
+				hit(-0.1,false)
+			else: hit(0.1,false)
 
 		elif body.buttjump == true or body.get_node("ButtjumpLandTimer").time_left > 0:
 			if body.position.x > self.position.x:
@@ -88,3 +88,6 @@ func _on_TopHitbox_area_entered(area):
 func _on_TopHitbox_body_entered(body):
 	if body.is_in_group("bonusblock") and body.name != name:
 		body.hit(hitdirectionstored,hitdownstored)
+
+#func _support(body):
+#	if body.is_in_group("bonusblock")

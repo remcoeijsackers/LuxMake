@@ -34,8 +34,8 @@ motion_mirroring = Vector2( 1700, 0 )
 
 [node name="Sprite2" type="Sprite" parent="Background/ParallaxBackground/Sky"]
 show_behind_parent = true
-position = Vector2( 30.783, -1154.79 )
-scale = Vector2( 3.43937, 2.90858 )
+position = Vector2( -2087.44, -2438.42 )
+scale = Vector2( 5.72194, 4.75036 )
 texture = ExtResource( 6 )
 centered = false
 
@@ -45,8 +45,8 @@ motion_offset = Vector2( 0, -350 )
 motion_mirroring = Vector2( 1530, 0 )
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/BG"]
-position = Vector2( 7.41199, -2009.83 )
-scale = Vector2( 3.23383, 4.19627 )
+position = Vector2( -2124.42, -3461.29 )
+scale = Vector2( 5.53106, 6.284 )
 texture = ExtResource( 5 )
 centered = false
 
@@ -56,7 +56,7 @@ motion_offset = Vector2( 0, -400 )
 motion_mirroring = Vector2( 1700, 0 )
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/FG"]
-position = Vector2( 33.525, -1872.53 )
-scale = Vector2( 2.90412, 4.02179 )
+position = Vector2( -2368.72, -3922.75 )
+scale = Vector2( 6.08114, 7.19253 )
 texture = ExtResource( 8 )
 centered = false

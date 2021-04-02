@@ -6,7 +6,8 @@ func _ready():
 	$AnimationPlayer.play("Appear")
 
 func _on_StartGame_pressed():
-	get_tree().change_scene("res://Scenes/Master/Gameplay.tscn")
+	get_tree().change_scene("res://Scenes/Levels/maingame.tscn")
+
 	#current_level = level
 	#var directory = Directory.new()
 	#if directory.file_exists(level):

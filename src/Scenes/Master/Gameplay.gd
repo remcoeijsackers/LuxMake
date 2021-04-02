@@ -345,3 +345,30 @@ func check_level_valid(dir):
 			return true
 		else: return false
 	else: return false
+
+
+func enter_main_level(level):
+	$CanvasLayer/AnimationPlayer.play("Circle Out")
+	yield(get_node("CanvasLayer/AnimationPlayer"), "animation_finished")
+	var edit = editmode
+	if editmode == true:
+		editmode_toggle()
+	editsaved = false
+	worldmap = ""
+	camera_zoom = 1
+	camera_zoom_speed = 1
+	clear_player()
+	clear_level()
+	UIHelpers.get_editor().set_process(true)
+	clear_editor()
+	clear_ui()
+
+	editmode = false
+
+	load_level(level)
+	load_player()
+	load_ui()
+	load_editor()
+	if edit:
+		editmode_toggle()
+	$CanvasLayer/AnimationPlayer.play("Circle In")

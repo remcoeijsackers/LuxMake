@@ -500,9 +500,9 @@ func _physics_process(delta):
 		get_tree().current_scene.get_node(str("Level/", object_held)).position = Vector2(position.x + $ShootLocation.position.x, position.y + $ShootLocation.position.y)
 
 		# Set the object's direction
-		if get_tree().current_scene.get_node(str("Level/", object_held)).has_node("Sprite"): get_tree().current_scene.get_node(str("Level/", object_held, "/Sprite")).scale.x = $Control/AnimatedSprite.scale.x * -1
-		if get_tree().current_scene.get_node(str("Level/", object_held)).has_node("AnimatedSprite"): get_tree().current_scene.get_node(str("Level/", object_held, "/AnimatedSprite")).scale.x = $Control/AnimatedSprite.scale.x * -1
-		if get_tree().current_scene.get_node(str("Level/", object_held)).has_node("Control/AnimatedSprite"): get_tree().current_scene.get_node(str("Level/", object_held, "/Control/AnimatedSprite")).scale.x = $Control/AnimatedSprite.scale.x * -1
+		#if get_tree().current_scene.get_node(str("Level/", object_held)).has_node("Sprite"): get_tree().current_scene.get_node(str("Level/", object_held, "/Sprite")).scale.x = $Control/AnimatedSprite.scale.x * -1
+		#if get_tree().current_scene.get_node(str("Level/", object_held)).has_node("AnimatedSprite"): get_tree().current_scene.get_node(str("Level/", object_held, "/AnimatedSprite")).scale.x = $Control/AnimatedSprite.scale.x * -1
+		#if get_tree().current_scene.get_node(str("Level/", object_held)).has_node("Control/AnimatedSprite"): get_tree().current_scene.get_node(str("Level/", object_held, "/Control/AnimatedSprite")).scale.x = $Control/AnimatedSprite.scale.x * -1
 
 		# Throw objects
 		if not Input.is_action_pressed("pickup"):

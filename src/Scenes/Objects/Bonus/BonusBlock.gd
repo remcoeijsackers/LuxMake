@@ -4,7 +4,7 @@ var childstored = null
 var stored = "" # Whatever is inside the bonus block
 var gravity = false
 export var physics = false
-var portable = true
+var portable = false
 var state = "active"
 
 func _ready():

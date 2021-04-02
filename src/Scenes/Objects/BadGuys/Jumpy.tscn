@@ -238,7 +238,7 @@ anchor_bottom = 0.5
 rect_pivot_offset = Vector2( 0, 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
-position = Vector2( 0, 6.31594e-013 )
+position = Vector2( 0, 6.31594e-13 )
 frames = SubResource( 1 )
 animation = "bounce"
 frame = 3
@@ -265,7 +265,6 @@ anims/explode = SubResource( 5 )
 anims/squished = SubResource( 6 )
 
 [node name="SFX" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Fall" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 5 )
@@ -286,7 +285,6 @@ explosiveness = 1.0
 local_coords = false
 texture = ExtResource( 8 )
 spread = 60.0
-flatness = 1.0
 gravity = Vector2( 0, 500 )
 initial_velocity = 250.0
 angular_velocity = 720.0
@@ -307,7 +305,6 @@ explosiveness = 1.0
 local_coords = false
 texture = ExtResource( 9 )
 spread = 180.0
-flatness = 1.0
 gravity = Vector2( 0, 500 )
 initial_velocity = 300.0
 initial_velocity_random = 0.75

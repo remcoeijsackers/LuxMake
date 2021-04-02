@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/Backgrounds/Snow/arcticmountains-fg.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Backgrounds/Snow/arcticmountains-sky.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Backgrounds/Snow/arcticmountains-bg.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/UI/Level.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Editor/Layers/Backgrounds/Background.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Editor/Layers/TileMap.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Objects/Misc/SpawnPoint.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Editor/Layers/Background.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Objects/Phys/mblock_portable.tscn" type="PackedScene" id=13]
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 7 )
+level_name = "miri"
+
+[node name="SpawnPoint" parent="." instance=ExtResource( 11 )]
+position = Vector2( 16, 16 )
+
+[node name="Interactive" parent="." instance=ExtResource( 10 )]
+tile_data = PoolIntArray( 65540, 0, 0, 65541, 0, 1, 65542, 0, 1, 65543, 0, 1, 65544, 0, 2, 196606, 0, 0, 196607, 0, 1, 131072, 0, 1, 131073, 0, 1, 131074, 0, 1, 131075, 0, 1, 131076, 0, 131085, 131077, 0, 65537, 131078, 0, 15, 131079, 0, 65537, 131080, 0, 131084, 131081, 0, 1, 131082, 0, 1, 131083, 0, 1, 131084, 0, 2, 131086, 0, 3, 131088, 0, 3, 262140, 0, 4, 262141, 0, 5, 262142, 0, 131083, 262143, 0, 131073, 196608, 0, 131073, 196609, 0, 131073, 196610, 0, 131073, 196611, 0, 131073, 196612, 0, 131073, 196613, 0, 131073, 196614, 0, 131073, 196615, 0, 131073, 196616, 0, 131073, 196617, 0, 131073, 196618, 0, 131073, 196619, 0, 65549, 196620, 0, 131084, 196621, 0, 65546, 196622, 0, 65542, 196623, 0, 5, 196624, 0, 65542, 196625, 0, 5, 196626, 0, 5, 196627, 0, 5, 196628, 0, 65547, 196629, 0, 1, 196630, 0, 1, 196631, 0, 65546, 196632, 0, 5, 196633, 0, 5, 196634, 0, 5, 196635, 0, 6, 262155, 0, 131072, 262156, 0, 131073, 262157, 0, 131074, 262164, 0, 131072, 262165, 0, 131073, 262166, 0, 131073, 262167, 0, 131074 )
+original_name = "TileMap"
+
+[node name="Background" parent="." instance=ExtResource( 12 )]
+modulate = Color( 0, 0, 0, 1 )
+tint = Color( 0, 0, 0, 1 )
+original_name = "Background"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+scroll_offset = Vector2( 479.734, 375.031 )
+script = ExtResource( 9 )
+
+[node name="Sky" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2( -1002, -1350 )
+motion_scale = Vector2( 0, 0 )
+motion_offset = Vector2( 0, -600 )
+motion_mirroring = Vector2( 1700, 0 )
+
+[node name="Sprite2" type="Sprite" parent="Background/ParallaxBackground/Sky"]
+show_behind_parent = true
+position = Vector2( -2087.44, -2438.42 )
+scale = Vector2( 5.72194, 4.75036 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="BG" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2( -561.478, 143.607 )
+motion_scale = Vector2( 0.18, 0.2 )
+motion_offset = Vector2( 0, -350 )
+motion_mirroring = Vector2( 1530, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/BG"]
+position = Vector2( -2124.42, -3461.29 )
+scale = Vector2( 5.53106, 6.284 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="FG" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+position = Vector2( -1079.2, -156.394 )
+motion_scale = Vector2( 0.2, 0.2 )
+motion_offset = Vector2( 0, -400 )
+motion_mirroring = Vector2( 1700, 0 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/FG"]
+position = Vector2( -2368.72, -3922.75 )
+scale = Vector2( 6.08114, 7.19253 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="@KinematicBody2D@203" parent="." instance=ExtResource( 13 )]
+position = Vector2( 208, 16 )
