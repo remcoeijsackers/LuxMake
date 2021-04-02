@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://Scenes/Objects/Bonus/Powerup.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Objects/Items/Powerup.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Objects/Coin/coin-0.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Objects/Coin/coin-1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Objects/Coin/coin-2.png" type="Texture" id=4]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Audio/SoundEffects/Bonus/coin.wav" type="AudioStream" id=18]
 [ext_resource path="res://Sprites/Objects/Coin/glow.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Objects/Coin/glimmer.png" type="Texture" id=20]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

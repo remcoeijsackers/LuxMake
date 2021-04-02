@@ -1,13 +1,15 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/UI/Level.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Objects/Misc/SpawnPoint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Objects/Bonus/SpawnPoint.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Editor/Layers/TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Editor/Layers/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/Backgrounds/Snow/arcticmountains-sky.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Backgrounds/Snow/arcticmountains-bg.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Editor/Layers/Backgrounds/Background.gd" type="Script" id=7]
 [ext_resource path="res://Sprites/Backgrounds/Snow/arcticmountains-fg.png" type="Texture" id=8]
+
+
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )

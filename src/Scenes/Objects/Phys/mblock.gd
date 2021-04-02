@@ -4,6 +4,8 @@ const BOUNCE_LOW = 530
 const BOUNCE_HIGH = 1000
 const FLOOR = Vector2(0, -1)
 
+const FLOOR2 = Vector2(1, 1)
+
 var velocity = Vector2()
 var wallcling = ""
 var on_ground = true
@@ -27,7 +29,7 @@ func _physics_process(delta):
 		if portable == true:
 			velocity.y += 20
 		else: velocity.y += 20 * 2
-		velocity = move_and_slide(velocity, FLOOR)
+		velocity = move_and_slide(velocity,FLOOR) #define base vel of the box
 
 	if is_on_floor():
 		if get_tree().current_scene.editmode == true: return
@@ -54,13 +56,18 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	if get_tree().current_scene.editmode == true: return
 	if state != "active": return
-	if body.is_in_group("player"):
-		return
+	if body.is_in_group("player"): #sliding when touching the player
+		#return
+		cling_to_walls = false
+		#portable = true
+		#velocity = Vector2(0,0) 
+		
+		
 
 
 func align():
 	$Control.rect_rotation = 0
-	#$CollisionShape2D.position = Vector2(0, 2)
+	$CollisionShape2D.position = Vector2(0, 2)
 	$Area2D/CollisionShape2D.position = Vector2(0, -2)
 	$CollisionShape2D.rotation_degrees = 0
 	$Area2D/CollisionShape2D.rotation_degrees = 0

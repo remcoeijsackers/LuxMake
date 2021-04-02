@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Scenes/Objects/Bonus/Trampoline_Portable.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Objects/Items/Trampoline_Portable.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Objects/Trampoline/trampoline_portable-1.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Objects/Trampoline/trampoline_portable-2.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Objects/Trampoline/trampoline_portable-3.png" type="Texture" id=4]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Sprites/Objects/Trampoline/trampoline_portable-0.png" type="Texture" id=8]
 [ext_resource path="res://Audio/SoundEffects/Objects/trampoline.wav" type="AudioStream" id=9]
 [ext_resource path="res://Audio/SoundEffects/Player/thud.ogg" type="AudioStream" id=10]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

@@ -18,15 +18,15 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "default",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": false,
 "name": "triggered",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -452,8 +452,9 @@ anchor_bottom = 0.5
 rect_pivot_offset = Vector2( 0, 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
-position = Vector2( 0, 6.31594e-013 )
+position = Vector2( 0, 6.31594e-13 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 offset = Vector2( 0, -2 )
 

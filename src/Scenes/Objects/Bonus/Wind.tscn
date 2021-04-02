@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/Objects/Misc/CameraZoom.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/UI/UITheme.tres" type="Theme" id=2]
-[ext_resource path="res://Sprites/Editor/Line.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Objects/Misc/zoom.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Objects/Bonus/Wind.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Objects/Wind/Wind.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/UI/UITheme.tres" type="Theme" id=3]
+[ext_resource path="res://Sprites/Editor/Line.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Objects/Misc/wind.png" type="Texture" id=5]
+
+
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.358025, 0.753086, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [node name="ZoomTrigger" type="Node2D" groups=[
 "popup",
@@ -11,12 +18,25 @@
 "stackable",
 ]]
 script = ExtResource( 1 )
-camera_zoom_speed = 20
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 32
+lifetime = 0.5
+texture = ExtResource( 2 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 0.0
+scale_amount = 0.5
+scale_amount_random = 1.0
+color_ramp = SubResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 6
 
 [node name="Popup" type="Popup" parent="CanvasLayer"]
+editor/display_folded = true
 visible = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -26,7 +46,7 @@ margin_left = -150.0
 margin_top = -80.0
 margin_right = 150.0
 margin_bottom = 80.0
-theme = ExtResource( 2 )
+theme = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Popup"]
 anchor_right = 1.0
@@ -49,7 +69,7 @@ custom_colors/font_color = Color( 0, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "Zoom Trigger"
+text = "Wind"
 align = 1
 
 [node name="Line" type="TextureRect" parent="CanvasLayer/Popup/Panel/VBoxContainer"]
@@ -57,63 +77,59 @@ margin_top = 24.0
 margin_right = 284.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 0, 2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 
-[node name="ZoomLevel" type="HBoxContainer" parent="CanvasLayer/Popup/Panel/VBoxContainer"]
-editor/display_folded = true
+[node name="SpeedX" type="HBoxContainer" parent="CanvasLayer/Popup/Panel/VBoxContainer"]
 margin_top = 30.0
 margin_right = 284.0
 margin_bottom = 62.0
 rect_min_size = Vector2( 0, 32 )
 alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Popup/Panel/VBoxContainer/ZoomLevel"]
-margin_left = 22.0
+[node name="Label" type="Label" parent="CanvasLayer/Popup/Panel/VBoxContainer/SpeedX"]
+margin_left = 41.0
 margin_top = 6.0
-margin_right = 150.0
+margin_right = 131.0
 margin_bottom = 26.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "Zoom Level"
+text = "X Speed"
 
-[node name="SpinBox" type="SpinBox" parent="CanvasLayer/Popup/Panel/VBoxContainer/ZoomLevel"]
-margin_left = 154.0
-margin_right = 262.0
+[node name="SpinBox" type="SpinBox" parent="CanvasLayer/Popup/Panel/VBoxContainer/SpeedX"]
+margin_left = 135.0
+margin_right = 243.0
 margin_bottom = 32.0
-min_value = 0.25
-max_value = 1.5
 step = 0.05
-value = 1.0
+allow_greater = true
+allow_lesser = true
 align = 1
 
-[node name="ZoomSpeed" type="HBoxContainer" parent="CanvasLayer/Popup/Panel/VBoxContainer"]
-editor/display_folded = true
+[node name="SpeedY" type="HBoxContainer" parent="CanvasLayer/Popup/Panel/VBoxContainer"]
 margin_top = 66.0
 margin_right = 284.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 0, 32 )
 alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Popup/Panel/VBoxContainer/ZoomSpeed"]
-margin_left = 19.0
+[node name="Label" type="Label" parent="CanvasLayer/Popup/Panel/VBoxContainer/SpeedY"]
+margin_left = 41.0
 margin_top = 6.0
-margin_right = 152.0
+margin_right = 130.0
 margin_bottom = 26.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "Zoom Speed"
+text = "Y Speed"
 
-[node name="SpinBox" type="SpinBox" parent="CanvasLayer/Popup/Panel/VBoxContainer/ZoomSpeed"]
-margin_left = 156.0
-margin_right = 264.0
+[node name="SpinBox" type="SpinBox" parent="CanvasLayer/Popup/Panel/VBoxContainer/SpeedY"]
+margin_left = 134.0
+margin_right = 242.0
 margin_bottom = 32.0
-min_value = 1.0
 step = 0.05
-value = 1.0
 allow_greater = true
+allow_lesser = true
 align = 1
 
 [node name="Button" type="Button" parent="CanvasLayer/Popup/Panel"]
@@ -132,12 +148,12 @@ text = "OK"
 [node name="Line2" type="TextureRect" parent="CanvasLayer/Popup/Panel/Button"]
 anchor_right = 1.0
 rect_min_size = Vector2( 0, 2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="Control" type="Control" parent="."]
 anchor_left = 0.5
@@ -153,4 +169,4 @@ rect_min_size = Vector2( 32, 32 )
 [node name="ColorRect" type="ColorRect" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0.45, 1, 0.5 )
+color = Color( 1, 1, 1, 0.501961 )

@@ -1,9 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/Objects/Misc/SpawnPoint.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Bonus/SpawnPoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Editor/Layers/TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Editor/Layers/Background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Editor/Layers/Backgrounds/Snow.tscn" type="PackedScene" id=4]
+
+
 
 [node name="Level" type="Node2D"]
 

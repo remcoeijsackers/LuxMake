@@ -34,6 +34,7 @@ clockwise = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="Left" type="RayCast2D" parent="."]
@@ -80,7 +81,6 @@ scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 collision_layer = 0
 collision_mask = 4
 
@@ -88,7 +88,6 @@ collision_mask = 4
 shape = SubResource( 4 )
 
 [node name="HitDetection" type="Area2D" parent="."]
-editor/display_folded = true
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetection"]

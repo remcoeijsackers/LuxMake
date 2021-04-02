@@ -1,17 +1,26 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scenes/Objects/Bonus/Powerup.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Objects/Egg/egg-merged.png" type="Texture" id=2]
-[ext_resource path="res://Audio/SoundEffects/Bonus/grow.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Objects/Items/Powerup.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Objects/FireFlower/fire_flower-0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Objects/FireFlower/fire_flower-1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Objects/FireFlower/fire_flower-2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Objects/FireFlower/fire_flower-3.png" type="Texture" id=5]
+[ext_resource path="res://Audio/SoundEffects/Bonus/fire-flower.wav" type="AudioStream" id=6]
 
-[sub_resource type="Animation" id=1]
-resource_name = "appear"
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
 
 [sub_resource type="Animation" id=2]
-resource_name = "collect"
-length = 1.5
+
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
-tracks/0/path = NodePath("PickupSFX:playing")
+tracks/0/path = NodePath("Control/AnimatedSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -20,10 +29,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Control/AnimatedSprite:visible")
+tracks/1/path = NodePath("PickupSFX:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -32,7 +41,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath(".")
@@ -41,7 +50,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1.3 ),
+"times": PoolRealArray( 0.9 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -49,10 +58,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "default"
-length = 0.8
-loop = true
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/AnimatedSprite:visible")
 tracks/0/interp = 1
@@ -65,69 +71,48 @@ tracks/0/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Control:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 0.5, 2, 0.5, 2, 0.5 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.1 ), Vector2( 1, 1 ), Vector2( 1.1, 0.9 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 15, 16 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 15, 15 )
+extents = Vector2( 15, 16 )
 
-[node name="Egg" type="KinematicBody2D"]
+[node name="FireFlower" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 1 )
 physics = true
 gravity_when_static = true
 gravity_when_appeared = true
-move_speed = 100
-powerup_state = "big"
-ignore_small = true
+powerup_state = "fire"
 appear_animation = "appear"
 pickup_animation = "collect"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "default"
-anims/appear = SubResource( 1 )
-anims/collect = SubResource( 2 )
-anims/default = SubResource( 3 )
-
-[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-rect = Rect2( -64, -512, 128, 1024 )
-process_parent = true
-physics_process_parent = true
 
 [node name="Control" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-rect_pivot_offset = Vector2( 0, 16 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
-frames = SubResource( 4 )
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+anims/appear = SubResource( 2 )
+anims/collect = SubResource( 3 )
+anims/default = SubResource( 4 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+rect = Rect2( -64, -512, 128, 1024 )
+process_parent = true
+physics_process_parent = true
 
 [node name="PickupSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 6 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -136,5 +121,5 @@ collision_layer = 0
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1 )
 shape = SubResource( 6 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
