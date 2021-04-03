@@ -45,7 +45,7 @@ const BUTTJUMP_LAND_TIME = 0.3
 const FIREBALL_SPEED = 700
 
 	
-var shoot_wait = 0.5
+var shoot_wait = 2
 var velocity = Vector2()
 var on_ground = 999 # Frames Tux has been in air (0 if grounded)
 var jumpheld = 0 # Amount of frames jump has been held
@@ -72,6 +72,8 @@ var shooting = false
 var JUMP_COUNT = 0
 var WALL_JUMP_COUNT = 0
 const MAX_JUMP_COUNT = 2
+
+onready var bullets = get_node("/root/GameVariables")
 
 
 export (int, 0, 200) var push = 100
@@ -471,6 +473,7 @@ func _physics_process(delta):
 			# explode and shoot again if button is pressed before timer end
 			#if get_parent().get_child(fireball):
 			#	get_parent().get_child(fireball).emit_signal(explode())
+			
 			$AnimationPlayer.stop()
 			$AnimationPlayer.play("Attack")
 			shooting = true
@@ -481,10 +484,11 @@ func _physics_process(delta):
 			fireball.add_collision_exception_with(self) # Prevent fireball colliding with player
 			get_parent().add_child(fireball) # Shoot fireball as child of player
 			# after shooting, reinstate the collision exception
-			#fireball.remove_collision_exception_with(self)
-			shoot_wait -= 0.5
-		yield(get_tree().create_timer(0.5), "timeout")
-		shoot_wait = 0.5
+			fireball.remove_collision_exception_with(self)
+			shoot_wait -= 2
+		yield(get_tree().create_timer(2), "timeout")
+		bullets.bullets_explode = true
+		shoot_wait = 2
 		shooting = false
 		
 	# Sword attack

@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 UIHelpers="*res://Scenes/UI/Helpers.gd"
 Settings="*res://AutoLoad/Settings.gd"
+GameVariables="*res://AutoLoad/game_variables.gd"
 
 [debug]
 

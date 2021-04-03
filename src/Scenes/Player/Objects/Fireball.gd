@@ -6,6 +6,7 @@ var hit = false
 var wallcling = ""
 var time_done = false
 signal timer_end
+onready var bullets = get_node("/root/GameVariables")
 
 func _wait( seconds ):
 	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
@@ -33,6 +34,7 @@ func explode():
 	$CollisionShape2D.call_deferred("set_disabled", true)
 	$Area2D/EnemyCollision.call_deferred("set_disabled", true)
 	$AnimationPlayer.play("Hit")
+	bullets.bullets_explode = false
 	hit = true
 
 func _on_fireball_body_entered(body):
@@ -42,7 +44,7 @@ func _on_fireball_body_entered(body):
 			body.call("fireball_kill")
 		else: body.call("kill")
 		explode()
-	elif body.is_in_group("player"):
+	if body.is_in_group("player"):
 		print("test connection player")
 		# add the code to hold player
 		collision_mask = 31
@@ -62,9 +64,7 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity * delta)
 		oldvelocity = velocity.x
 		
-		#if collision:
-		_wait(2)
-		if collision && time_done:
+		if collision:
 			align()
 			$AnimationPlayer.stop()
 			collision_mask = 31
@@ -72,7 +72,8 @@ func _physics_process(delta):
 			velocity.y = 0
 			velocity.x = 0
 			time_done = false
-			explode()
+			if bullets.bullets_explode:
+				explode()
 			
 
 		
