@@ -4,6 +4,11 @@ var velocity = Vector2(0,0)
 var oldvelocity
 var hit = false
 var wallcling = ""
+
+func _ready():
+	collision_mask = 31
+	collision_layer = 1
+
 func explode():
 	#remove_from_group("bullets")
 	$CollisionShape2D.call_deferred("set_disabled", true)
@@ -18,6 +23,12 @@ func _on_fireball_body_entered(body):
 			body.call("fireball_kill")
 		else: body.call("kill")
 		explode()
+	elif body.is_in_group("player"):
+		print("test connection player")
+		# add the code to hold player
+		collision_mask = 31
+		collision_layer = 1
+		return
 
 func _physics_process(delta):
 	if $VisibilityNotifier2D.is_on_screen() == false:
@@ -34,10 +45,13 @@ func _physics_process(delta):
 		if collision:
 			align()
 			$AnimationPlayer.stop()
+			collision_mask = 31
+			collision_layer = 1
 			velocity.y = 0
 			velocity.x = 0
-			yield(get_tree().create_timer(2.5), "timeout")
-			explode()
+			# timer is also handled in player 'shoot' 
+		yield(get_tree().create_timer(2.5), "timeout") #memory leak bug
+		explode()
 			#velocity = velocity.bounce(collision.normal)
 			#if velocity.x != oldvelocity:
 			#	explode()
