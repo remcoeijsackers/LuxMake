@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Creatures/Spiky/spiky-1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Creatures/Spiky/spiky-2.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Creatures/Spiky/spiky-3.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Creatures/Snowball/droplet.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Creatures/Monster/droplet.png" type="Texture" id=7]
 [ext_resource path="res://Audio/SoundEffects/Enemy/fall.wav" type="AudioStream" id=8]
 [ext_resource path="res://Audio/SoundEffects/Enemy/squish.wav" type="AudioStream" id=9]
 [ext_resource path="res://Audio/SoundEffects/Enemy/splash.ogg" type="AudioStream" id=10]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Sprites/Creatures/Spiky/melting-7.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Creatures/Spiky/melting-5.png" type="Texture" id=21]
 [ext_resource path="res://Sprites/Creatures/Spiky/spiky-4.png" type="Texture" id=22]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

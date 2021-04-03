@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/iceblock-2.png-901d73bb138ed3db9eb18ba92ca9484b.stex"
+path="res://.import/big_demon_idle_anim_f2.png-2aedb2292cf5d15050e510f1c4cc2d7c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Creatures/Iceblock/iceblock-2.png"
-dest_files=[ "res://.import/iceblock-2.png-901d73bb138ed3db9eb18ba92ca9484b.stex" ]
+source_file="res://Sprites/Creatures/Monster/big_demon_idle_anim_f2.png"
+dest_files=[ "res://.import/big_demon_idle_anim_f2.png-2aedb2292cf5d15050e510f1c4cc2d7c.stex" ]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

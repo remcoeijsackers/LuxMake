@@ -1,31 +1,31 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scenes/Objects/BadGuys/Monster.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Creatures/Snowball/big_demon_idle_anim_f0.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Creatures/Snowball/big_demon_idle_anim_f1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Creatures/Snowball/big_demon_idle_anim_f2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Creatures/Snowball/big_demon_run_anim_f0.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Creatures/Snowball/big_demon_run_anim_f1.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Creatures/Snowball/big_demon_run_anim_f2.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Creatures/Snowball/big_demon_run_anim_f3.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Creatures/Snowball/big_demon_idle_anim_f3.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Creatures/Monster/big_demon_idle_anim_f0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Creatures/Monster/big_demon_idle_anim_f1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Creatures/Monster/big_demon_idle_anim_f2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Creatures/Monster/big_demon_run_anim_f0.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Creatures/Monster/big_demon_run_anim_f1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Creatures/Monster/big_demon_run_anim_f2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Creatures/Monster/big_demon_run_anim_f3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Creatures/Monster/big_demon_idle_anim_f3.png" type="Texture" id=10]
 [ext_resource path="res://Audio/SoundEffects/Enemy/fall.wav" type="AudioStream" id=11]
 [ext_resource path="res://Audio/SoundEffects/Enemy/squish.wav" type="AudioStream" id=12]
 [ext_resource path="res://Audio/SoundEffects/Enemy/splash.ogg" type="AudioStream" id=13]
-[ext_resource path="res://Sprites/Creatures/Snowball/particle.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Creatures/Snowball/droplet.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Creatures/Monster/particle.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Creatures/Monster/droplet.png" type="Texture" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "squished",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "default",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "squished",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -247,7 +247,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
 position = Vector2( 0, 6.31594e-13 )
 frames = SubResource( 1 )
-frame = 5
+frame = 4
 playing = true
 offset = Vector2( 0, -2 )
 

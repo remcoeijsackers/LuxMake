@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/smartball-4.png-dcf5c579d8e9a8cb895f1300ebc90c09.stex"
+path="res://.import/big_demon_run_anim_f2.png-175a66bd0e77e38b94b1b6144e2de1e0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Creatures/SnowballSmart/smartball-4.png"
-dest_files=[ "res://.import/smartball-4.png-dcf5c579d8e9a8cb895f1300ebc90c09.stex" ]
+source_file="res://Sprites/Creatures/Monster/big_demon_run_anim_f2.png"
+dest_files=[ "res://.import/big_demon_run_anim_f2.png-175a66bd0e77e38b94b1b6144e2de1e0.stex" ]
 
 [params]
 
