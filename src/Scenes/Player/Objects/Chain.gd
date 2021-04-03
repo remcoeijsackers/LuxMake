@@ -2,7 +2,8 @@
 This script controls the chain.
 """
 extends Node2D
-
+#const player.state = "nohook"
+const state = "nohook"
 onready var links = $Links		# A slightly easier reference to the links
 var direction := Vector2(0,0)	# The direction in which the chain was shot
 var tip := Vector2(0,0)			# The global position the tip should be in
@@ -43,7 +44,8 @@ func _process(_delta: float) -> void:
 
 # Every physics frame we update the tip position
 func _physics_process(_delta: float) -> void:
-	if CHAIN_ACTIVE == true:
+	#if player.state == "hook":
+	if state == "hook":
 		$Tip.global_position = tip	# The player might have moved and thus updated the position of the tip -> reset it
 		if flying:
 			# `if move_and_collide()` always moves, but returns true if we did collide

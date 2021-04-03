@@ -5,7 +5,7 @@ var oldvelocity
 var hit = false
 
 func explode():
-	remove_from_group("bullets")
+	#remove_from_group("bullets")
 	$CollisionShape2D.call_deferred("set_disabled", true)
 	$Area2D/EnemyCollision.call_deferred("set_disabled", true)
 	$AnimationPlayer.play("Hit")
