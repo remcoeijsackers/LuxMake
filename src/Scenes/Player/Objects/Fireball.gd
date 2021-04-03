@@ -3,7 +3,7 @@ extends KinematicBody2D
 var velocity = Vector2(0,0)
 var oldvelocity
 var hit = false
-
+var wallcling = ""
 func explode():
 	#remove_from_group("bullets")
 	$CollisionShape2D.call_deferred("set_disabled", true)
@@ -32,12 +32,23 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity * delta)
 		oldvelocity = velocity.x
 		if collision:
+			align()
 			$AnimationPlayer.stop()
 			velocity.y = 0
 			velocity.x = 0
-			yield(get_tree().create_timer(0.5), "timeout")
+			yield(get_tree().create_timer(2.5), "timeout")
 			explode()
 			#velocity = velocity.bounce(collision.normal)
 			#if velocity.x != oldvelocity:
 			#	explode()
 			#	$Extinguish.play()
+func align():
+
+	wallcling = "right"
+
+	$CollisionShape2D.position.y = 0
+	$CollisionShape2D.position.x = 16
+	$Area2D/EnemyCollision.position.y = 0
+	$CollisionShape2D.rotation_degrees = 0
+	$Area2D/EnemyCollision.rotation_degrees = 0
+
