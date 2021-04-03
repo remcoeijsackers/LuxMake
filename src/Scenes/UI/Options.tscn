@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/UI/UITheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/UI/Options.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Editor/Line.png" type="Texture" id=3]
 
@@ -14,7 +13,6 @@ margin_left = -90.0
 margin_top = -100.0
 margin_right = 90.0
 margin_bottom = 100.0
-theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Panel" type="Panel" parent="."]
@@ -54,47 +52,47 @@ expand = true
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 41.0
 margin_right = 164.0
-margin_bottom = 64.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 0, 23 )
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 12.0
-margin_top = 1.0
-margin_right = 132.0
-margin_bottom = 22.0
+margin_left = 35.0
+margin_top = 5.0
+margin_right = 101.0
+margin_bottom = 19.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 0
 text = "Fullscreen"
 
 [node name="FullscreenCheck" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
-margin_left = 136.0
-margin_right = 152.0
-margin_bottom = 23.0
+margin_left = 105.0
+margin_right = 129.0
+margin_bottom = 24.0
 action_mode = 0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 69.0
+margin_top = 70.0
 margin_right = 164.0
-margin_bottom = 92.0
+margin_bottom = 94.0
 rect_min_size = Vector2( 0, 23 )
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 31.0
-margin_top = 1.0
-margin_right = 112.0
-margin_bottom = 22.0
+margin_left = 47.0
+margin_top = 5.0
+margin_right = 89.0
+margin_bottom = 19.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 0
 text = "V-sync"
 
 [node name="VSyncCheck" type="CheckBox" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 116.0
-margin_right = 132.0
-margin_bottom = 23.0
+margin_left = 93.0
+margin_right = 117.0
+margin_bottom = 24.0
 action_mode = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]

@@ -1392,25 +1392,25 @@ expand = true
 [node name="CreateLevel" type="Button" parent="Menu/Create/Panel/VBoxContainer"]
 margin_top = 42.0
 margin_right = 342.0
-margin_bottom = 76.0
+margin_bottom = 95.0
 focus_mode = 1
 size_flags_vertical = 3
 enabled_focus_mode = 1
 text = "Create new level"
 
 [node name="CreateMap" type="Button" parent="Menu/Create/Panel/VBoxContainer"]
-margin_top = 80.0
+margin_top = 99.0
 margin_right = 342.0
-margin_bottom = 114.0
+margin_bottom = 152.0
 focus_mode = 1
 size_flags_vertical = 3
 enabled_focus_mode = 1
 text = "Create new worldmap"
 
 [node name="Line2" type="TextureRect" parent="Menu/Create/Panel/VBoxContainer"]
-margin_top = 118.0
+margin_top = 156.0
 margin_right = 342.0
-margin_bottom = 120.0
+margin_bottom = 158.0
 rect_min_size = Vector2( 0, 2 )
 texture = ExtResource( 9 )
 expand = true
