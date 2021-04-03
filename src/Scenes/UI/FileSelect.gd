@@ -15,7 +15,7 @@ func _ready():
 	$Popup.show()
 	reload()
 
-func _process(delta):
+func _process(_delta):
 	$Popup/Panel/HBoxContainer/OK.disabled = false
 	if save and savename == "":
 		$Popup/Panel/HBoxContainer/OK.disabled = true
@@ -98,7 +98,7 @@ func list_files_in_directory(path):
 
 	return files
 
-func _on_LineEdit_text_changed(new_text):
+func _on_LineEdit_text_changed(_new_text):
 	selectedfile = null
 
 func _on_OverwriteYes_pressed():

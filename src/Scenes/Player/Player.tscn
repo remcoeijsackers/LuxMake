@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-00.png" type="Texture" id=2]
@@ -47,7 +47,6 @@
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-01.png" type="Texture" id=45]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-04.png" type="Texture" id=46]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-attack1-02.png" type="Texture" id=47]
-[ext_resource path="res://Audio/SoundEffects/Player/flip.wav" type="AudioStream" id=50]
 [ext_resource path="res://Audio/SoundEffects/Player/thud.ogg" type="AudioStream" id=51]
 [ext_resource path="res://Audio/SoundEffects/Bonus/brick.wav" type="AudioStream" id=52]
 [ext_resource path="res://Audio/SoundEffects/Player/skid.wav" type="AudioStream" id=53]
@@ -62,17 +61,12 @@
 _data = [ Vector2( 0, 0.639509 ), 5.75234, 0.629246, 0, 0, Vector2( 1, 0.146709 ), -0.92688, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0, 0.311321, 0.688679, 1 )
-colors = PoolColorArray( 1, 0.941176, 0, 0.156863, 1, 0.5625, 0, 0.117647, 1, 0, 0, 0.0784314, 1, 0.5625, 0, 0 )
+offsets = PoolRealArray( 0, 0.168874, 0.311321, 0.688679, 1 )
+colors = PoolColorArray( 1, 0.941176, 0, 0.156863, 1, 0.281307, 0, 0.0392078, 1, 0.5625, 0, 0.117647, 1, 0, 0, 0.0784314, 1, 0.5625, 0, 0 )
 
 [sub_resource type="SpriteFrames" id=3]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "skid_small",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "idle",
@@ -88,69 +82,34 @@ animations = [ {
 "name": "backflip",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "buttjumpland",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
 "loop": false,
-"name": "fall_transition",
+"name": "fall_small",
 "speed": 16.0
-}, {
-"frames": [ ExtResource( 39 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "sword",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "walk_small",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_transition_small",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "idle_small",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 46 ), ExtResource( 34 ) ],
 "loop": true,
 "name": "gameover_small",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "jump",
-"speed": 18.0
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "buttjumpland",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "walk",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 35 ) ],
-"loop": true,
-"name": "duck",
-"speed": 5.0
+"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_transition",
+"speed": 16.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "skid",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_small",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "shoot",
+"name": "skid_small",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
@@ -158,14 +117,49 @@ animations = [ {
 "name": "fall",
 "speed": 16.0
 }, {
-"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 39 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 47 ) ],
 "loop": true,
-"name": "gameover",
-"speed": 10.0
+"name": "sword",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_transition_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "slide_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "walk_small",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 35 ) ],
+"loop": true,
+"name": "duck",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "attack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "gameover",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
@@ -173,10 +167,15 @@ animations = [ {
 "name": "jump_small",
 "speed": 18.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "slide_small",
+"name": "skid",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "jump",
+"speed": 18.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 25 ), ExtResource( 43 ), ExtResource( 41 ) ],
 "loop": false,
@@ -353,11 +352,15 @@ __meta__ = {
 }
 
 [node name="lit" type="CPUParticles2D" parent="Control"]
-amount = 3
+position = Vector2( 1, 1 )
+scale = Vector2( 1.5, 1.5 )
+amount = 5
 speed_scale = 6.0
 texture = ExtResource( 54 )
+emission_shape = 1
+emission_sphere_radius = 1.0
 spread = 180.0
-gravity = Vector2( 0, 0 )
+gravity = Vector2( -1, -1 )
 initial_velocity = 40.0
 initial_velocity_random = 0.25
 damping = 100.0
@@ -374,7 +377,6 @@ position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 3 )
 animation = "attack"
-frame = 1
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
@@ -433,7 +435,6 @@ pitch_scale = 0.34
 [node name="BigJump" type="AudioStreamPlayer" parent="SFX"]
 
 [node name="Flip" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 50 )
 
 [node name="Thud" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 51 )

@@ -16,6 +16,9 @@ func _on_fireball_body_entered(body):
 			body.call("fireball_kill")
 		else: body.call("kill")
 		explode()
+	if body.is_in_group("tiles") and hit == true:
+		return
+		# implement sticking to walls (maybe make the sword climable ?)
 
 func _physics_process(delta):
 	if $VisibilityNotifier2D.is_on_screen() == false:
