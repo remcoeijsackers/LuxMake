@@ -378,6 +378,7 @@ position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 3 )
 animation = "attack"
+speed_scale = 0.2
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
@@ -464,6 +465,7 @@ one_shot = true
 one_shot = true
 
 [node name="Node2D" type="Node2D" parent="."]
+visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="Node2D"]
 

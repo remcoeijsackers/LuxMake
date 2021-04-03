@@ -31,9 +31,11 @@ var stop = false
 var dir = Directory.new()
 var clickdisable = false
 var tilemap = null
+var count = 3
 
 func _ready():
-	if UIHelpers.get_level() == null:
+	while UIHelpers.get_level() == null:
+
 		initial_menu()
 		return
 
@@ -807,7 +809,7 @@ func _on_CreateMap_pressed():
 	create_level("res://Scenes/Editor/LevelTemplates/Worldmap.tscn")
 
 func create_level(level):
-	var createlevel = true
+	var _createlevel = true
 	set_process(false)
 	$Menu/Create.hide()
 	if UIHelpers.get_level() != null:

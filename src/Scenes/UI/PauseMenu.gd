@@ -9,7 +9,7 @@ func _ready():
 	get_tree().paused = false
 	panel_size = $Panel.rect_size
 
-func _input(event):
+func _input(_event):
 	if UIHelpers.get_player().dead == false and get_tree().current_scene.get_node("CanvasLayer/AnimationPlayer").is_playing() == false:
 		if Input.is_action_just_pressed("pause") && get_tree().paused == false:
 			get_tree().paused = true

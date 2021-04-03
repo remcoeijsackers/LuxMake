@@ -14,12 +14,15 @@ var camera_zoom = 1
 var camera_zoom_speed = 20
 onready var worldmap = "" # The worldmap you started in
 
+const __null = null
+
+
 func _ready():
 	load_editor()
 	UIHelpers.get_editor().set_process(false)
 
 func _process(_delta):
-	if UIHelpers.get_level() == null or UIHelpers.get_editor() == null or UIHelpers.get_player() == null:
+	while UIHelpers.get_level() == null or UIHelpers.get_editor() == null or UIHelpers.get_player() == null:
 		return
 
 	if camera_zoom_speed < 1: camera_zoom_speed = 1
@@ -293,7 +296,7 @@ func camera_to_level_bounds():
 	if $Camera2D.limit_right < get_viewport().size.x: # If the tilemap is thinner than the window, align the camera to the left
 		$Camera2D.limit_right = get_viewport().size.x
 	$Camera2D.limit_top = level_bound_top + 32
-	print(str($Camera2D.limit_top , " ", -get_viewport().size.y * 0.5))
+	#print(str($Camera2D.limit_top , " ", -get_viewport().size.y * 0.5))
 	if $Camera2D.limit_top > -get_viewport().size.y * 0.5: # If the tilemap is thinner than the window, align the camera to the left
 		$Camera2D.limit_top = -get_viewport().size.y * 0.5
 	$Camera2D.limit_bottom = level_bound_bottom - 32

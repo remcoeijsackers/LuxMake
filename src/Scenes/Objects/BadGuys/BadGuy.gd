@@ -19,13 +19,13 @@ var SQUISHED_ANIMATION = "squished"
 func on_ready():
 	pass
 
-func on_kill(delta):
+func on_kill(_delta):
 	pass
 
-func on_move(delta):
+func on_move(_delta):
 	pass
 
-func on_squish(delta):
+func on_squish(_delta):
 	pass
 
 func on_fireball_kill():
@@ -34,7 +34,7 @@ func on_fireball_kill():
 func on_buttjump_kill():
 	pass
 
-func on_physics_process(delta):
+func on_physics_process(_delta):
 	pass
 
 func _ready():

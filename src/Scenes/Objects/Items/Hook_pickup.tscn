@@ -1,32 +1,17 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scenes/Objects/Items/Powerup.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Objects/Coin/coin-0.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Objects/Coin/coin-1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Objects/Coin/coin-2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Objects/Coin/coin-3.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Objects/Coin/coin-4.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Objects/Coin/coin-5.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Objects/Coin/coin-6.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Objects/Coin/coin-7.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Objects/Coin/coin-8.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Objects/Coin/coin-9.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Objects/Coin/coin-10.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Objects/Coin/coin-11.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Objects/Coin/coin-12.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Objects/Coin/coin-13.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Objects/Coin/coin-14.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Objects/Coin/coin-15.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/Objects/Items/Hook_pickup.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Objects/hook/hook_pickup.png" type="Texture" id=2]
 [ext_resource path="res://Audio/SoundEffects/Bonus/coin.wav" type="AudioStream" id=18]
 [ext_resource path="res://Sprites/Objects/Coin/glow.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Objects/Coin/glimmer.png" type="Texture" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "default",
-"speed": 15.0
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -121,15 +106,11 @@ tracks/5/keys = {
 "values": [ true ]
 }
 
-[node name="Coin" type="KinematicBody2D"]
+[node name="Hook" type="KinematicBody2D"]
 script = ExtResource( 1 )
-coins = 1
-collect_on_appear = true
-pickup_animation = "Pickup"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 11
 playing = true
 
 [node name="PickupSFX" type="AudioStreamPlayer" parent="."]

@@ -44,6 +44,8 @@ const BUTTJUMP_LAND_TIME = 0.3
 # Fireball speed
 const FIREBALL_SPEED = 700
 
+	
+var shoot_wait = 0.5
 var velocity = Vector2()
 var on_ground = 999 # Frames Tux has been in air (0 if grounded)
 var jumpheld = 0 # Amount of frames jump has been held
@@ -71,7 +73,6 @@ var JUMP_COUNT = 0
 var WALL_JUMP_COUNT = 0
 const MAX_JUMP_COUNT = 2
 
-var CHAIN_PICKED = false
 
 export (int, 0, 200) var push = 100
 
@@ -136,7 +137,7 @@ func get_input():
 		velocity.x = lerp(velocity.x, dir * velocity.x, WALK_ACCEL)
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION)
-	if CHAIN_PICKED == true:
+	if state == "hook":
 		if InputEventMouseButton:
 			if InputEventMouseButton.pressed:
 				# We clicked the mouse -> shoot()
@@ -465,16 +466,25 @@ func _physics_process(delta):
 		$ButtjumpHitbox/CollisionShape2D.disabled = true
 
 	# Shooting
-	if Input.is_action_pressed("action") and state == "fire" and get_tree().get_nodes_in_group("bullets").size() < 2:
-		$AnimationPlayer.stop()
-		$AnimationPlayer.play("Attack")
-		shooting = true
-		$SFX/Shoot.play()
-		var fireball = load("res://Scenes/Player/Objects/Fireball.tscn").instance()
-		fireball.position = $ShootLocation.global_position
-		fireball.velocity = Vector2((FIREBALL_SPEED * $Control/AnimatedSprite.scale.x) + velocity.x,0)
-		fireball.add_collision_exception_with(self) # Prevent fireball colliding with player
-		get_parent().add_child(fireball) # Shoot fireball as child of player
+	if Input.is_action_pressed("action") and state == "fire" and get_tree().get_nodes_in_group("bullets").size() < 1:
+		while shoot_wait > 0:
+			# explode and shoot again if button is pressed before timer end
+			#if get_parent().get_child(fireball):
+			#	get_parent().get_child(fireball).emit_signal(explode())
+			$AnimationPlayer.stop()
+			$AnimationPlayer.play("Attack")
+			shooting = true
+			$SFX/Shoot.play()
+			var fireball = load("res://Scenes/Player/Objects/Fireball.tscn").instance()
+			fireball.position = $ShootLocation.global_position
+			fireball.velocity = Vector2((FIREBALL_SPEED * $Control/AnimatedSprite.scale.x) + velocity.x,0)
+			fireball.add_collision_exception_with(self) # Prevent fireball colliding with player
+			get_parent().add_child(fireball) # Shoot fireball as child of player
+			# after shooting, reinstate the collision exception
+			#fireball.remove_collision_exception_with(self)
+			shoot_wait -= 0.5
+		yield(get_tree().create_timer(0.5), "timeout")
+		shoot_wait = 0.5
 		shooting = false
 		
 	# Sword attack

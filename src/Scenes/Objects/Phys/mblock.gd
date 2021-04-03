@@ -71,7 +71,6 @@ func align():
 	$CollisionShape2D.rotation_degrees = 0
 	$Area2D/CollisionShape2D.rotation_degrees = 0
 	wallcling = ""
-
 	if $LeftWallDetector.is_colliding() and not $RightWallDetector.is_colliding():
 		wallcling = "left"
 		$Control.rect_pivot_offset.y = -1
