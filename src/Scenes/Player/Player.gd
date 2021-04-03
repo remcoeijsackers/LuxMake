@@ -71,6 +71,7 @@ var JUMP_COUNT = 0
 var WALL_JUMP_COUNT = 0
 const MAX_JUMP_COUNT = 2
 
+var CHAIN_PICKED = false
 
 export (int, 0, 200) var push = 100
 
@@ -135,7 +136,15 @@ func get_input():
 		velocity.x = lerp(velocity.x, dir * velocity.x, WALK_ACCEL)
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION)
-		
+	if CHAIN_PICKED == true:
+		if InputEventMouseButton:
+			if InputEventMouseButton.pressed:
+				# We clicked the mouse -> shoot()
+				$Chain.shoot(InputEventMouse.position - get_viewport().size * 0.5)
+			else:
+				# We released the mouse -> release()
+				$Chain.release()	
+			
 func _physics_process(delta):
 	#physics to boxes
 	#get_input()
@@ -173,6 +182,7 @@ func _physics_process(delta):
 		position += velocity * delta
 		velocity.y += GRAVITY
 		return
+		
 
 	# Horizontal movement
 	if (ducking == false or on_ground != 0) and backflip == false and skidding == false and sliding == false and $ButtjumpLandTimer.time_left == 0:
