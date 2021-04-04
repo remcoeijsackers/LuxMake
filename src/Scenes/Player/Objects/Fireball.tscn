@@ -10,6 +10,7 @@
 resource_name = "ActiveLeft"
 length = 0.2
 loop = true
+step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("FireballCollisionParticles:emitting")
 tracks/0/interp = 1
@@ -32,7 +33,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, -360.0 ]
+"values": [ 0.0, -285.9 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimatedSprite:visible")
@@ -97,7 +98,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 360.0 ]
+"values": [ 31.8, 31.8 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimatedSprite:visible")
@@ -202,10 +203,10 @@ tracks/4/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 9.59625, 13.894 )
+extents = Vector2( 9.37161, 7.84893 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 9.59625, 13.894 )
+extents = Vector2( 7.04389, 13.5008 )
 
 [sub_resource type="Curve" id=6]
 _data = [ Vector2( 0, 0.639509 ), 5.75234, 0.629246, 0, 0, Vector2( 1, 0.146709 ), -0.92688, 0.0, 0, 0 ]
@@ -253,6 +254,7 @@ collision_layer = 2
 collision_mask = 10
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.623581, -0.46769 )
 shape = SubResource( 5 )
 
 [node name="FireballGlow" type="CPUParticles2D" parent="."]
@@ -292,8 +294,9 @@ color_ramp = SubResource( 9 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 0.670588, 0.101961, 0.101961, 1 )
 material = SubResource( 11 )
-position = Vector2( 4.44989, 0.857714 )
-scale = Vector2( 1.23381, 1.46676 )
+position = Vector2( -0.412309, 0.41231 )
+rotation = 0.555015
+scale = Vector2( 1.75545, 1.43843 )
 frames = SubResource( 12 )
 
 [node name="FireballCollisionParticles" type="CPUParticles2D" parent="."]
@@ -317,6 +320,6 @@ color_ramp = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 2.33846, 0.857441 )
-scale = Vector2( 1.79508, 1.35077 )
+position = Vector2( 2.73879, -1.00533 )
+scale = Vector2( 2.77723, 1.63139 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_fireball_body_entered"]

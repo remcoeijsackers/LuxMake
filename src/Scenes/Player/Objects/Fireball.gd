@@ -50,7 +50,8 @@ func _on_fireball_body_entered(body):
 		collision_mask = 31
 		collision_layer = 1
 		return
-
+func _get_scene():
+	return get_tree().current_scene
 func _physics_process(delta):
 	if $VisibilityNotifier2D.is_on_screen() == false:
 		queue_free()
@@ -65,6 +66,7 @@ func _physics_process(delta):
 		oldvelocity = velocity.x
 		
 		if collision:
+			remove_collision_exception_with(_get_scene().get_node("Player"))
 			align()
 			$AnimationPlayer.stop()
 			collision_mask = 31
@@ -72,8 +74,8 @@ func _physics_process(delta):
 			velocity.y = 0
 			velocity.x = 0
 			time_done = false
-			if bullets.bullets_explode:
-				explode()
+		if bullets.bullets_explode:
+			explode()
 			
 
 		

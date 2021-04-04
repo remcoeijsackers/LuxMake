@@ -42,7 +42,7 @@ const BUTTJUMP_FALL_SPEED = 2000.0
 const BUTTJUMP_LAND_TIME = 0.3
 
 # Fireball speed
-const FIREBALL_SPEED = 700
+const FIREBALL_SPEED = 800
 
 	
 var shoot_wait = 2
@@ -484,13 +484,14 @@ func _physics_process(delta):
 			fireball.add_collision_exception_with(self) # Prevent fireball colliding with player
 			get_parent().add_child(fireball) # Shoot fireball as child of player
 			# after shooting, reinstate the collision exception
-			fireball.remove_collision_exception_with(self)
 			shoot_wait -= 2
+			#fireball.remove_collision_exception_with(self)
 		yield(get_tree().create_timer(2), "timeout")
-		bullets.bullets_explode = true
+		bullets.bullets_explode = false
 		shoot_wait = 2
 		shooting = false
-		
+	if Input.is_action_pressed("explode"):
+		bullets.bullets_explode = true
 	# Sword attack
 	if Input.is_action_pressed("sword"):
 		var sword = load("res://Scenes/Player/Objects/Swordattack.tscn").instance()

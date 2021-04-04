@@ -60,11 +60,11 @@ filepath = "res://Scenes/Editor/Layers/Backgrounds"
 original_name = "Background"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
-scroll_offset = Vector2( 331, 375 )
+scroll_offset = Vector2( 683, 375 )
 script = ExtResource( 9 )
 
 [node name="Sky" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-position = Vector2( -653, -2025 )
+position = Vector2( -1670, -2250 )
 motion_scale = Vector2( 0, 0 )
 motion_offset = Vector2( 0, -600 )
 motion_mirroring = Vector2( 1700, 0 )
@@ -77,7 +77,7 @@ texture = ExtResource( 6 )
 centered = false
 
 [node name="BG" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-position = Vector2( -301.68, 218.607 )
+position = Vector2( -1148.68, 243.607 )
 motion_scale = Vector2( 0.18, 0.2 )
 motion_offset = Vector2( 0, -350 )
 motion_mirroring = Vector2( 1530, 0 )
@@ -89,7 +89,7 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="FG" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-position = Vector2( -1018.2, -231.394 )
+position = Vector2( -335.2, -256.394 )
 motion_scale = Vector2( 0.2, 0.2 )
 motion_offset = Vector2( 0, -400 )
 motion_mirroring = Vector2( 1700, 0 )
