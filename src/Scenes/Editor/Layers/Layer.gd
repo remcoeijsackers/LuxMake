@@ -12,7 +12,7 @@ export var original_name = ""
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	position = Vector2(0,0)
 
 	modulate = tint

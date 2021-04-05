@@ -62,7 +62,7 @@ func _ready():
 func _process(_delta):
 	layerfile = UIHelpers.get_level().get_node(layer_selected)
 	if layerfile == null:
-		layer_selected == ""
+		layer_selected = ""
 		layer_selected_type = ""
 		$SelectedArea.visible = false
 		$EraserSprite.visible = false
@@ -788,7 +788,7 @@ func _on_LevelProperties_pressed():
 	$Menu/Editor.hide()
 	$Menu/Settings.show()
 
-func _on_ReturnMenu_pressed():
+func _on_ReturnMenu_pressed() -> void:
 	$Menu/Editor.hide()
 	if UIHelpers.get_level() != null:
 		$Menu/Exit.show()

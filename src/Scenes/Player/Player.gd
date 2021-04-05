@@ -336,7 +336,7 @@ func _physics_process(delta):
 			else: pass#start_sliding()
 	elif $StandWindow.is_colliding() == true and sliding == false and state != "small": ducking = true
 	else: 
-		ducking == false
+		ducking = false
 
 	# Sliding
 	if sliding == true:
