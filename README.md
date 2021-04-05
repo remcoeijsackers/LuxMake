@@ -22,12 +22,14 @@ Name | Desciption | Status
 
 ## Controls
 
-`wasd` Walking
-`/` Interact
-`space` Jump / Double Jump
-`right shift` throw knifes
-`.` explode knifes
-`Jump + down` Down attack
+Name | Desciption 
+--- | --- 
+`wasd`| Walking
+`/` | Interact
+`space` | Jump / Double Jump
+`right shift` | throw knifes
+`.` | explode knifes
+`Jump + down` | Down attack
 
 
 ![Screenshot](./LuxMake.png)
