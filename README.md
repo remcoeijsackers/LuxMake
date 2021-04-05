@@ -27,8 +27,9 @@ Name | Desciption
 `wasd`| Walking
 `/` | Interact
 `space` | Jump / Double Jump
-`right shift` | throw knifes
-`.` | explode knifes
+`right shift` | Throw knifes (With PowerUp)
+`Click` | Grappling hook (With PowerUp)
+`.` | Explode knifes
 `Jump + down` | Down attack
 
 
