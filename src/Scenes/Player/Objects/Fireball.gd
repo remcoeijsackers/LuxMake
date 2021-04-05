@@ -6,7 +6,7 @@ var hit = false
 var wallcling = ""
 var time_done = false
 signal timer_end
-onready var bullets = get_node("/root/GameVariables")
+onready var game = get_node("/root/GameVariables")
 
 func _wait( seconds ):
 	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
@@ -34,7 +34,7 @@ func explode():
 	$CollisionShape2D.call_deferred("set_disabled", true)
 	$Area2D/EnemyCollision.call_deferred("set_disabled", true)
 	$AnimationPlayer.play("Hit")
-	bullets.bullets_explode = false
+	game.bullets_explode = false
 	hit = true
 
 func _on_fireball_body_entered(body):
@@ -49,6 +49,8 @@ func _on_fireball_body_entered(body):
 		# add the code to hold player
 		collision_mask = 31
 		collision_layer = 1
+		return
+	if body.is_in_group("bullets"):
 		return
 func _get_scene():
 	return get_tree().current_scene
@@ -74,7 +76,7 @@ func _physics_process(delta):
 			velocity.y = 0
 			velocity.x = 0
 			time_done = false
-		if bullets.bullets_explode:
+		if game.bullets_explode:
 			explode()
 			
 

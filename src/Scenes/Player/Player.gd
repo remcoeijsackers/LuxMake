@@ -73,7 +73,7 @@ var JUMP_COUNT = 0
 var WALL_JUMP_COUNT = 0
 const MAX_JUMP_COUNT = 2
 
-onready var bullets = get_node("/root/GameVariables")
+onready var game = get_node("/root/GameVariables")
 
 
 export (int, 0, 200) var push = 100
@@ -468,7 +468,7 @@ func _physics_process(delta):
 		$ButtjumpHitbox/CollisionShape2D.disabled = true
 
 	# Shooting
-	if Input.is_action_pressed("action") and state == "fire" and get_tree().get_nodes_in_group("bullets").size() < 1:
+	if Input.is_action_pressed("action") and state == "fire" and get_tree().get_nodes_in_group("bullets").size() < 3:
 		while shoot_wait > 0:
 			# explode and shoot again if button is pressed before timer end
 			#if get_parent().get_child(fireball):
@@ -487,11 +487,11 @@ func _physics_process(delta):
 			shoot_wait -= 2
 			#fireball.remove_collision_exception_with(self)
 		yield(get_tree().create_timer(2), "timeout")
-		bullets.bullets_explode = false
+		game.bullets_explode = false
 		shoot_wait = 2
 		shooting = false
 	if Input.is_action_pressed("explode"):
-		bullets.bullets_explode = true
+		game.bullets_explode = true
 	# Sword attack
 	if Input.is_action_pressed("sword"):
 		var sword = load("res://Scenes/Player/Objects/Swordattack.tscn").instance()

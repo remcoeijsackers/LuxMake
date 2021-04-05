@@ -31,9 +31,9 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 1, 4.28709 ),
 "update": 0,
-"values": [ 0.0, -285.9 ]
+"values": [ -34.5, -34.5 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimatedSprite:visible")
@@ -203,7 +203,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 9.37161, 7.84893 )
+extents = Vector2( 10.0662, 7.63191 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 7.04389, 13.5008 )
@@ -320,6 +320,6 @@ color_ramp = ExtResource( 4 )
 stream = ExtResource( 5 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 2.73879, -1.00533 )
+position = Vector2( 1.26314, -1.00533 )
 scale = Vector2( 2.77723, 1.63139 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_fireball_body_entered"]
