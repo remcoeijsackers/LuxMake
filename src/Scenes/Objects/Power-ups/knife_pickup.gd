@@ -19,9 +19,15 @@ var velocity = Vector2()
 var appeared = false
 var player = null
 var gravity = false
-onready var game = get_node("/root/GameVariables")
 
+onready var game = get_node("/root/GameVariables")
 func _physics_process(delta):
+	for body in $Area2D.get_overlapping_bodies():
+		if body.is_in_group("player"):
+			game.player_state = "fire"
+			player = body
+			collected = true
+			collect_check()
 	gravity = false
 	if appeared == true and gravity_when_appeared == true:
 		gravity = true
@@ -50,16 +56,15 @@ func _physics_process(delta):
 		collect_check()
 
 func collect_check():
-	if collected == true: return
-	for body in $Area2D.get_overlapping_bodies():
-		if body.is_in_group("player"):
-			player = body
-			collected = true
+
 	if collected == true:
+		queue_free() 
+		$AnimatedSprite.call_deferred("set_disabled", true)
+		$Area2D/CollisionShape2D2.call_deferred("set_disabled", true)
+		game.player_state = "fire"
 		if game.player_state == "small" or ignore_small == false:
 			if powerup_state == "star":
 				player.star_invincibility()
-			#else: game.player_state = powerup_state
 		if pickup_animation != "":
 			$AnimationPlayer.stop()
 			$AnimationPlayer.play(pickup_animation)

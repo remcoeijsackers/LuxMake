@@ -1,0 +1,166 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Sprites/Objects/hook/hook_pickup.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/Power-ups/Hook_pickup.gd" type="Script" id=2]
+[ext_resource path="res://Audio/SoundEffects/Bonus/coin.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sprites/Objects/Coin/glow.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Objects/Coin/glimmer.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 26.6515, 24.8067 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.160494, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.196078, 1, 1, 0, 0 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0127 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.27193, 0.54386, 1 )
+colors = PoolColorArray( 1, 1, 1, 0.898039, 1, 1, 1, 0.803922, 1, 1, 0.588235, 0.709804, 1, 1, 0, 0 )
+
+[sub_resource type="Animation" id=6]
+tracks/0/type = "audio"
+tracks/0/path = NodePath("PickupSFX")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -110 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollectSparkles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 0 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CollectGlow:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 0 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="Hook" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+
+[node name="PickupSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "SFX"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0.440125, -3.96114 )
+collision_layer = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.440125, 3.96114 )
+shape = SubResource( 2 )
+
+[node name="CollectGlow" type="CPUParticles2D" parent="."]
+position = Vector2( 0.440125, -3.96114 )
+emitting = false
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.75
+texture = ExtResource( 4 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+damping = 100.0
+scale_amount = 3.0
+color_ramp = SubResource( 3 )
+
+[node name="CollectSparkles" type="CPUParticles2D" parent="."]
+position = Vector2( 0.440125, -3.96114 )
+emitting = false
+amount = 5
+one_shot = true
+speed_scale = 2.5
+explosiveness = 0.75
+texture = ExtResource( 5 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 45.0
+damping = 20.0
+angle = 180.0
+angle_random = 1.0
+scale_amount = 0.9
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Pickup = SubResource( 6 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( -0.174824, -0.0874083 )
+scale = Vector2( 1.6993, 1.69056 )
+rect = Rect2( -16, -16, 32, 32 )

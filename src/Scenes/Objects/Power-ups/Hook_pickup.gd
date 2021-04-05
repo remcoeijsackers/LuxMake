@@ -27,6 +27,7 @@ func _physics_process(delta):
 			game.player_state = "hook"
 			player = body
 			collected = true
+			collect_check()
 	gravity = false
 	if appeared == true and gravity_when_appeared == true:
 		gravity = true
@@ -55,14 +56,15 @@ func _physics_process(delta):
 		collect_check()
 
 func collect_check():
-	if collected == true: return
 
 	if collected == true:
-		player.state = "hook"
-		if player.state == "small" or ignore_small == false:
+		queue_free() 
+		$AnimatedSprite.call_deferred("set_disabled", true)
+		$Area2D/CollisionShape2D2.call_deferred("set_disabled", true)
+		game.player_state = "hook"
+		if game.player_state == "small" or ignore_small == false:
 			if powerup_state == "star":
 				player.star_invincibility()
-			else: player.state = powerup_state
 		if pickup_animation != "":
 			$AnimationPlayer.stop()
 			$AnimationPlayer.play(pickup_animation)

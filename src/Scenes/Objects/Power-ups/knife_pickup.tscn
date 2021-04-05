@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scenes/Objects/Items/Hook_pickup.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Objects/hook/hook_pickup.png" type="Texture" id=2]
-[ext_resource path="res://Audio/SoundEffects/Bonus/coin.wav" type="AudioStream" id=18]
-[ext_resource path="res://Sprites/Objects/Coin/glow.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Objects/Coin/glimmer.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Player/Objects/weapon_cleaver.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/Power-ups/knife_pickup.gd" type="Script" id=2]
+[ext_resource path="res://Audio/SoundEffects/Bonus/coin.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sprites/Objects/Coin/glow.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Objects/Coin/glimmer.png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 18 )
+"stream": ExtResource( 3 )
 } ],
 "times": PoolRealArray( 0 )
 }
@@ -107,14 +107,14 @@ tracks/5/keys = {
 }
 
 [node name="Hook" type="KinematicBody2D"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 playing = true
 
 [node name="PickupSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 18 )
+stream = ExtResource( 3 )
 bus = "SFX"
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -131,7 +131,7 @@ emitting = false
 one_shot = true
 speed_scale = 3.0
 explosiveness = 0.75
-texture = ExtResource( 19 )
+texture = ExtResource( 4 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 50.0
@@ -146,7 +146,7 @@ amount = 5
 one_shot = true
 speed_scale = 2.5
 explosiveness = 0.75
-texture = ExtResource( 20 )
+texture = ExtResource( 5 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 45.0

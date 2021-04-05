@@ -24,6 +24,9 @@ corner_radius_bottom_left = 4
 margin_right = 32.0
 margin_bottom = 32.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Control" type="Control" parent="."]
 margin_right = 32.0
@@ -39,9 +42,12 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Control/Sprite"]
-collision_mask = 6
+visible = false
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Sprite/StaticBody2D"]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Button" type="Button" parent="Control"]

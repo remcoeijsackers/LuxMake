@@ -46,7 +46,7 @@ const FIREBALL_SPEED = 800
 
 const FRICTION_AIR = 0.95		# The friction while airborne
 const FRICTION_GROUND = 0.85
-const CHAIN_PULL = 105
+const CHAIN_PULL = 200
 var shoot_wait = 2
 var velocity = Vector2()
 var on_ground = 999 # Frames Tux has been in air (0 if grounded)
@@ -76,7 +76,7 @@ var walk = (Input.get_action_strength("right") - Input.get_action_strength("left
 var JUMP_COUNT = 0
 var WALL_JUMP_COUNT = 0
 const MAX_JUMP_COUNT = 2
-
+var mouse = get_local_mouse_position()
 onready var game = get_node("/root/GameVariables")
 
 
