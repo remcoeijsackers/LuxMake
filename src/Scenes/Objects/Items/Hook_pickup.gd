@@ -21,6 +21,11 @@ var player = null
 var gravity = false
 
 func _physics_process(delta):
+	for body in $Area2D.get_overlapping_bodies():
+		if body.is_in_group("player"):
+			print("picked by player")
+			player = body
+			collected = true
 	gravity = false
 	if appeared == true and gravity_when_appeared == true:
 		gravity = true
@@ -50,10 +55,7 @@ func _physics_process(delta):
 
 func collect_check():
 	if collected == true: return
-	for body in $Area2D.get_overlapping_bodies():
-		if body.is_in_group("player"):
-			player = body
-			collected = true
+
 	if collected == true:
 		player.state = "hook"
 		if player.state == "small" or ignore_small == false:

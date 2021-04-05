@@ -3,8 +3,8 @@ This script controls the chain.
 """
 extends Node2D
 #const player.state = "nohook"
-const state = "nohook"
-onready var links = $Links		# A slightly easier reference to the links
+var state = "hook"
+onready var links = $Links
 var direction := Vector2(0,0)	# The direction in which the chain was shot
 var tip := Vector2(0,0)			# The global position the tip should be in
 								# We use an extra var for this, because the chain is 
@@ -12,15 +12,20 @@ var tip := Vector2(0,0)			# The global position the tip should be in
 								# properties would get messed with when the player
 								# moves.
 
-const SPEED = 50	# The speed with which the chain moves
+const SPEED = 500	# The speed with which the chain moves
 
 var flying = false	# Whether the chain is moving through the air
 var hooked = false	# Whether the chain has connected to a wall
 
 var CHAIN_ACTIVE = false
 
+#the tip
+
+
+	
 # shoot() shoots the chain in a given direction
 func shoot(dir: Vector2) -> void:
+	$Tip.add_collision_exception_with(get_tree().get_node("Player"))
 	direction = dir.normalized()	# Normalize the direction and save it
 	flying = true					# Keep track of our current scan
 	tip = self.global_position		# reset the tip position to the player's position
@@ -44,8 +49,7 @@ func _process(_delta: float) -> void:
 
 # Every physics frame we update the tip position
 func _physics_process(_delta: float) -> void:
-	#if player.state == "hook":
-	if state == "hook":
+	if state == "hook" and get_tree().current_scene.editmode == false:
 		$Tip.global_position = tip	# The player might have moved and thus updated the position of the tip -> reset it
 		if flying:
 			# `if move_and_collide()` always moves, but returns true if we did collide

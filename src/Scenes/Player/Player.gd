@@ -44,7 +44,9 @@ const BUTTJUMP_LAND_TIME = 0.3
 # Fireball speed
 const FIREBALL_SPEED = 800
 
-	
+const FRICTION_AIR = 0.95		# The friction while airborne
+const FRICTION_GROUND = 0.85
+const CHAIN_PULL = 105
 var shoot_wait = 2
 var velocity = Vector2()
 var on_ground = 999 # Frames Tux has been in air (0 if grounded)
@@ -69,6 +71,9 @@ var object_held = ""
 var wind = 0
 var shooting = false
 
+var can_jump = false	
+var chain_velocity := Vector2(0,0)
+var walk = (Input.get_action_strength("right") - Input.get_action_strength("left")) * WALK_ADD
 var JUMP_COUNT = 0
 var WALL_JUMP_COUNT = 0
 const MAX_JUMP_COUNT = 2
@@ -129,6 +134,16 @@ func _ready():
 
 #=============================================================================
 # PHYSICS
+func _input(event: InputEvent) -> void:
+	if state == "hook":
+		if event is InputEventMouseButton:
+			if event.pressed:
+				print("pew")
+			# We clicked the mouse -> shoot()
+				$Chain.shoot(event.position - get_viewport().size * 0.5)
+			else:
+			# We released the mouse -> release()
+				$Chain.release()
 func get_input():
 	var dir = 0
 	if Input.is_action_pressed("move_right"):
@@ -139,16 +154,65 @@ func get_input():
 		velocity.x = lerp(velocity.x, dir * velocity.x, WALK_ACCEL)
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION)
-	if state == "hook":
-		if InputEventMouseButton:
-			if InputEventMouseButton.pressed:
+	#if state == "hook":
+#	if Input.is_action_pressed("click_left"):
+#		print("shoot hook")
 				# We clicked the mouse -> shoot()
-				$Chain.shoot(InputEventMouse.position - get_viewport().size * 0.5)
-			else:
+#		$Chain.shoot(InputEventMouse.position - get_viewport().size * 0.5)
+#	else:
 				# We released the mouse -> release()
-				$Chain.release()	
+#		$Chain.release()	
 			
 func _physics_process(delta):
+	
+	#Hook
+		# Hook physics
+	if $Chain.hooked:
+		# `to_local($Chain.tip).normalized()` is the direction that the chain is pulling
+		chain_velocity = to_local($Chain.tip).normalized() * CHAIN_PULL
+		if chain_velocity.y > 0:
+			# Pulling down isn't as strong
+			chain_velocity.y *= 0.55
+		else:
+			# Pulling up is stronger
+			chain_velocity.y *= 1.65
+		if sign(chain_velocity.x) != sign(walk):
+			# if we are trying to walk in a different
+			# direction than the chain is pulling
+			# reduce its pull
+			chain_velocity.x *= 0.7
+	else:
+		# Not hooked -> no chain velocity
+		chain_velocity = Vector2(0,0)
+	velocity += chain_velocity
+
+	velocity.x += walk		# apply the walking
+	move_and_slide(velocity, Vector2.UP)	# Actually apply all the forces
+	velocity.x -= walk		# take away the walk speed again
+	# ^ This is done so we don't build up walk speed over time
+
+	# Manage friction and refresh jump and stuff
+	velocity.y = clamp(velocity.y, -run_max, run_max)	# Make sure we are in our limits
+	velocity.x = clamp(velocity.x, -run_max, run_max)
+	var grounded = is_on_floor()
+	if grounded:
+		velocity.x *= FRICTION_GROUND	# Apply friction only on x (we are not moving on y anyway)
+		can_jump = true 				# We refresh our air-jump
+		if velocity.y >= 5:		# Keep the y-velocity small such that
+			velocity.y = 5		# gravity doesn't make this number huge
+	elif is_on_ceiling() and velocity.y <= -5:	# Same on ceilings
+		velocity.y = -5
+
+	# Apply air friction
+	if !grounded:
+		velocity.x *= FRICTION_AIR
+		if velocity.y > 0:
+			velocity.y *= FRICTION_AIR
+
+	
+	#end hook
+	
+	
 	#physics to boxes
 	#get_input()
 	#velocity = move_and_slide(velocity, Vector2.UP, false,
