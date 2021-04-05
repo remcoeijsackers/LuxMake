@@ -20,10 +20,11 @@ var appeared = false
 var player = null
 var gravity = false
 
+onready var game = get_node("/root/GameVariables")
 func _physics_process(delta):
 	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group("player"):
-			print("picked by player")
+			game.player_state = "hook"
 			player = body
 			collected = true
 	gravity = false

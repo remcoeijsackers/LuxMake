@@ -25,7 +25,7 @@ var CHAIN_ACTIVE = false
 	
 # shoot() shoots the chain in a given direction
 func shoot(dir: Vector2) -> void:
-	$Tip.add_collision_exception_with(get_tree().get_node("Player"))
+	$Tip.add_collision_exception_with(self)
 	direction = dir.normalized()	# Normalize the direction and save it
 	flying = true					# Keep track of our current scan
 	tip = self.global_position		# reset the tip position to the player's position
