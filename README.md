@@ -15,11 +15,11 @@ Once you have those unzip the source code and open src/project.godot, and press 
 Name | Desciption | Status
 --- | --- | ---
 `Stackable Blocks` | **Weighted blocks that can be moved in game** | **Done**
-`On/Off switch` | **Button that can be tied to operate certain elements ** | **-**
-`Trail` | **Trail that placed elements will follow ** | **-**
+`On/Off switch` | **Button that can be tied to operate certain elements** | **-**
+`Trail` | **Trail that placed elements will follow** | **-**
 `Glue` | **To Connect elements permanently** | **-**
-`Throwing Knife` | **Throwing Knife that sticks to walls for navigation** | **Done**
-
+`Throwing Knife Powerup` | **Throwing Knife that sticks to walls for navigation** | **Done**
+`Grappling hook Powerup` | **Grappling hook for easy navigation** | **Done**
 ## Controls
 
 Name | Desciption 
