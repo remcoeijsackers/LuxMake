@@ -18,5 +18,16 @@ Name | Desciption | Status
 `On/Off switch` | **Button that can be tied to operate certain elements ** | **-**
 `Trail` | **Trail that placed elements will follow ** | **-**
 `Glue` | **To Connect elements permanently** | **-**
+`Throwing Knife` | **Throwing Knife that sticks to walls for navigation** | **Done**
+
+## Controls
+
+`wasd` Walking
+`/` Interact
+`space` Jump / Double Jump
+`right shift` throw knifes
+`.` explode knifes
+`Jump + down` Down attack
+
 
 ![Screenshot](./LuxMake.png)
