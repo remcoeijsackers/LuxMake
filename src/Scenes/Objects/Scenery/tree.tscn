@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Scenery/Tree_SpriteSheet_Outlined.png" type="Texture" id=1]
+
+[sub_resource type="AnimatedTexture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 3.21809, -3.48629 )
+scale = Vector2( 1.00479, 0.983239 )
+texture = ExtResource( 1 )
+normal_map = SubResource( 1 )

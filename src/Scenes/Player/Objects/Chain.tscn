@@ -12,6 +12,8 @@ height = 8.80657
 script = ExtResource( 3 )
 
 [node name="Links" type="Sprite" parent="."]
+position = Vector2( -0.0779496, 0.161957 )
+scale = Vector2( 0.464103, 0.999567 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -8, 14 )
@@ -23,6 +25,8 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="Hook" type="Sprite" parent="Tip"]
+position = Vector2( -0.54564, 0.935382 )
+scale = Vector2( 0.507949, 0.571283 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, 8 )
 
