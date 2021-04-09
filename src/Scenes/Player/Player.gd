@@ -83,6 +83,7 @@ onready var game = get_node("/root/GameVariables")
 onready var health = game.player_health
 onready var anim = get_node('AnimationPlayer')
 
+var actiontracker = false
 
 export (int, 0, 200) var push = 100
 
@@ -265,7 +266,6 @@ func _physics_process(delta):
 			elif on_ground == 0 and abs(velocity.x) >= WALK_MAX:
 				if !skidding:
 					skidding = true
-					$SFX/Skid.play()
 
 			# Air turning
 			else: velocity.x += TURN_ACCEL * delta
@@ -292,10 +292,6 @@ func _physics_process(delta):
 			# Air turning
 			else: velocity.x -= TURN_ACCEL * delta
 
-	# Speedcap
-	if !sliding:
-		velocity.x = clamp(velocity.x, -run_max, run_max)
-
 	# Friction
 	if backflip == false and (skidding or (ducking and on_ground == 0) or (not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"))):
 
@@ -305,18 +301,6 @@ func _physics_process(delta):
 				$Control/AnimatedSprite.scale.x = -1.963
 			if velocity.x < 0:
 				$Control/AnimatedSprite.scale.x = 1.963
-
-		# Friction
-		if !sliding:
-			velocity.x *= FRICTION
-		elif on_ground == 0: velocity.x *= SLIDE_FRICTION
-		if abs(velocity.x) < 80 and wind == 0:
-			velocity.x = 0
-
-	# Stop skidding if low velocity
-	if abs(velocity.x) < 75 and skidding:
-		skidding = false
-		velocity.x = 0
 
 	# Move
 	var oldvelocity = velocity
@@ -379,17 +363,13 @@ func _physics_process(delta):
 		on_ground += 1
 		$ButtjumpLandTimer.stop()
 
-	# Ceiling bump sound
-	if is_on_ceiling():
-		$SFX/Thud.play()
-
 	# Ducking / Sliding
 	if on_ground == 0:
 		# Stop ducking in certain situations
-		if not Input.is_action_pressed("duck") or game.player_state == "small": ducking = false
+		if not Input.is_action_pressed("duck"): ducking = false
 
 		# Duck if in one block space
-		if $StandWindow.is_colliding() == true and !sliding and game.player_state != "small": ducking = true
+		if $StandWindow.is_colliding() == true and !sliding: ducking = true
 
 		# Ducking / Sliding
 		elif Input.is_action_pressed("duck") and !sliding and !skidding and $ButtjumpLandTimer.time_left == 0:
@@ -400,10 +380,6 @@ func _physics_process(delta):
 	else: 
 		ducking = false
 
-	# Sliding
-	if sliding == true:
-		pass
-
 	# Jump buffering
 	if Input.is_action_pressed("jump"):
 		jumpheld += 1
@@ -413,7 +389,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump") and jumpheld <= JUMP_BUFFER_TIME:
 		if JUMP_COUNT < 2 and $ButtjumpLandTimer.time_left <= BUTTJUMP_LAND_TIME - 0.02:
 			JUMP_COUNT += 1
-			if game.player_state != "small" and Input.is_action_pressed("duck") == true and $StandWindow.is_colliding() == false and sliding == false and $ButtjumpLandTimer.time_left == 0:
+			if Input.is_action_pressed("duck") == true and $StandWindow.is_colliding() == false and sliding == false and $ButtjumpLandTimer.time_left == 0:
 				backflip = true
 				backflip_rotation = 0
 				velocity.y = -RUNJUMP_POWER
@@ -458,7 +434,7 @@ func _physics_process(delta):
 		$Control/AnimatedSprite.rotation_degrees = backflip_rotation
 
 	# Buttjump
-	if on_ground != 0 and Input.is_action_just_pressed("duck") and game.player_state != "small" and backflip == false and buttjump == false:
+	if on_ground != 0 and Input.is_action_just_pressed("duck") and backflip == false and buttjump == false:
 		buttjump = true
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("Buttjump")
@@ -506,7 +482,7 @@ func _physics_process(delta):
 		else: set_animation("jump")
 
 	# Duck Hitboxes
-	if ducking == true or sliding == true or game.player_state == "small" or buttjump == true:
+	if ducking == true or sliding == true or buttjump == true:
 		$Hitbox.shape.extents.y = 15
 		$Hitbox.position.y = 17
 		$ShootLocation.position.y = 17
@@ -558,7 +534,7 @@ func _physics_process(delta):
 		sword.add_collision_exception_with(self)
 		get_parent().add_child(sword)
 		#swordattack = false
-		get_parent().remove_child(sword)
+		#get_parent().remove_child(sword)
 		
 	# Camera Positioning
 	if abs(velocity.x) > WALK_ADD:
@@ -596,13 +572,6 @@ func _physics_process(delta):
 			if get_tree().current_scene.get_node(str("Level/", object_held)).has_method("throw"):
 				get_tree().current_scene.get_node(str("Level/", object_held)).throw()
 				if not Input.is_action_pressed("duck"): get_tree().current_scene.get_node(str("Level/", object_held)).velocity.x = velocity.x + (200 * $Control/AnimatedSprite.scale.x)
-
-	# Decrease Wind
-	if wind > 0:
-		wind -= 1
-	else:
-		wind = 0
-		run_max = 320.0
 
 # Star invincibility
 func star_invincibility():
@@ -647,10 +616,3 @@ func bounce(low, high, cancellable):
 	else:
 		velocity.y = -low
 		jumpcancel = false
-
-# Activate sliding
-func start_sliding():
-	$ButtjumpLandTimer.stop()
-	sliding = true
-	$SFX/Skid.play()
-	velocity.x += WALK_ADD * $Control/AnimatedSprite.scale.x
