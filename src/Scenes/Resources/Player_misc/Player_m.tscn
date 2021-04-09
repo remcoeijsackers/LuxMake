@@ -1,0 +1,498 @@
+[gd_scene load_steps=73 format=2]
+
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-03.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-slide-00.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Player/Objects/PlayerAttack.tres" type="Animation" id=3]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-fall-00.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-fall-01.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-cast-01.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-hurt-02.png" type="Texture" id=7]
+[ext_resource path="res://Audio/SoundEffects/Player/thud.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-slide-01.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Player/Camera2D.gd" type="Script" id=10]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-01.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-idle-00.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Resources/Player_misc/Player_m.gd" type="Script" id=13]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-02.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-00.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-cast-00.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-01.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-cast-02.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-hurt-01.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-air-attack-3-end-01.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-items-00.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-air-attack3-loop-00.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-00.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-02.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-cast-03.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-03.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-05.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-run-04.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-06.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-air-attack3-loop-01.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-jump-03.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-hurt-00.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-idle-01.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-idle-02.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-idle-03.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-jump-00.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-05.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-crouch-03.png" type="Texture" id=38]
+[ext_resource path="res://Audio/SoundEffects/Player/mixkit-martial-arts-fast-punch-2047.wav" type="AudioStream" id=39]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-attack1-04.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-attack1-03.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-air-attack-3-end-00.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-02.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-air-attack3-rdy-00.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-01.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-04.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-attack1-02.png" type="Texture" id=47]
+[ext_resource path="res://Audio/SoundEffects/Bonus/brick.wav" type="AudioStream" id=48]
+[ext_resource path="res://Audio/SoundEffects/Player/skid.wav" type="AudioStream" id=49]
+[ext_resource path="res://Sprites/Objects/Fireball/fireballambient.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-03.png" type="Texture" id=51]
+[ext_resource path="res://Audio/SoundEffects/Player/hurt.wav" type="AudioStream" id=52]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-jump-02.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-jump-01.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-00.png" type="Texture" id=55]
+[ext_resource path="res://Scenes/Player/Objects/Chain.tscn" type="PackedScene" id=56]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.639509 ), 5.75234, 0.629246, 0, 0, Vector2( 1, 0.146709 ), -0.92688, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.168874, 0.311321, 0.688679, 1 )
+colors = PoolColorArray( 1, 0.941176, 0, 0.156863, 1, 0.281307, 0, 0.0392078, 1, 0.5625, 0, 0.117647, 1, 0, 0, 0.0784314, 1, 0.5625, 0, 0 )
+
+[sub_resource type="SpriteFrames" id=3]
+resource_local_to_scene = true
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "slide",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "idle",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "backflip",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 17 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 54 ), ExtResource( 53 ), ExtResource( 31 ) ],
+"loop": false,
+"name": "jump_small",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "skid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "buttjumpland",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "slide_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 53 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "fall_transition_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 55 ), ExtResource( 45 ), ExtResource( 43 ), ExtResource( 51 ), ExtResource( 46 ), ExtResource( 37 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "gameover",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 53 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "fall_transition",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "fall_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "idle_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "attack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 17 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "walk_small",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 38 ) ],
+"loop": true,
+"name": "duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "skid_small",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "sword 1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "gameover_small",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 47 ) ],
+"loop": true,
+"name": "sword",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "fall",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 54 ), ExtResource( 53 ), ExtResource( 31 ) ],
+"loop": false,
+"name": "jump",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 6 ), ExtResource( 16 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 19 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 30 ), ExtResource( 44 ), ExtResource( 42 ) ],
+"loop": false,
+"name": "buttjump",
+"speed": 35.0
+} ]
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.8, 1.2 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.25 ),
+"transitions": PoolRealArray( 0.5, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.8, 0.6 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.25, 0.85 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 0.95 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -2.98023e-08 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "shoot"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.6, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 0, 2 ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/AnimatedSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=12]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/AnimatedSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=13]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/AnimatedSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 15, 31 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 0, 0 )
+
+[sub_resource type="AnimatedTexture" id=16]
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 13 )
+
+[node name="Control" type="Control" parent="."]
+rect_scale = Vector2( 0.8, 1.2 )
+rect_pivot_offset = Vector2( 0, 38 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lit" type="CPUParticles2D" parent="Control"]
+position = Vector2( 1, 1 )
+scale = Vector2( 1.5, 1.5 )
+amount = 1
+speed_scale = 6.0
+texture = ExtResource( 50 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2( -1, -1 )
+initial_velocity = 40.0
+initial_velocity_random = 0.25
+damping = 100.0
+scale_amount = 10.0
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
+process_priority = 1
+position = Vector2( -0.23383, 5.95148 )
+scale = Vector2( 1.96345, 1.95645 )
+frames = SubResource( 3 )
+animation = "sword"
+frame = 2
+playing = true
+offset = Vector2( 0, -5 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Attack"
+method_call_mode = 1
+anims/Attack = ExtResource( 3 )
+anims/Buttjump = SubResource( 4 )
+anims/ButtjumpLand = SubResource( 5 )
+anims/Jump = SubResource( 6 )
+anims/Land = SubResource( 7 )
+anims/LandSmall = SubResource( 8 )
+anims/Stop = SubResource( 9 )
+anims/shoot = SubResource( 10 )
+
+[node name="AnimationPlayerInvincibility" type="AnimationPlayer" parent="."]
+autoplay = "Stop"
+anims/HurtInvincibility = SubResource( 11 )
+anims/InvincibleStar = SubResource( 12 )
+anims/Stop = SubResource( 13 )
+
+[node name="Hitbox" type="CollisionShape2D" parent="." groups=[
+"player",
+]]
+position = Vector2( 0.155899, 1 )
+shape = SubResource( 14 )
+
+[node name="ShootLocation" type="Position2D" parent="."]
+position = Vector2( 8, 0 )
+
+[node name="SwordLocation" type="Position2D" parent="."]
+position = Vector2( 31.5405, 0.155899 )
+
+[node name="ButtjumpHitbox" type="Area2D" parent="."]
+position = Vector2( 0, 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ButtjumpHitbox"]
+shape = SubResource( 15 )
+disabled = true
+
+[node name="StandWindow" type="RayCast2D" parent="."]
+position = Vector2( 0, 6 )
+enabled = true
+cast_to = Vector2( 0, -12 )
+collision_mask = 16
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer" parent="SFX"]
+volume_db = -66.856
+pitch_scale = 0.34
+
+[node name="BigJump" type="AudioStreamPlayer" parent="SFX"]
+
+[node name="Flip" type="AudioStreamPlayer" parent="SFX"]
+
+[node name="Thud" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 8 )
+
+[node name="Brick" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 48 )
+
+[node name="Skid" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 49 )
+
+[node name="Shoot" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 39 )
+
+[node name="Hurt" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 52 )
+
+[node name="Kill" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 39 )
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+
+[node name="ButtjumpTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ButtjumpLandTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+
+[node name="RayCast2D" type="RayCast2D" parent="Node2D"]
+
+[node name="RayCast2D2" type="RayCast2D" parent="Node2D"]
+
+[node name="RayCast2D3" type="RayCast2D" parent="Node2D"]
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+texture = SubResource( 16 )
+offset = Vector2( 5, 6 )
+texture_scale = 4.19
+color = Color( 0.866667, 0.858824, 0.898039, 1 )
+energy = 3.38
+range_height = -316.3
+
+[node name="Chain" parent="." instance=ExtResource( 56 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource( 10 )
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
