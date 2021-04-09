@@ -60,7 +60,7 @@ func _ready():
 	select_first_solid_tilemap()
 
 func _process(_delta):
-	layerfile = UIHelpers.get_level().get_node(layer_selected)
+	layerfile = UIHelpers.get_level().get_node_or_null(layer_selected)
 	if layerfile == null:
 		layer_selected = ""
 		layer_selected_type = ""

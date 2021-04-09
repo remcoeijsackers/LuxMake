@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://Scenes/UI/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/SuperTux-Medium2.ttf" type="DynamicFontData" id=2]
@@ -26,7 +26,6 @@
 [ext_resource path="res://Audio/SoundEffects/Player/thud.ogg" type="AudioStream" id=29]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-slide-01.png" type="Texture" id=30]
 [ext_resource path="res://Scenes/Player/Camera2D.gd" type="Script" id=31]
-[ext_resource path="res://Scenes/Player/Objects/Chain.gd" type="Script" id=32]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-01.png" type="Texture" id=33]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-idle-00.png" type="Texture" id=34]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-smrslt-02.png" type="Texture" id=36]
@@ -120,14 +119,49 @@ colors = PoolColorArray( 1, 0.941176, 0, 0.156863, 1, 0.281307, 0, 0.0392078, 1,
 [sub_resource type="SpriteFrames" id=7]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 37 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 34 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ) ],
 "loop": true,
-"name": "backflip",
+"name": "idle",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "slide",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 45 ), ExtResource( 39 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 49 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 30 ) ],
 "loop": true,
-"name": "walk",
+"name": "slide_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "skid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "fall_transition_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 42 ) ],
+"loop": true,
+"name": "buttjumpland",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 76 ), ExtResource( 75 ), ExtResource( 53 ) ],
+"loop": false,
+"name": "jump_small",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 68 ), ExtResource( 59 ) ],
+"loop": true,
+"name": "gameover_small",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 44 ), ExtResource( 52 ), ExtResource( 66 ), ExtResource( 64 ) ],
@@ -140,25 +174,55 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "fall",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 76 ), ExtResource( 75 ), ExtResource( 53 ) ],
-"loop": false,
-"name": "jump",
-"speed": 18.0
+"frames": [ ExtResource( 40 ), ExtResource( 27 ), ExtResource( 38 ), ExtResource( 47 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 69 ) ],
 "loop": true,
 "name": "sword",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 58 ), ExtResource( 76 ), ExtResource( 75 ), ExtResource( 53 ) ],
+"loop": false,
+"name": "jump",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "fall_transition",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "sword 1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 47 ) ],
+"loop": true,
+"name": "attack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 60 ) ],
+"loop": true,
+"name": "duck",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": false,
 "name": "fall_small",
 "speed": 16.0
+}, {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "skid_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ) ],
+"loop": true,
+"name": "idle_small",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 77 ), ExtResource( 67 ), ExtResource( 65 ), ExtResource( 73 ), ExtResource( 68 ), ExtResource( 59 ), ExtResource( 51 ) ],
 "loop": true,
@@ -170,85 +234,20 @@ animations = [ {
 "name": "walk_small",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 34 ) ],
-"loop": true,
-"name": "idle_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": false,
-"name": "fall_transition",
+"name": "fall",
 "speed": 16.0
 }, {
-"frames": [ ExtResource( 38 ), ExtResource( 47 ) ],
+"frames": [ ExtResource( 37 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 22 ) ],
 "loop": true,
-"name": "attack",
+"name": "backflip",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 39 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 49 ) ],
+"loop": true,
+"name": "walk",
 "speed": 10.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "sword 1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 60 ) ],
-"loop": true,
-"name": "duck",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 43 ) ],
-"loop": true,
-"name": "skid_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 68 ), ExtResource( 59 ) ],
-"loop": true,
-"name": "gameover_small",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "fall_transition_small",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "New Anim",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 42 ) ],
-"loop": true,
-"name": "buttjumpland",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 76 ), ExtResource( 75 ), ExtResource( 53 ) ],
-"loop": false,
-"name": "jump_small",
-"speed": 18.0
-}, {
-"frames": [ ExtResource( 43 ) ],
-"loop": true,
-"name": "skid",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "slide_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 40 ), ExtResource( 27 ), ExtResource( 38 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "shoot",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "slide",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ) ],
-"loop": true,
-"name": "idle",
-"speed": 4.0
 } ]
 
 [sub_resource type="Animation" id=8]
@@ -410,6 +409,20 @@ margin_top = -2.16767
 margin_right = -2.16766
 margin_bottom = -2.16766
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.52
+anchor_top = 0.429
+anchor_right = 0.52
+anchor_bottom = 0.429
+margin_left = -77.8
+margin_top = -6.92001
+margin_right = 104.2
+margin_bottom = 33.08
+text = "LuxMake V0.5"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -649,7 +662,7 @@ position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 7 )
 animation = "sword"
-frame = 2
+frame = 1
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
@@ -753,8 +766,7 @@ color = Color( 0.866667, 0.858824, 0.898039, 1 )
 energy = 3.38
 range_height = -316.3
 
-[node name="Chain" type="Node2D" parent="Node2D/Player" instance=ExtResource( 21 )]
-script = ExtResource( 32 )
+[node name="Chain" parent="Node2D/Player" instance=ExtResource( 21 )]
 
 [node name="Camera2D" type="Camera2D" parent="Node2D/Player"]
 script = ExtResource( 31 )
