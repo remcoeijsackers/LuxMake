@@ -1493,9 +1493,9 @@ custom_constants/separation = 64
 alignment = 1
 
 [node name="Yes" type="Button" parent="Menu/Exit/Panel/ExitButtons"]
-margin_left = 62.0
+margin_left = 55.0
 margin_top = 7.0
-margin_right = 90.0
+margin_right = 83.0
 margin_bottom = 25.0
 focus_mode = 1
 mouse_filter = 2
@@ -1509,9 +1509,9 @@ __meta__ = {
 }
 
 [node name="No" type="Button" parent="Menu/Exit/Panel/ExitButtons"]
-margin_left = 154.0
+margin_left = 147.0
 margin_top = 7.0
-margin_right = 178.0
+margin_right = 171.0
 margin_bottom = 25.0
 focus_mode = 1
 mouse_filter = 2
@@ -1525,9 +1525,9 @@ __meta__ = {
 }
 
 [node name="Cancel" type="Button" parent="Menu/Exit/Panel/ExitButtons"]
-margin_left = 242.0
+margin_left = 235.0
 margin_top = 7.0
-margin_right = 311.0
+margin_right = 304.0
 margin_bottom = 25.0
 focus_mode = 1
 mouse_filter = 2

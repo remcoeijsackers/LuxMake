@@ -1052,6 +1052,9 @@ texture_normal = ExtResource( 17 )
 texture_pressed = ExtResource( 17 )
 texture_hover = ExtResource( 18 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="C2" type="TextureButton" parent="GrabArea"]
 margin_left = -11.0

@@ -68,7 +68,9 @@ var using_star = false
 var holding_object = false
 var object_held = ""
 var wind = 0
+
 var shooting = false
+var swordattack = false
 
 var can_jump = false	
 var chain_velocity := Vector2(0,0)
@@ -79,15 +81,19 @@ const MAX_JUMP_COUNT = 2
 var mouse = get_local_mouse_position()
 onready var game = get_node("/root/GameVariables")
 
+onready var anim = get_node('AnimationPlayer')
 
 export (int, 0, 200) var push = 100
 
-# Set Tux's current playing animation
-func set_animation(anim):
-	if game.player_state == "small": $Control/AnimatedSprite.play(str(anim, "_small"))
-	else: $Control/AnimatedSprite.play(anim)
+# Set the players current animation
+func set_animation(animation):
+	if game.player_state == "small": $Control/AnimatedSprite.play(str(animation, "_small"))
+	else: $Control/AnimatedSprite.play(animation)
 
-# Damage Tux
+func _on_AnimationPlayer_finished():
+	anim.stop()
+	
+# Player Damage
 func hurt():
 	if invincible_damage == false and invincible == false:
 		if game.player_state == "small":
@@ -111,7 +117,7 @@ func hurt():
 			$SFX/Hurt.play()
 			damage_invincibility()
 
-# Kill Tux
+# Kill the player
 func kill():
 	invincible = false
 	invincible_damage = false
@@ -133,16 +139,17 @@ func _ready():
 
 #=============================================================================
 # PHYSICS
+# Grappling Hook Functions
 func _input(event: InputEvent) -> void:
 	if game.player_state == "hook":
 		if event is InputEventMouseButton:
 			if event.pressed:
-				print("pew")
 			# We clicked the mouse -> shoot()
 				$Chain.shoot(event.position - get_viewport().size * 0.5)
 			else:
 			# We released the mouse -> release()
 				$Chain.release()
+
 func get_input():
 	var dir = 0
 	if Input.is_action_pressed("move_right"):
@@ -153,19 +160,11 @@ func get_input():
 		velocity.x = lerp(velocity.x, dir * velocity.x, WALK_ACCEL)
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION)
-	#if state == "hook":
-#	if Input.is_action_pressed("click_left"):
-#		print("shoot hook")
-				# We clicked the mouse -> shoot()
-#		$Chain.shoot(InputEventMouse.position - get_viewport().size * 0.5)
-#	else:
-				# We released the mouse -> release()
-#		$Chain.release()	
 			
 func _physics_process(delta):
 	
 	#Hook
-		# Hook physics
+	# Hook physics
 	if $Chain.hooked:
 		# `to_local($Chain.tip).normalized()` is the direction that the chain is pulling
 		chain_velocity = to_local($Chain.tip).normalized() * CHAIN_PULL
@@ -207,16 +206,8 @@ func _physics_process(delta):
 		velocity.x *= FRICTION_AIR
 		if velocity.y > 0:
 			velocity.y *= FRICTION_AIR
-
-	
 	#end hook
-	
-	
-	#physics to boxes
-	#get_input()
-	#velocity = move_and_slide(velocity, Vector2.UP, false,
-	#				4, PI/4, false)
-		
+
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)
 		if collision.collider.is_in_group("bodies"):
@@ -478,7 +469,9 @@ func _physics_process(delta):
 	#	set_animation("idle")
 	if shooting == true:
 		set_animation("attack")
-	if buttjump == true:
+	elif swordattack == true:
+		set_animation("sword")
+	elif buttjump == true:
 		set_animation("buttjump")
 	elif backflip == true:
 		set_animation("backflip")
@@ -532,14 +525,8 @@ func _physics_process(delta):
 
 	# Shooting
 	if Input.is_action_pressed("action") and game.player_state == "fire" and get_tree().get_nodes_in_group("bullets").size() < 3:
+		shooting = true
 		while shoot_wait > 0:
-			# explode and shoot again if button is pressed before timer end
-			#if get_parent().get_child(fireball):
-			#	get_parent().get_child(fireball).emit_signal(explode())
-			
-			$AnimationPlayer.stop()
-			$AnimationPlayer.play("Attack")
-			shooting = true
 			$SFX/Shoot.play()
 			var fireball = load("res://Scenes/Player/Objects/Fireball.tscn").instance()
 			fireball.position = $ShootLocation.global_position
@@ -557,11 +544,13 @@ func _physics_process(delta):
 		game.bullets_explode = true
 	# Sword attack
 	if Input.is_action_pressed("sword"):
+		swordattack = true
 		var sword = load("res://Scenes/Player/Objects/Swordattack.tscn").instance()
 		sword.position = $SwordLocation.global_position
 		sword.add_collision_exception_with(self)
-		$Control/AnimatedSprite.play("sword")
 		get_parent().add_child(sword)
+		#swordattack = false
+		get_parent().remove_child(sword)
 		
 	# Camera Positioning
 	if abs(velocity.x) > WALK_ADD:

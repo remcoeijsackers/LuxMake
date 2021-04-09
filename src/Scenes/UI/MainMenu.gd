@@ -7,21 +7,7 @@ func _ready():
 
 func _on_StartGame_pressed():
 	get_tree().change_scene("res://Scenes/Master/Gameplay_main.tscn")
-
-	#current_level = level
-	#var directory = Directory.new()
-	#if directory.file_exists(level):
-	#	var levelinstance = load(level).instance()
-	#	if levelinstance.worldmap:
-	#		worldmap = level
-	#	levelinstance.set_name("Level")
-	#	add_child(levelinstance)
-	#	level_to_grid()
-	#load_player()
-	#load_ui()
-	#load_editor()
-	#editmode_toggle()
-
+	
 func _on_Options_pressed():
 	$Options.show()
 	$Panel.hide()
@@ -34,7 +20,7 @@ func _on_LevelEditor_pressed():
 	get_tree().change_scene("res://Scenes/Master/Gameplay.tscn")
 
 func _on_Credits_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://Scenes/Master/Gameplaymenu.tscn")
 
 func _on_Quit_pressed():
 	get_tree().quit()
