@@ -647,7 +647,7 @@ anchor_bottom = 1.0
 margin_top = 1.0
 margin_right = 135.0
 margin_bottom = 65.0
-color = Color( 0.25098, 0.25098, 0.25098, 0.74902 )
+color = Color( 0.933333, 0.933333, 0.933333, 1 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/BottomBar"]
 anchor_top = 1.0
@@ -989,14 +989,14 @@ text = "Cancel"
 layer = 3
 
 [node name="Play" type="Button" parent="Play"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 79.618
-margin_top = 6.29077
-margin_right = 131.618
-margin_bottom = 58.2908
+anchor_left = 1.165
+anchor_top = 1.067
+anchor_right = 1.165
+anchor_bottom = 1.067
+margin_left = -25.9821
+margin_top = -25.8693
+margin_right = 26.0179
+margin_bottom = 26.1307
 rect_pivot_offset = Vector2( 64, 64 )
 focus_mode = 0
 custom_styles/hover = SubResource( 11 )

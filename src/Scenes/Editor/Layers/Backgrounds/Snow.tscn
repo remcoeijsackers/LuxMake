@@ -25,8 +25,8 @@ motion_offset = Vector2( 0, -600 )
 motion_mirroring = Vector2( 1700, 0 )
 
 [node name="Sprite" type="Sprite" parent="Sky"]
-position = Vector2( -3.82086, -146.83 )
-scale = Vector2( 0.689327, 0.744633 )
+position = Vector2( -3.82086, -198.637 )
+scale = Vector2( 0.689327, 0.83249 )
 texture = ExtResource( 2 )
 centered = false
 
@@ -36,7 +36,7 @@ motion_offset = Vector2( 0, -400 )
 motion_mirroring = Vector2( 1700, 0 )
 
 [node name="Sprite" type="Sprite" parent="FG"]
-position = Vector2( -1.00452, -135.614 )
-scale = Vector2( 0.683915, 0.726751 )
+position = Vector2( -59.0636, -403.579 )
+scale = Vector2( 0.74696, 1.35076 )
 texture = ExtResource( 4 )
 centered = false

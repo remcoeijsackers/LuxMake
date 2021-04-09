@@ -1,5 +1,5 @@
 extends Control
-
+var editmode = false 
 func _ready():
 	$Panel/VBoxContainer/StartGame.grab_focus()
 	$FadeIn.show()

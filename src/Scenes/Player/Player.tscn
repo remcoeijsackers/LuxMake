@@ -57,10 +57,10 @@
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-jump-01.png" type="Texture" id=59]
 [ext_resource path="res://Sprites/Creatures/Player/Big/adventurer-die-00.png" type="Texture" id=60]
 
-[sub_resource type="Curve" id=1]
+[sub_resource type="Curve" id=17]
 _data = [ Vector2( 0, 0.639509 ), 5.75234, 0.629246, 0, 0, Vector2( 1, 0.146709 ), -0.92688, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=18]
 offsets = PoolRealArray( 0, 0.168874, 0.311321, 0.688679, 1 )
 colors = PoolColorArray( 1, 0.941176, 0, 0.156863, 1, 0.281307, 0, 0.0392078, 1, 0.5625, 0, 0.117647, 1, 0, 0, 0.0784314, 1, 0.5625, 0, 0 )
 
@@ -198,7 +198,7 @@ animations = [ {
 "speed": 35.0
 } ]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=20]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_scale")
 tracks/0/interp = 1
@@ -375,8 +375,8 @@ initial_velocity = 40.0
 initial_velocity_random = 0.25
 damping = 100.0
 scale_amount = 10.0
-scale_amount_curve = SubResource( 1 )
-color_ramp = SubResource( 2 )
+scale_amount_curve = SubResource( 17 )
+color_ramp = SubResource( 18 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -387,7 +387,6 @@ position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 3 )
 animation = "sword"
-frame = 2
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
@@ -398,7 +397,7 @@ __meta__ = {
 autoplay = "Attack"
 method_call_mode = 1
 anims/Attack = ExtResource( 32 )
-anims/Buttjump = SubResource( 4 )
+anims/Buttjump = SubResource( 20 )
 anims/ButtjumpLand = SubResource( 5 )
 anims/Jump = SubResource( 6 )
 anims/Land = SubResource( 7 )
