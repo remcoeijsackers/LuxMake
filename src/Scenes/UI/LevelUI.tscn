@@ -22,6 +22,7 @@ font_data = ExtResource( 3 )
 
 [node name="LevelUI" type="CanvasLayer" groups=[
 "CoinCounter",
+"HealthCounter",
 ]]
 script = ExtResource( 1 )
 
@@ -32,6 +33,9 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = 100.0
 margin_right = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CoinCount" type="Label" parent="CoinCounter"]
 anchor_left = 1.0
@@ -68,6 +72,9 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CoinIcon" type="TextureRect" parent="CoinCounter/CoinCount"]
 margin_left = -51.0
@@ -77,6 +84,48 @@ margin_bottom = 29.0
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Control" parent="."]
+anchor_left = 1.01
+anchor_top = 0.013
+anchor_right = 1.01
+anchor_bottom = 0.013
+margin_left = 6.66602
+margin_top = 66.5014
+margin_right = 49.666
+margin_bottom = 99.5014
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthCount" type="Label" parent="Health"]
+anchor_left = 1.148
+anchor_top = -0.096
+anchor_right = 1.148
+anchor_bottom = -0.096
+margin_left = -12.6886
+margin_top = 0.00218272
+margin_right = 25.3114
+margin_bottom = 16.0022
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Health"]
+anchor_left = -3.312
+anchor_top = 0.148
+anchor_right = -3.312
+anchor_bottom = 0.148
+margin_left = 49.6989
+margin_top = -6.884
+margin_right = 91.6989
+margin_bottom = 7.116
+rect_scale = Vector2( 1.00776, 1.00647 )
+text = "Health"
 __meta__ = {
 "_edit_use_anchors_": false
 }

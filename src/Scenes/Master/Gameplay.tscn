@@ -54,7 +54,7 @@ void fragment()
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = SubResource( 4 )
-shader_param/cutoff = 1.0
+shader_param/cutoff = 0.0
 shader_param/smooth_size = 0.03
 shader_param/color = null
 shader_param/mask = ExtResource( 2 )

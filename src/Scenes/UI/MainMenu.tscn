@@ -168,7 +168,7 @@ margin_top = -0.536346
 margin_right = 1.60907
 margin_bottom = -0.536346
 mouse_filter = 2
-color = Color( 0.168627, 0.145098, 0.145098, 1 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

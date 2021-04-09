@@ -80,14 +80,15 @@ var WALL_JUMP_COUNT = 0
 const MAX_JUMP_COUNT = 2
 var mouse = get_local_mouse_position()
 onready var game = get_node("/root/GameVariables")
-
+onready var health = game.player_health
 onready var anim = get_node('AnimationPlayer')
+
 
 export (int, 0, 200) var push = 100
 
 # Set the players current animation
 func set_animation(animation):
-	if game.player_state == "small": $Control/AnimatedSprite.play(str(animation, "_small"))
+	if game.player_state == "small": $Control/AnimatedSprite.play(str(animation, ""))
 	else: $Control/AnimatedSprite.play(animation)
 
 func _on_AnimationPlayer_finished():
@@ -96,9 +97,13 @@ func _on_AnimationPlayer_finished():
 # Player Damage
 func hurt():
 	if invincible_damage == false and invincible == false:
-		if game.player_state == "small":
+		var health_count = get_tree().get_nodes_in_group("HealthCounter")[0]
+		health_count.health -= 1
+		game.player_health -= 1
+		if game.player_health < 0:
 			kill()
 		elif game.player_state == "big":
+			game.player_health -= 1
 			game.player_state = "small"
 			backflip = false
 			buttjump = false
@@ -130,7 +135,8 @@ func kill():
 	set_animation("gameover")
 	dead = true
 	velocity = Vector2 (0,-JUMP_POWER * 1.5)
-
+	game.player_health = 3
+	
 func _ready():
 	position = Vector2(0,0)
 	for child in get_tree().current_scene.get_node("Level").get_children():
@@ -245,6 +251,7 @@ func _physics_process(delta):
 	if (ducking == false or on_ground != 0) and backflip == false and skidding == false and sliding == false and $ButtjumpLandTimer.time_left == 0:
 		if Input.is_action_pressed("move_right"):
 			$Control/AnimatedSprite.scale.x = 1.963
+			swordattack = false
 
 			# Moving
 			if velocity.x >= 0:
@@ -266,6 +273,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed("move_left"):
 			$Control/AnimatedSprite.scale.x = -1.963
 			if velocity.x <= 0:
+				swordattack = false
 
 				# Moving
 				#$Control/AnimatedSprite.scale.x = -1.963
