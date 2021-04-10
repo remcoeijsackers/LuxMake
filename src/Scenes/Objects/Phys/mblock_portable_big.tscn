@@ -65,5 +65,11 @@ shape = SubResource( 5 )
 
 [node name="Thud" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( -0.253524, 0.443656 )
+scale = Vector2( 1.03169, 0.441468 )
+texture = ExtResource( 1 )
 [connection signal="timeout" from="SolidTimer" to="." method="_on_SolidTimer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -1,4 +1,4 @@
-extends "mblock.gd"
+extends "res://Scenes/Objects/Phys/mblock.gd"
 var velocity_mov = Vector2(1,1)
 
 func _ready():

@@ -595,8 +595,15 @@ func get_object_texture(object_location): # Get the texture for an object
 	$SelectedTile.region_enabled = false
 	$SelectedTile.offset = Vector2(0,0)
 
+	# Otherwise if it has a sprite, set the thumbnail to that
+	if load(object_location).instance().has_node("Sprite"):
+		var selected_texture = load(object_location).instance().get_node("Sprite").texture
+		$SelectedTile.scale = load(object_location).instance().get_node("Sprite").scale
+		$SelectedTile.offset += load(object_location).instance().get_node("Sprite").offset
+		$SelectedTile.offset += load(object_location).instance().get_node("Sprite").position
+		$SelectedTile.texture = (selected_texture)
 	# If the object has an animated sprite, set the thumbnail to that
-	if load(object_location).instance().has_node("Control/AnimatedSprite"):
+	elif load(object_location).instance().has_node("Control/AnimatedSprite"):
 		var selected_texture = load(object_location).instance().get_node("Control/AnimatedSprite").get_sprite_frames().get_frame("default",0)
 		$SelectedTile.scale = load(object_location).instance().get_node("Control").rect_scale
 		$SelectedTile.offset += load(object_location).instance().get_node("Control/AnimatedSprite").offset
@@ -604,20 +611,14 @@ func get_object_texture(object_location): # Get the texture for an object
 		$SelectedTile.texture = (selected_texture)
 
 	# If the object has an animated sprite, set the thumbnail to that
-	if load(object_location).instance().has_node("AnimatedSprite"):
+	elif load(object_location).instance().has_node("AnimatedSprite"):
 		var selected_texture = load(object_location).instance().get_node("AnimatedSprite").get_sprite_frames().get_frame("default",0)
 		$SelectedTile.scale = load(object_location).instance().get_node("AnimatedSprite").scale
 		$SelectedTile.offset += load(object_location).instance().get_node("AnimatedSprite").offset
 		$SelectedTile.offset += load(object_location).instance().get_node("AnimatedSprite").position
 		$SelectedTile.texture = (selected_texture)
 
-	# Otherwise if it has a sprite, set the thumbnail to that
-	elif load(object_location).instance().has_node("Sprite"):
-		var selected_texture = load(object_location).instance().get_node("Sprite").texture
-		$SelectedTile.scale = load(object_location).instance().get_node("Sprite").scale
-		$SelectedTile.offset += load(object_location).instance().get_node("Sprite").offset
-		$SelectedTile.offset += load(object_location).instance().get_node("Sprite").position
-		$SelectedTile.texture = (selected_texture)
+
 
 # Add all the layers from Scenes/Editor/Layers
 func _on_LayerAdd_button_down():

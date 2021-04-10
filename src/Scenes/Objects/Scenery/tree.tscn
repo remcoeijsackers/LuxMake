@@ -6,8 +6,15 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite_tree" type="Sprite" parent="."]
 position = Vector2( 3.21809, -3.48629 )
 scale = Vector2( 1.00479, 0.983239 )
+texture = ExtResource( 1 )
+normal_map = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.131598, -0.0366707 )
+scale = Vector2( 0.2739, 0.234511 )
 texture = ExtResource( 1 )
 normal_map = SubResource( 1 )
