@@ -139,13 +139,12 @@ func kill():
 	game.player_health = 3
 	
 func _ready():
-	
 	position = Vector2(0,0)
 	for child in get_tree().current_scene.get_node("Level").get_children():
 		if child.is_in_group("spawnpoint"):
 			position = child.position
-		if child.is_in_group("toggle"):
-			$toggle.connect("on", self, "lit")
+		if child.is_in_group("toggle_group"):
+			$toggle.connect("off", self, "lit")
 
 #=============================================================================
 # PHYSICS
@@ -172,7 +171,7 @@ func get_input():
 		velocity.x = lerp(velocity.x, 0, FRICTION)
 			
 func _physics_process(delta):
-	
+
 	#Hook
 	# Hook physics
 	if $Chain.hooked:
@@ -621,7 +620,10 @@ func bounce(low, high, cancellable):
 		jumpcancel = false
 
 func lit():
+	print("lit used")
 	if $Control/lit.visible == true:
+		print("turning off")
 		$Control/lit.set_visible(false)
 	else: 
 		$Control/lit.set_visible(true)
+		print("turning on")

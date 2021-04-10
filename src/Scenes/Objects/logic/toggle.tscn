@@ -658,7 +658,7 @@ animations = [ {
 [node name="toggle" type="KinematicBody2D" groups=[
 "brick",
 "stackable",
-"toggle",
+"toggle_group",
 ]]
 z_index = -1
 collision_layer = 31
@@ -706,12 +706,12 @@ collision_layer = 0
 position = Vector2( 0, -26 )
 shape = SubResource( 2 )
 
-[node name="off" type="Sprite" parent="."]
+[node name="off_sprite" type="Sprite" parent="."]
 position = Vector2( 0.336456, -0.471044 )
 scale = Vector2( 1.01262, 1.00421 )
 texture = ExtResource( 6 )
 
-[node name="on" type="Sprite" parent="."]
+[node name="on_sprite" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0.336456, -0.471044 )
 scale = Vector2( 1.01262, 1.00421 )

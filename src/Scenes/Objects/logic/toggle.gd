@@ -6,15 +6,17 @@ func  apply_central_impulse(_force):
 	pass
 	
 func on_empty_hit():
-	if $off.visible == true:
-		$on.set_visible(true)
+	if $off_sprite.visible == true:
+		$on_sprite.set_visible(true)
 		#TODO implement toggle signal
 		emit_signal("on")
-		$off.set_visible(false)
+		print("on")
+		$off_sprite.set_visible(false)
 	else:
-		$on.set_visible(false)
+		$on_sprite.set_visible(false)
 		emit_signal("off")
-		$off.set_visible(true)			
+		print("off")
+		$off_sprite.set_visible(true)			
 
 # Break on buttjump
 func _on_Area2D_area_entered(area):
