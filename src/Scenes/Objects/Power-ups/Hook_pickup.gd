@@ -72,7 +72,7 @@ func collect_check():
 			var counter = get_tree().get_nodes_in_group("CoinCounter")[0]
 			counter.coins += coins
 
-func appear(dir, hitdown):
+func appear(dir, _hitdown):
 	appeared = true
 	direction = dir
 	velocity = initial_speed

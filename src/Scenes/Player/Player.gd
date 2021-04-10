@@ -139,10 +139,13 @@ func kill():
 	game.player_health = 3
 	
 func _ready():
+	
 	position = Vector2(0,0)
 	for child in get_tree().current_scene.get_node("Level").get_children():
 		if child.is_in_group("spawnpoint"):
 			position = child.position
+		if child.is_in_group("toggle"):
+			$toggle.connect("on", self, "lit")
 
 #=============================================================================
 # PHYSICS
@@ -616,3 +619,9 @@ func bounce(low, high, cancellable):
 	else:
 		velocity.y = -low
 		jumpcancel = false
+
+func lit():
+	if $Control/lit.visible == true:
+		$Control/lit.set_visible(false)
+	else: 
+		$Control/lit.set_visible(true)

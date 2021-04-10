@@ -658,6 +658,7 @@ animations = [ {
 [node name="toggle" type="KinematicBody2D" groups=[
 "brick",
 "stackable",
+"toggle",
 ]]
 z_index = -1
 collision_layer = 31

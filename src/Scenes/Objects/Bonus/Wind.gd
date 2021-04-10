@@ -14,7 +14,7 @@ func _ready():
 	$CanvasLayer/Popup/Panel/VBoxContainer/SpeedX/SpinBox.value = speed_x
 	$CanvasLayer/Popup/Panel/VBoxContainer/SpeedY/SpinBox.value = speed_y
 
-func _process(delta):
+func _process(_delta):
 	$CPUParticles2D.emission_rect_extents = (boxsize - Vector2(32,32)) * 0.5
 	$CPUParticles2D.position = $CPUParticles2D.emission_rect_extents
 	$CPUParticles2D.gravity = Vector2(speed_x,speed_y) * 10

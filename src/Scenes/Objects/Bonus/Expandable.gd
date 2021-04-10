@@ -9,7 +9,7 @@ var body = null
 func _ready():
 	$Control.rect_min_size = min_size * 32
 
-func _process(delta):
+func _process(_delta):
 	appear(UIHelpers._get_scene().editmode)
 
 	for i in get_tree().get_nodes_in_group("player"):
