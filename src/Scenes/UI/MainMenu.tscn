@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://Scenes/UI/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/SuperTux-Medium2.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/Backgrounds/Snow/arcticmountains-fg.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Objects/Bonus/SpawnPoint.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Sprites/Backgrounds/Snow/arcticmountains-sky.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Scenery/Tree_SpriteSheet_Outlined.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Editor/Layers/Backgrounds/Background.gd" type="Script" id=14]
 [ext_resource path="res://Scenes/Editor/Layers/Background.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/UI/Level.gd" type="Script" id=18]
@@ -108,6 +109,8 @@ font_data = ExtResource( 2 )
 [sub_resource type="Theme" id=3]
 
 [sub_resource type="Theme" id=4]
+
+[sub_resource type="AnimatedTexture" id=21]
 
 [sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0.639509 ), 5.75234, 0.629246, 0, 0, Vector2( 1, 0.146709 ), -0.92688, 0.0, 0, 0 ]
@@ -623,6 +626,22 @@ position = Vector2( 4272, 752 )
 [node name="@Snowball@202" parent="Node2D/Level" instance=ExtResource( 6 )]
 position = Vector2( 464, 48 )
 
+[node name="Node2D" type="Node2D" parent="Node2D/Level"]
+position = Vector2( 239.527, 13.006 )
+
+[node name="Sprite_tree" type="Sprite" parent="Node2D/Level/Node2D"]
+position = Vector2( 3.21809, -3.48629 )
+scale = Vector2( 1.00479, 0.983239 )
+texture = ExtResource( 13 )
+normal_map = SubResource( 21 )
+
+[node name="Sprite" type="Sprite" parent="Node2D/Level/Node2D"]
+visible = false
+position = Vector2( 0.131598, -0.0366707 )
+scale = Vector2( 0.2739, 0.234511 )
+texture = ExtResource( 13 )
+normal_map = SubResource( 21 )
+
 [node name="Player" type="KinematicBody2D" parent="Node2D" groups=[
 "player",
 ]]
@@ -662,7 +681,6 @@ position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 7 )
 animation = "sword"
-frame = 2
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
