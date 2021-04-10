@@ -143,8 +143,9 @@ func _ready():
 	for child in get_tree().current_scene.get_node("Level").get_children():
 		if child.is_in_group("spawnpoint"):
 			position = child.position
-		if child.is_in_group("toggle_group"):
-			$toggle.connect("off", self, "lit")
+		#if get_tree().current_scene.editmode == false:
+		#	if child.is_in_group("toggle_group"):
+		#		$toggle.connect("on", $Player, "lit")
 
 #=============================================================================
 # PHYSICS
@@ -171,7 +172,10 @@ func get_input():
 		velocity.x = lerp(velocity.x, 0, FRICTION)
 			
 func _physics_process(delta):
-
+	if GameVariables.toggle_state == "on":
+		$Control/lit.set_visible(true)
+	if GameVariables.toggle_state == "off":
+		$Control/lit.set_visible(false)
 	#Hook
 	# Hook physics
 	if $Chain.hooked:
