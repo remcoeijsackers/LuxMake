@@ -87,75 +87,30 @@ animations = [ {
 "name": "hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_transition",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "slide_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
-"loop": false,
-"name": "fall_transition_small",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "buttjumpland",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "skid",
+"name": "skid_small",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "jump",
-"speed": 18.0
+"frames": [ ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "attack",
+"speed": 10.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "New Anim",
+"name": "sword 1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 38 ), ExtResource( 40 ), ExtResource( 47 ) ],
+"frames": [ ExtResource( 35 ) ],
 "loop": true,
-"name": "sword",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "jump_small",
-"speed": 18.0
-}, {
-"frames": [ ExtResource( 46 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "gameover_small",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "shoot",
+"name": "duck",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
 "loop": false,
 "name": "fall_small",
 "speed": 16.0
-}, {
-"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "gameover",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "walk_small",
-"speed": 20.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 44 ) ],
 "loop": false,
@@ -167,24 +122,69 @@ animations = [ {
 "name": "idle_small",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "walk_small",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 60 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "gameover",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "gameover_small",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "skid_small",
+"name": "skid",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "jump_small",
+"speed": 18.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "sword 1",
+"name": "New Anim",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "attack",
-"speed": 10.0
+"frames": [ ExtResource( 33 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "jump",
+"speed": 18.0
 }, {
-"frames": [ ExtResource( 35 ) ],
+"frames": [ ExtResource( 38 ), ExtResource( 40 ), ExtResource( 47 ) ],
 "loop": true,
-"name": "duck",
+"name": "sword",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_transition_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 23 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "fall_transition",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "buttjumpland",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "slide_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "shoot",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ) ],
@@ -342,12 +342,13 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 15, 31 )
+extents = Vector2( 17.3916, 32.2298 )
 
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 0, 0 )
 
-[sub_resource type="AnimatedTexture" id=16]
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 17.5779, 32.6653 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -355,14 +356,12 @@ extents = Vector2( 0, 0 )
 script = ExtResource( 1 )
 
 [node name="Control" type="Control" parent="."]
-rect_scale = Vector2( 0.8, 1.2 )
 rect_pivot_offset = Vector2( 0, 38 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="lit" type="CPUParticles2D" parent="Control"]
-visible = false
 position = Vector2( 1, 1 )
 scale = Vector2( 1.5, 1.5 )
 amount = 1
@@ -388,6 +387,7 @@ position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 3 )
 animation = "sword"
+frame = 2
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
@@ -428,11 +428,12 @@ position = Vector2( 31.5405, 0.155899 )
 position = Vector2( 0, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtjumpHitbox"]
+position = Vector2( -0.0988312, 0 )
 shape = SubResource( 15 )
 disabled = true
 
 [node name="StandWindow" type="RayCast2D" parent="."]
-position = Vector2( 0, 6 )
+position = Vector2( 1.68019, 31.4993 )
 enabled = true
 cast_to = Vector2( 0, -12 )
 collision_mask = 16
@@ -473,26 +474,13 @@ one_shot = true
 [node name="ButtjumpLandTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="Node2D" type="Node2D" parent="."]
-visible = false
-
-[node name="RayCast2D" type="RayCast2D" parent="Node2D"]
-
-[node name="RayCast2D2" type="RayCast2D" parent="Node2D"]
-
-[node name="RayCast2D3" type="RayCast2D" parent="Node2D"]
-
-[node name="Light2D" type="Light2D" parent="."]
-visible = false
-texture = SubResource( 16 )
-offset = Vector2( 5, 6 )
-texture_scale = 4.19
-color = Color( 0.866667, 0.858824, 0.898039, 1 )
-energy = 3.38
-range_height = -316.3
-
 [node name="Chain" parent="." instance=ExtResource( 48 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource( 49 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 16 )
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

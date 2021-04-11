@@ -172,10 +172,6 @@ func get_input():
 		velocity.x = lerp(velocity.x, 0, FRICTION)
 			
 func _physics_process(delta):
-	if GameVariables.toggle_state == "on":
-		$Control/lit.set_visible(true)
-	if GameVariables.toggle_state == "off":
-		$Control/lit.set_visible(false)
 	#Hook
 	# Hook physics
 	if $Chain.hooked:
