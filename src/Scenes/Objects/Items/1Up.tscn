@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Objects/Items/Powerup.gd" type="Script" id=1]
 [ext_resource path="res://Audio/SoundEffects/Bonus/lifeup.wav" type="AudioStream" id=2]
-[ext_resource path="res://Sprites/Objects/1Up/1up.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Objects/1Up/1up_0.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Objects/1Up/glimmer.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Objects/1Up/glow.png" type="Texture" id=5]
 
@@ -233,6 +233,7 @@ anims/collect = SubResource( 2 )
 anims/default = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.155899, 0.155899 )
 texture = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -245,6 +246,7 @@ stream = ExtResource( 2 )
 bus = "SFX"
 
 [node name="AmbientSparkles" type="CPUParticles2D" parent="."]
+emitting = false
 local_coords = false
 texture = ExtResource( 4 )
 emission_shape = 2

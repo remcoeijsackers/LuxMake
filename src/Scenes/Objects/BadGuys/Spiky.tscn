@@ -1,10 +1,10 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Objects/BadGuys/Spiky.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Creatures/Spiky/spiky-0.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Creatures/Spiky/spiky-1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Creatures/Spiky/spiky-2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Creatures/Spiky/spiky-3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Creatures/Lucky/lucky_0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Creatures/Lucky/lucky_1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Creatures/Lucky/lucky_3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Creatures/Lucky/lucky_2.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Creatures/Monster/droplet.png" type="Texture" id=7]
 [ext_resource path="res://Audio/SoundEffects/Enemy/fall.wav" type="AudioStream" id=8]
 [ext_resource path="res://Audio/SoundEffects/Enemy/squish.wav" type="AudioStream" id=9]
@@ -13,19 +13,19 @@
 [ext_resource path="res://Sprites/Creatures/Spiky/melting-3.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Creatures/Spiky/melting-0.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Creatures/Spiky/melting-4.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Creatures/Spiky/spiky-5.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Creatures/Spiky/melting-1.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/Creatures/Spiky/melting-6.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Creatures/Spiky/spiky-6.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Creatures/Spiky/spiky-7.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Creatures/Spiky/melting-7.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Creatures/Spiky/melting-5.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Creatures/Spiky/spiky-4.png" type="Texture" id=22]
-
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 15.0
@@ -183,9 +183,10 @@ anchor_bottom = 0.5
 rect_pivot_offset = Vector2( 0, 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
-position = Vector2( 0, 6.31594e-13 )
+position = Vector2( 0, 6.8153 )
 frames = SubResource( 1 )
-frame = 7
+animation = "right"
+frame = 1
 playing = true
 offset = Vector2( 0, -4 )
 
