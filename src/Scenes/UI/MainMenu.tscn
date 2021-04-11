@@ -122,6 +122,36 @@ colors = PoolColorArray( 1, 0.941176, 0, 0.156863, 1, 0.281307, 0, 0.0392078, 1,
 [sub_resource type="SpriteFrames" id=8]
 resource_local_to_scene = true
 animations = [ {
+"frames": [ ExtResource( 44 ), ExtResource( 52 ), ExtResource( 66 ), ExtResource( 64 ) ],
+"loop": false,
+"name": "buttjump",
+"speed": 35.0
+}, {
+"frames": [ ExtResource( 54 ), ExtResource( 41 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 40 ), ExtResource( 27 ), ExtResource( 38 ), ExtResource( 47 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 42 ) ],
+"loop": true,
+"name": "buttjumpland",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "fall_transition",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "slide_small",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 37 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "backflip",
@@ -130,6 +160,41 @@ animations = [ {
 "frames": [ ExtResource( 45 ), ExtResource( 39 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 49 ) ],
 "loop": true,
 "name": "walk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "fall",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "fall_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "skid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 39 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
+"loop": true,
+"name": "walk_small",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 34 ) ],
+"loop": true,
+"name": "idle_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 68 ), ExtResource( 59 ) ],
+"loop": true,
+"name": "gameover_small",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 77 ), ExtResource( 67 ), ExtResource( 65 ), ExtResource( 73 ), ExtResource( 68 ), ExtResource( 59 ), ExtResource( 51 ) ],
+"loop": true,
+"name": "gameover",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 43 ) ],
@@ -142,55 +207,20 @@ animations = [ {
 "name": "attack",
 "speed": 10.0
 }, {
-"frames": [  ],
-"loop": true,
-"name": "sword 1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 60 ) ],
 "loop": true,
 "name": "duck",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "fall_small",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "fall",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 34 ) ],
+"frames": [  ],
 "loop": true,
-"name": "idle_small",
+"name": "sword 1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 45 ), ExtResource( 39 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
-"loop": true,
-"name": "walk_small",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 77 ), ExtResource( 67 ), ExtResource( 65 ), ExtResource( 73 ), ExtResource( 68 ), ExtResource( 59 ), ExtResource( 51 ) ],
-"loop": true,
-"name": "gameover",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 68 ), ExtResource( 59 ) ],
-"loop": true,
-"name": "gameover_small",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 43 ) ],
-"loop": true,
-"name": "skid",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 76 ), ExtResource( 75 ), ExtResource( 53 ) ],
+"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": false,
-"name": "jump_small",
-"speed": 18.0
+"name": "fall_transition_small",
+"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -199,7 +229,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 58 ), ExtResource( 76 ), ExtResource( 75 ), ExtResource( 53 ) ],
 "loop": false,
-"name": "jump",
+"name": "jump_small",
 "speed": 18.0
 }, {
 "frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 69 ) ],
@@ -207,40 +237,10 @@ animations = [ {
 "name": "sword",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"frames": [ ExtResource( 58 ), ExtResource( 76 ), ExtResource( 75 ), ExtResource( 53 ) ],
 "loop": false,
-"name": "fall_transition_small",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "fall_transition",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 42 ) ],
-"loop": true,
-"name": "buttjumpland",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "slide_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 54 ), ExtResource( 41 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "hurt",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 44 ), ExtResource( 52 ), ExtResource( 66 ), ExtResource( 64 ) ],
-"loop": false,
-"name": "buttjump",
-"speed": 35.0
-}, {
-"frames": [ ExtResource( 40 ), ExtResource( 27 ), ExtResource( 38 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "shoot",
-"speed": 5.0
+"name": "jump",
+"speed": 18.0
 }, {
 "frames": [ ExtResource( 34 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ) ],
 "loop": true,
@@ -680,6 +680,7 @@ position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 8 )
 animation = "sword"
+frame = 2
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {

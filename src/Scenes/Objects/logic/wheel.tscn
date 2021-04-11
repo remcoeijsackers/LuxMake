@@ -10,16 +10,16 @@
 [ext_resource path="res://Sprites/Objects/wheel/sprite_wheel0.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Objects/wheel/sprite_wheel1.png" type="Texture" id=9]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "run_back",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "run",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "run_back",
 "speed": 15.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -28,8 +28,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.5375, 16.4736 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 17.3005, 16.4736 )
 
 [node name="StaticBody2D" type="StaticBody2D" groups=[
 "wheel",
@@ -45,11 +45,11 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
 position = Vector2( 0.381485, 0.190742 )
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 animation = "run"
 frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.190742, -0.381485 )
-shape = SubResource( 1 )
+position = Vector2( 4.91738e-07, -0.381485 )
+shape = SubResource( 2 )
