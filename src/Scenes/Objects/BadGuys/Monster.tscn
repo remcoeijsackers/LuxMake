@@ -13,22 +13,22 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "default",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "squished",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 23.0745, 26.3499 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 20.3656, 23.4817 )
+extents = Vector2( 22.9151, 26.5527 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "active"
@@ -212,24 +212,24 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="AnimatedTexture" id=10]
+[sub_resource type="AnimatedTexture" id=7]
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0, 0.762821, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.443137, 0, 1, 0.882813, 0 )
 
 [sub_resource type="AnimatedTexture" id=9]
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=10]
 offsets = PoolRealArray( 0, 0.467949, 1 )
 colors = PoolColorArray( 1, 1, 1, 0.847059, 0.625, 0.936279, 1, 0.556863, 0, 0.478516, 1, 0 )
 
 [node name="Snowball" type="KinematicBody2D" groups=[
 "badguys",
 ]]
-position = Vector2( -0.144867, -2.39024 )
-collision_layer = 2
-collision_mask = 2
+position = Vector2( -0.144867, -2.82483 )
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -289,7 +289,7 @@ one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0
 local_coords = false
-texture = SubResource( 10 )
+texture = SubResource( 7 )
 spread = 60.0
 gravity = Vector2( 0, 500 )
 initial_velocity = 250.0
@@ -301,7 +301,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.2
 scale_amount_random = 0.75
-color_ramp = SubResource( 7 )
+color_ramp = SubResource( 8 )
 
 [node name="ExplodeDroplets" type="CPUParticles2D" parent="."]
 emitting = false
@@ -322,7 +322,7 @@ angle = 360.0
 angle_random = 1.0
 scale_amount = 0.1
 scale_amount_random = 0.3
-color_ramp = SubResource( 8 )
+color_ramp = SubResource( 10 )
 [connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_exited"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -67,25 +67,15 @@ colors = PoolColorArray( 1, 0.941176, 0, 0.156863, 1, 0.281307, 0, 0.0392078, 1,
 [sub_resource type="SpriteFrames" id=3]
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "slide",
+"name": "backflip",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
 "loop": true,
-"name": "idle",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 25 ), ExtResource( 43 ), ExtResource( 41 ) ],
-"loop": false,
-"name": "buttjump",
-"speed": 35.0
-}, {
-"frames": [ ExtResource( 28 ), ExtResource( 15 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "hurt",
-"speed": 5.0
+"name": "walk",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
@@ -182,20 +172,30 @@ animations = [ {
 "name": "slide_small",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 28 ), ExtResource( 15 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 25 ), ExtResource( 43 ), ExtResource( 41 ) ],
+"loop": false,
+"name": "buttjump",
+"speed": 35.0
+}, {
 "frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "shoot",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
-"name": "backflip",
-"speed": 5.0
+"name": "idle",
+"speed": 4.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "walk",
-"speed": 10.0
+"name": "slide",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=4]
@@ -387,7 +387,6 @@ position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 3 )
 animation = "sword"
-frame = 2
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
