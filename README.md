@@ -20,6 +20,7 @@ Name | Desciption | Status
 `Glue` | **To Connect elements permanently** | **-**
 `Throwing Knife Powerup` | **Throwing Knife that sticks to walls for navigation** | **Done**
 `Grappling hook Powerup` | **Grappling hook for easy navigation** | **Done**
+`Conveyer belt` | **Automatically move player/creatures/objects** | **Done**
 ## Controls
 
 Name | Desciption 
