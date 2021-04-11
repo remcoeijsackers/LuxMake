@@ -16,7 +16,6 @@ func _ready():
 				childstored.position = position
 				child.queue_free()
 
-
 func _physics_process(delta):
 	if GameVariables.toggle_state == "on":
 		$spike_point.set_visible(true)

@@ -1,6 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
+[ext_resource path="res://Sprites/Objects/wheel/wheel_back0.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Objects/wheel/wheel_back1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Objects/wheel/wheel_back3.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Objects/logic/wheel.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Objects/wheel/wheel_back2.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Objects/wheel/sprite_wheel2.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Objects/wheel/sprite_wheel3.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Objects/wheel/sprite_wheel0.png" type="Texture" id=8]
@@ -8,6 +12,11 @@
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "run_back",
+"speed": 15.0
+}, {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "run",
