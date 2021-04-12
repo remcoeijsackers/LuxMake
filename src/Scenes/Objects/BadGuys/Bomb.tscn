@@ -1,12 +1,10 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Objects/BadGuys/Bomb.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Creatures/Bomb/bomb-0.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Creatures/Bomb/bomb-1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Creatures/Bomb/bomb-2.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Creatures/Bomb/triggered.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Creatures/Bomb/redglow.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Creatures/Bomb/whiteflash.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Creatures/Bomb/bomb1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Creatures/Bomb/bomb2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Creatures/Bomb/bomb3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Creatures/Bomb/bomb4.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Objects/Fireball/fireballambient.png" type="Texture" id=8]
 [ext_resource path="res://Audio/SoundEffects/Enemy/fall.wav" type="AudioStream" id=9]
 [ext_resource path="res://Audio/SoundEffects/Enemy/squish.wav" type="AudioStream" id=10]
@@ -15,23 +13,24 @@
 [ext_resource path="res://Audio/SoundEffects/Enemy/beep.wav" type="AudioStream" id=13]
 [ext_resource path="res://Audio/SoundEffects/Enemy/beepfast.wav" type="AudioStream" id=14]
 [ext_resource path="res://Audio/SoundEffects/Enemy/explode.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sprites/Creatures/Bomb/bomb5.png" type="Texture" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "default",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 16 ) ],
 "loop": false,
 "name": "triggered",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -39,7 +38,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -52,13 +51,16 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 15, 15 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 0, 0 )
+[sub_resource type="CircleShape2D" id=6]
+radius = 80.0
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 15, 15 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 0, 0 )
+
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -189,11 +191,8 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 6 ) ]
+"values": [ SubResource( 8 ) ]
 }
-
-[sub_resource type="CircleShape2D" id=9]
-radius = 80.0
 
 [sub_resource type="Animation" id=10]
 length = 1.2
@@ -267,7 +266,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 9 ) ]
+"values": [ SubResource( 6 ) ]
 }
 tracks/6/type = "method"
 tracks/6/path = NodePath(".")
@@ -449,29 +448,31 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+rect_scale = Vector2( 1.6, 0.5 )
 rect_pivot_offset = Vector2( 0, 14 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
+visible = false
 position = Vector2( 0, 6.31594e-13 )
 frames = SubResource( 1 )
+animation = "triggered"
 frame = 2
 playing = true
 offset = Vector2( 0, -2 )
 
 [node name="RedGlow" type="AnimatedSprite" parent="Control/AnimatedSprite"]
-visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 2 )
 offset = Vector2( 0, -2 )
 
 [node name="WhiteFlash" type="AnimatedSprite" parent="Control/AnimatedSprite"]
-visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 3 )
 offset = Vector2( 0, -2 )
 
 [node name="Sparks" type="CPUParticles2D" parent="Control/AnimatedSprite"]
 position = Vector2( 18, -14 )
 rotation = -0.785398
-emitting = false
 lifetime = 0.5
 speed_scale = 3.0
 local_coords = false
@@ -508,7 +509,7 @@ shape = SubResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "active"
-anims/active = SubResource( 8 )
+anims/active = SubResource( 9 )
 anims/explode = SubResource( 10 )
 anims/triggered = SubResource( 11 )
 
@@ -525,7 +526,7 @@ stream = ExtResource( 11 )
 
 [node name="Hiss" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 12 )
-volume_db = -20.0
+volume_db = -80.0
 
 [node name="Beep" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 13 )
@@ -537,6 +538,10 @@ volume_db = -5.0
 
 [node name="Explode" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
 [connection signal="area_entered" from="ExplosionRadius" to="." method="_on_ExplosionRadius_area_entered"]
 [connection signal="body_entered" from="ExplosionRadius" to="." method="_on_ExplosionRadius_body_entered"]
 [connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_exited"]
