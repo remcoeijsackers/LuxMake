@@ -15,7 +15,7 @@ func _ready():
 func _process(_delta):
 	position = Vector2(0,0)
 
-	modulate = tint
+	#modulate = tint
 
 	# Hide unselected TileMaps if a TileMap is selected
 #	if get_tree().current_scene.editmode == true and get_class() == "TileMap":

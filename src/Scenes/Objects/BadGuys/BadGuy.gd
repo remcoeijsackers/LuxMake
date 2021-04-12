@@ -180,3 +180,7 @@ func buttjump_kill():
 	state = ""
 	on_buttjump_kill()
 	return
+
+func bounce(low, high, cancellable):
+	velocity.y = -high
+

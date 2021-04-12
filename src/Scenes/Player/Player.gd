@@ -172,6 +172,7 @@ func get_input():
 		velocity.x = lerp(velocity.x, 0, FRICTION)
 			
 func _physics_process(delta):
+	$KinematicBody2D.look_at(get_global_mouse_position())
 	#Hook
 	# Hook physics
 	if $Chain.hooked:
@@ -515,10 +516,11 @@ func _physics_process(delta):
 		while shoot_wait > 0:
 			$SFX/Shoot.play()
 			var fireball = load("res://Scenes/Player/Objects/Fireball.tscn").instance()
-			fireball.position = $ShootLocation.global_position
+			fireball.position = $KinematicBody2D.global_position
 			fireball.velocity = Vector2((FIREBALL_SPEED * $Control/AnimatedSprite.scale.x) + velocity.x,0)
 			fireball.add_collision_exception_with(self) # Prevent fireball colliding with player
 			get_parent().add_child(fireball) # Shoot fireball as child of player
+			fireball.transform = $KinematicBody2D.global_transform
 			# after shooting, reinstate the collision exception
 			shoot_wait -= 2
 			#fireball.remove_collision_exception_with(self)

@@ -450,6 +450,9 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 rect_scale = Vector2( 1.6, 0.5 )
 rect_pivot_offset = Vector2( 0, 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Control"]
 visible = false
@@ -502,7 +505,6 @@ rect = Rect2( -64, -512, 128, 1024 )
 physics_process_parent = true
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 7 )

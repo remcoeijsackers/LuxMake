@@ -7,6 +7,7 @@ var wallcling = ""
 var time_done = false
 signal timer_end
 onready var game = get_node("/root/GameVariables")
+var speed = 800 
 
 func _wait( seconds ):
 	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
@@ -55,6 +56,7 @@ func _on_fireball_body_entered(body):
 func _get_scene():
 	return get_tree().current_scene
 func _physics_process(delta):
+	position += transform.x * speed * delta
 	if $VisibilityNotifier2D.is_on_screen() == false:
 		queue_free()
 	if hit == false:

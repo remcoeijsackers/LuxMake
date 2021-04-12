@@ -13,3 +13,7 @@ collision_layer = 31
 collision_mask = 31
 format = 1
 script = ExtResource( 2 )
+tint = Color( 0.266667, 0.156863, 0.156863, 1 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.698039, 0.698039, 0.698039, 1 )
