@@ -8,6 +8,7 @@ polygon = PoolVector2Array( -15.664, -15.7908, 15.7907, -15.7376, 15.7268, 15.79
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
