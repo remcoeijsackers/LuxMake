@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Editor/Tile.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/UITheme.tres" type="Theme" id=2]
-[ext_resource path="res://Sprites/Tiles/Level/Snow.png" type="Texture" id=3]
+[ext_resource path="res://Tilesets/spritetile.png" type="Texture" id=3]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -0.0317039, 0.132343, 32.0761, 0.132343, 32.0113, 31.9159, 0.422344, 31.9159 )

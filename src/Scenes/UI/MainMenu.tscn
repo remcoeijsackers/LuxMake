@@ -127,14 +127,69 @@ animations = [ {
 "name": "shoot",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 44 ), ExtResource( 52 ), ExtResource( 66 ), ExtResource( 64 ) ],
-"loop": false,
-"name": "buttjump",
-"speed": 35.0
-}, {
-"frames": [ ExtResource( 54 ), ExtResource( 41 ), ExtResource( 28 ) ],
+"frames": [ ExtResource( 38 ), ExtResource( 47 ) ],
 "loop": true,
-"name": "hurt",
+"name": "attack",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "fall",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 58 ), ExtResource( 76 ), ExtResource( 75 ), ExtResource( 53 ) ],
+"loop": false,
+"name": "jump",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "fall_transition",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 39 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
+"loop": true,
+"name": "walk_small",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "fall_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "skid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ) ],
+"loop": true,
+"name": "idle_small",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 42 ) ],
+"loop": true,
+"name": "buttjumpland",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 60 ) ],
+"loop": true,
+"name": "duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 68 ), ExtResource( 59 ) ],
+"loop": true,
+"name": "gameover_small",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "fall_transition_small",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "slide_small",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -147,9 +202,9 @@ animations = [ {
 "name": "gameover",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 30 ) ],
+"frames": [ ExtResource( 43 ) ],
 "loop": true,
-"name": "slide_small",
+"name": "skid_small",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -162,85 +217,30 @@ animations = [ {
 "name": "sword",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 43 ) ],
-"loop": true,
-"name": "skid_small",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 58 ), ExtResource( 76 ), ExtResource( 75 ), ExtResource( 53 ) ],
 "loop": false,
 "name": "jump_small",
 "speed": 18.0
 }, {
-"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"frames": [ ExtResource( 44 ), ExtResource( 52 ), ExtResource( 66 ), ExtResource( 64 ) ],
 "loop": false,
-"name": "fall_transition_small",
-"speed": 16.0
+"name": "buttjump",
+"speed": 35.0
 }, {
-"frames": [ ExtResource( 58 ), ExtResource( 76 ), ExtResource( 75 ), ExtResource( 53 ) ],
-"loop": false,
-"name": "jump",
-"speed": 18.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "fall_small",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "fall",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 45 ), ExtResource( 39 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
+"frames": [ ExtResource( 54 ), ExtResource( 41 ), ExtResource( 28 ) ],
 "loop": true,
-"name": "walk_small",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 43 ) ],
-"loop": true,
-"name": "skid",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 75 ), ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "fall_transition",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 42 ) ],
-"loop": true,
-"name": "buttjumpland",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 60 ) ],
-"loop": true,
-"name": "duck",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 34 ) ],
-"loop": true,
-"name": "idle_small",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 68 ), ExtResource( 59 ) ],
-"loop": true,
-"name": "gameover_small",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 38 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "attack",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "backflip",
+"name": "hurt",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 45 ), ExtResource( 39 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 49 ) ],
 "loop": true,
 "name": "walk",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "backflip",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 30 ) ],
 "loop": true,
@@ -608,7 +608,7 @@ motion_offset = Vector2( 0, -400 )
 motion_mirroring = Vector2( 1700, 0 )
 
 [node name="Sprite" type="Sprite" parent="Node2D/Level/Background/ParallaxBackground/FG"]
-position = Vector2( -2368.72, -3922.75 )
+position = Vector2( -2370.89, -3922.75 )
 scale = Vector2( 6.08114, 7.19253 )
 texture = ExtResource( 10 )
 centered = false
@@ -680,7 +680,6 @@ position = Vector2( -0.23383, 5.95148 )
 scale = Vector2( 1.96345, 1.95645 )
 frames = SubResource( 8 )
 animation = "sword"
-frame = 1
 playing = true
 offset = Vector2( 0, -5 )
 __meta__ = {
