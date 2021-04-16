@@ -563,8 +563,8 @@ toggle_mode = true
 enabled_focus_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="UI/SideBar/VBoxContainer/HBoxContainer/EraserButton"]
-margin_left = -0.687378
-margin_right = 31.3126
+margin_left = -1.26929
+margin_right = 30.7307
 margin_bottom = 32.0
 texture = ExtResource( 20 )
 expand = true
@@ -607,10 +607,10 @@ texture = ExtResource( 9 )
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -122.715
-margin_top = 110.358
-margin_right = -8.71545
-margin_bottom = 98.3577
+margin_left = -123.0
+margin_top = 110.0
+margin_right = -3.0
+margin_bottom = -77.0
 theme = ExtResource( 7 )
 scroll_horizontal_enabled = false
 __meta__ = {
@@ -639,9 +639,13 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 64.0
-margin_top = -64.0
-margin_right = -130.0
+margin_top = -63.9999
+margin_right = -249.0
+margin_bottom = -0.999878
 scroll_vertical_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/BottomBar/ScrollContainer"]
 margin_bottom = 52.0
@@ -683,10 +687,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -240.0
-margin_top = -104.0
-margin_right = -136.0
-margin_bottom = -72.0
+margin_left = -246.401
+margin_top = -48.7185
+margin_right = -142.401
+margin_bottom = -16.7185
 rect_min_size = Vector2( 104, 0 )
 focus_mode = 1
 mouse_filter = 0
@@ -776,14 +780,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -23.0
+margin_left = -23.5819
 margin_top = -23.0
-margin_right = 23.0
+margin_right = 22.4181
 margin_bottom = 23.0
 rect_min_size = Vector2( 32, 32 )
 mouse_filter = 2
 texture = ExtResource( 13 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Save" type="Button" parent="UI/BottomBar"]
 anchor_left = 1.0
